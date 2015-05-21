@@ -21,7 +21,6 @@ import com.ipassistat.ipa.bean.response.AddresssReceiveResponse;
 import com.ipassistat.ipa.bean.response.LoginResponse;
 import com.ipassistat.ipa.bean.response.UserInfoResponse;
 import com.ipassistat.ipa.bean.response.entity.UserInfoSaveEntity;
-import com.ipassistat.ipa.business.HmlShoppingCartController;
 import com.ipassistat.ipa.business.LoginController;
 import com.ipassistat.ipa.business.LoginController.LoginOperation;
 import com.ipassistat.ipa.business.UserModule;

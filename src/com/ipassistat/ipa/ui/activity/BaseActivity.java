@@ -19,9 +19,6 @@ import com.ipassistat.ipa.util.InputMethodUtil;
 import com.ipassistat.ipa.util.ProgressHub;
 import com.ipassistat.ipa.util.ToastUtil;
 import com.ipassistat.ipa.util.ViewUtil;
-import com.ipassistat.ipa.util.eventbus.MessageEvent;
-import com.ipassistat.ipa.util.http.HttpContext;
-import com.ipassistat.ipa.util.http.RequestListener;
 
 
 /***
@@ -30,7 +27,7 @@ import com.ipassistat.ipa.util.http.RequestListener;
  * @author 时培飞 
  * Create at 2015-4-24 下午4:55:19
  */
-public abstract class BaseActivity extends FragmentActivity implements BusinessInterface, CustomGestureListener, RequestListener {
+public abstract class BaseActivity extends FragmentActivity implements BusinessInterface, CustomGestureListener {
 
 	/**
 	 * 滑动关闭的手势默认为打开
@@ -104,13 +101,7 @@ public abstract class BaseActivity extends FragmentActivity implements BusinessI
 		//EventBus.getDefault().register(this);
 	}
 	
-	/**
-	 * 在主线程中处理接收EventBus发送的消息
-	 * @param event
-	 * @author: 任恒   Date: 2015-4-13
-	 */
-	public void onEventMainThread(MessageEvent event) {}
-
+	
 	@Override
 	public void onMessageSucessCalledBack(String url, Object object) {}
 
@@ -242,19 +233,6 @@ public abstract class BaseActivity extends FragmentActivity implements BusinessI
 		finish();
 	}
 
-	@Override
-	public void onHttpRequestBegin(String url) {}
-
-	@Override
-	public void onHttpRequestSuccess(String url, HttpContext httpContext) {}
-
-	@Override
-	public void onHttpRequestFailed(String url, HttpContext httpContext) {}
-
-	@Override
-	public void onHttpRequestComplete(boolean success, String url, HttpContext httpContext) {}
-
-	@Override
-	public void onHttpRequestCancel(String url, HttpContext httpContext) {}
+	
 
 }

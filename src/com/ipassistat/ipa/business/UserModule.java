@@ -34,7 +34,6 @@ import com.ipassistat.ipa.bean.response.entity.BeautyAddress;
 import com.ipassistat.ipa.bean.response.entity.MemberInfo;
 import com.ipassistat.ipa.bean.response.entity.SaleProduct;
 import com.ipassistat.ipa.bean.response.entity.UserInfoSaveEntity;
-import com.ipassistat.ipa.business.HmlShoppingCartController;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.constant.Constant;
 import com.ipassistat.ipa.dao.BusinessInterface;
@@ -241,7 +240,7 @@ public class UserModule extends BaseModule {
 	 * @param context
 	 */
 	public void clearShoppingcart(Context context) {
-		HmlShoppingCartController.instance(context).logout();
+		//HmlShoppingCartController.instance(context).logout();
 	}
 
 	/**

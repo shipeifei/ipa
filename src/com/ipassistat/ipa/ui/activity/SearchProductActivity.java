@@ -14,7 +14,6 @@ import com.ipassistat.ipa.R.id;
 import com.ipassistat.ipa.adapter.SearchProductAdapter;
 import com.ipassistat.ipa.bean.response.ProductSearchResponse;
 import com.ipassistat.ipa.bean.response.entity.SaleProduct;
-import com.ipassistat.ipa.business.SisterGroupModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.util.InputMethodUtil;
 import com.ipassistat.ipa.util.PhotoPickerHandler;
@@ -69,7 +68,7 @@ public class SearchProductActivity extends BaseActivity implements OnClickListen
 	 */
 	private void doSearch(String keyword) {
 		mListView.showLoadingView(true);
-		new SisterGroupModule(this).productSearch(getApplicationContext(), keyword);
+		//new SisterGroupModule(this).productSearch(getApplicationContext(), keyword);
 	}
 
 	@Override

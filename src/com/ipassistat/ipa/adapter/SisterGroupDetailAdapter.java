@@ -31,7 +31,6 @@ import com.ipassistat.ipa.bean.response.entity.SisterGroupDetailVo;
 import com.ipassistat.ipa.bean.response.entity.SisterGroupPostVo;
 import com.ipassistat.ipa.bean.response.entity.SisterGroupPostVoExt;
 import com.ipassistat.ipa.bean.response.entity.UserInfo;
-import com.ipassistat.ipa.business.SisterGroupModule;
 import com.ipassistat.ipa.business.UserModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.dao.BusinessInterface;
@@ -451,7 +450,7 @@ public class SisterGroupDetailAdapter extends PaginationAdapter<SisterGroupDetai
 						if (TextUtils.isEmpty(postVo.post_code))
 							return;// 本地虚拟数据
 						// 发送赞的请求
-						new SisterGroupModule((BusinessInterface) getContext()).postOperationState(getContext(), postVo.post_code, SisterGroupModule.TYPE_POST_UP);
+						//new SisterGroupModule((BusinessInterface) getContext()).postOperationState(getContext(), postVo.post_code, SisterGroupModule.TYPE_POST_UP);
 					}
 				});
 			} else {
@@ -499,7 +498,7 @@ public class SisterGroupDetailAdapter extends PaginationAdapter<SisterGroupDetai
 						if (TextUtils.isEmpty(postVo.post_code))
 							return;// 本地虚拟数据
 						// 发送赞的请求
-						new SisterGroupModule((BusinessInterface) getContext()).postOperationState(getContext(), postVo.post_code, SisterGroupModule.TYPE_POST_COLLECT);
+						//new SisterGroupModule((BusinessInterface) getContext()).postOperationState(getContext(), postVo.post_code, SisterGroupModule.TYPE_POST_COLLECT);
 					}
 				});
 			}
@@ -576,7 +575,7 @@ public class SisterGroupDetailAdapter extends PaginationAdapter<SisterGroupDetai
 					if (TextUtils.isEmpty(commentItem.comment_code))
 						return;// 本地虚拟数据
 
-					new SisterGroupModule((BusinessInterface) getContext()).postOperationState(getContext(), commentItem.comment_code, SisterGroupModule.TYPE_POST_COMMENT_UP);
+					//new SisterGroupModule((BusinessInterface) getContext()).postOperationState(getContext(), commentItem.comment_code, SisterGroupModule.TYPE_POST_COMMENT_UP);
 				}
 			});
 			commentHolder.upCountView.setVisibility(View.GONE);

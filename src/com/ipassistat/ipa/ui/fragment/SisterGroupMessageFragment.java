@@ -24,7 +24,6 @@ import com.ipassistat.ipa.bean.response.SystemMessageResponse;
 import com.ipassistat.ipa.bean.response.UserMessageResponse;
 import com.ipassistat.ipa.bean.response.entity.SystemMessageVo;
 import com.ipassistat.ipa.bean.response.entity.UserMessageVo;
-import com.ipassistat.ipa.business.SisterGroupModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.StringUtil;
@@ -67,17 +66,17 @@ public class SisterGroupMessageFragment extends BaseFragment {
 
 			@Override
 			public void onRequestNextPage(int page) {
-				new SisterGroupModule(SisterGroupMessageFragment.this).messageOperationListPull(getActivity(), mMessageType, page + 1);
+				//new SisterGroupModule(SisterGroupMessageFragment.this).messageOperationListPull(getActivity(), mMessageType, page + 1);
 			}
 
 			@Override
 			public void onRefresh() {
-				new SisterGroupModule(SisterGroupMessageFragment.this).messageOperationListPull(getActivity(), mMessageType, 0);
+				//new SisterGroupModule(SisterGroupMessageFragment.this).messageOperationListPull(getActivity(), mMessageType, 0);
 			}
 		});
 
 		// 向服务端请求数据
-		new SisterGroupModule(this).messageOperationListPull(getActivity(), mMessageType, 0);
+		//new SisterGroupModule(this).messageOperationListPull(getActivity(), mMessageType, 0);
 	}
 
 	/**
@@ -155,7 +154,7 @@ public class SisterGroupMessageFragment extends BaseFragment {
 			}
 		}
 		if (!TextUtils.isEmpty(ids)) {
-			new SisterGroupModule(this).messageOperationStateChange(getActivity(), StringUtil.cutLastString(ids));
+			//new SisterGroupModule(this).messageOperationStateChange(getActivity(), StringUtil.cutLastString(ids));
 		}
 	}
 

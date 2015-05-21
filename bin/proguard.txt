@@ -77,9 +77,6 @@
 # view AndroidManifest.xml #generated:78
 -keep class com.ipassistat.ipa.IpaApplication { <init>(...); }
 
-# view AndroidManifest.xml #generated:383
--keep class com.ipassistat.ipa.broadcast.MessageBroadCast { <init>(...); }
-
 # view res/layout/swipeback_layout.xml #generated:2
 -keep class com.ipassistat.ipa.comm.swipeback.SwipeBackLayout { <init>(...); }
 

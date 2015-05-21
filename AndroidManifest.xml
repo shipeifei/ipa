@@ -380,12 +380,12 @@
             </intent-filter>
         </service>
         <!-- 用户消息消息广播 -->
-        <receiver android:name="com.ipassistat.ipa.broadcast.MessageBroadCast" >
+        <!-- <receiver android:name="com.ipassistat.ipa.broadcast.MessageBroadCast" >
             <intent-filter>
                 <action android:name="com.ipa.MessageBroadCast" >
                 </action>
             </intent-filter>
-        </receiver>
+        </receiver> -->
 
         <!-- 微信及朋友圈分享注册的activity -->
         <activity

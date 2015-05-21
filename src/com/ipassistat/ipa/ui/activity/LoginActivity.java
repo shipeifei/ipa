@@ -17,7 +17,6 @@ import com.ipassistat.ipa.bean.response.AddresssReceiveResponse;
 import com.ipassistat.ipa.bean.response.LoginResponse;
 import com.ipassistat.ipa.bean.response.UserInfoResponse;
 import com.ipassistat.ipa.bean.response.entity.UserInfoSaveEntity;
-import com.ipassistat.ipa.business.HmlShoppingCartController;
 import com.ipassistat.ipa.business.LoginController;
 import com.ipassistat.ipa.business.LoginController.LoginOperation;
 import com.ipassistat.ipa.business.UserModule;
@@ -184,8 +183,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				// 得到收货地址列表
 				mUserModule.getAddressList(LoginActivity.this);
 				// 登录成功后同步购物车
-				HmlShoppingCartController.instance(getApplicationContext())
-						.syncCartFromSever(false);
+				//HmlShoppingCartController.instance(getApplicationContext())
+						//.syncCartFromSever(false);
 				// 个人资料获取
 				mUserModule.postUserInfo(mLoginActivity);
 			} else {

@@ -3,18 +3,16 @@ package com.ipassistat.ipa.ui.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
-
 import com.ipassistat.ipa.dao.BusinessInterface;
-import com.ipassistat.ipa.util.http.HttpContext;
-import com.ipassistat.ipa.util.http.RequestListener;
+
 
 /**
  * 所有fragment的父类
  * 
- * @author lxc
+ * @author shipeifei
  *
  */
-public class BaseFragment extends Fragment implements BusinessInterface, RequestListener {
+public class BaseFragment extends Fragment implements BusinessInterface {
 	private boolean isFragmentFirstVisible = true;
 	private boolean isVisible;
 
@@ -122,34 +120,5 @@ public class BaseFragment extends Fragment implements BusinessInterface, Request
 
 	}
 
-	@Override
-	public void onHttpRequestBegin(String url) {
-		
-
-	}
-
-	@Override
-	public void onHttpRequestSuccess(String url, HttpContext httpContext) {
-		
-
-	}
-
-	@Override
-	public void onHttpRequestFailed(String url, HttpContext httpContext) {
-		
-
-	}
-
-	@Override
-	public void onHttpRequestComplete(boolean success, String url, HttpContext httpContext) {
-		
-
-	}
-
-	@Override
-	public void onHttpRequestCancel(String url, HttpContext httpContext) {
-		
-		
-	}
-
+	
 }

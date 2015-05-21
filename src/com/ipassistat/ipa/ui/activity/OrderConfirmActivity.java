@@ -35,7 +35,6 @@ import com.ipassistat.ipa.bean.response.entity.BeautyAddress;
 import com.ipassistat.ipa.bean.response.entity.GoodsInfoForConfirm;
 import com.ipassistat.ipa.bean.response.entity.MicroMessagePayment;
 import com.ipassistat.ipa.business.AppInfoModule;
-import com.ipassistat.ipa.business.HmlShoppingCartController;
 import com.ipassistat.ipa.business.OrderController;
 import com.ipassistat.ipa.business.OrderModule;
 import com.ipassistat.ipa.business.ProductStateManager;
@@ -168,7 +167,7 @@ OnClickListener ,ShopingCartObserver<GoodsEntity>, OnScrollListener{
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		HmlShoppingCartController.instance(getApplicationContext()).unRegisterListener(this);
+		//HmlShoppingCartController.instance(getApplicationContext()).unRegisterListener(this);
 	}
 
 	/**
@@ -210,7 +209,7 @@ OnClickListener ,ShopingCartObserver<GoodsEntity>, OnScrollListener{
 		mAddressLayout.setOnClickListener(this);
 		mPay.setOnClickListener(this);
 		//mLayoutPayType.setOnClickListener(this); 暂时去掉微信支付
-		HmlShoppingCartController.instance(getApplicationContext()).registerListener(this);
+		//HmlShoppingCartController.instance(getApplicationContext()).registerListener(this);
 	}
 
 
@@ -294,7 +293,7 @@ OnClickListener ,ShopingCartObserver<GoodsEntity>, OnScrollListener{
 					String str = mIntent.getStringExtra(IntentFlag.ORDER_CONFIRM_FLAG);
 					if(str != null && str.equals(IntentFlag.BUY_SHOPPING_CART)){
 						for (int i = 0; i < mGoods.size(); i++) {
-							HmlShoppingCartController.instance(getApplicationContext()).removeFromCart(mGoods.get(i).getSku_code());
+							//HmlShoppingCartController.instance(getApplicationContext()).removeFromCart(mGoods.get(i).getSku_code());
 						}
 					}
 				} else if (resultCode == 916401133) { // 应付款数值有变化!

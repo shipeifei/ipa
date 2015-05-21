@@ -6,7 +6,6 @@ import android.content.DialogInterface.OnClickListener;
 import android.text.TextUtils;
 
 import com.ipassistat.ipa.R.string;
-import com.ipassistat.ipa.business.SystemModule;
 import com.ipassistat.ipa.view.AlertDialog;
 
 /**
@@ -46,7 +45,7 @@ public class ReportUtil implements OnClickListener {
 	@Override
 	public void onClick(DialogInterface dialog, int which) {
 		if (IntentUtil.checkAndLogin(context)) {
-			new SystemModule(context).report(postCode, commentCode, null);
+			//new SystemModule(context).report(postCode, commentCode, null);
 		}
 	}
 

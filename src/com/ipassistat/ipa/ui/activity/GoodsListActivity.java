@@ -32,7 +32,6 @@ import com.ipassistat.ipa.bean.response.entity.ProductCategory;
 import com.ipassistat.ipa.bean.response.entity.SaleProduct;
 import com.ipassistat.ipa.bean.response.entity.Sort;
 import com.ipassistat.ipa.business.GoodsModule;
-import com.ipassistat.ipa.business.HmlShoppingCartController;
 import com.ipassistat.ipa.business.ShopingCartObserver;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.util.IntentUtil;
@@ -99,7 +98,7 @@ public class GoodsListActivity extends BaseActivity implements OnClickListener,P
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		HmlShoppingCartController.instance(getApplicationContext()).unRegisterListener(this);//反注册
+		//HmlShoppingCartController.instance(getApplicationContext()).unRegisterListener(this);//反注册
 	}
 	
 	/**
@@ -229,7 +228,7 @@ public class GoodsListActivity extends BaseActivity implements OnClickListener,P
 		mTitleBar.setButtonClickListener(TitleBarButton.shareImgv, this);
 		mGoodsListview.setOnPaginationListener(this);
 		mTypeLayout.setOnClickListener(this);
-		HmlShoppingCartController.instance(getApplicationContext()).registerListener(this);//注册购物车监听
+		//HmlShoppingCartController.instance(getApplicationContext()).registerListener(this);//注册购物车监听
 	}
 
 	/**

@@ -21,7 +21,6 @@ import com.ipassistat.ipa.R.string;
 import com.ipassistat.ipa.bean.response.BaseResponse;
 import com.ipassistat.ipa.bean.response.PostOperationTagsResponse;
 import com.ipassistat.ipa.bean.response.entity.SisterGroupTagVo;
-import com.ipassistat.ipa.business.SisterGroupModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.ui.fragment.SisterGroupFragment;
 import com.ipassistat.ipa.util.LogUtil;
@@ -93,7 +92,7 @@ public class SisterGroupPostEditActivity extends BaseActivity implements OnClick
 		postBtn.setVisibility(View.VISIBLE);
        
 		//请求发帖标签
-		new SisterGroupModule(this).postOperationPullTags(this);
+		//new SisterGroupModule(this).postOperationPullTags(this);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -185,7 +184,7 @@ public class SisterGroupPostEditActivity extends BaseActivity implements OnClick
 				String productId = mPhotoPickerView.getProduct() == null ? null : mPhotoPickerView.getProduct().getId();
 
 				ProgressHub.getInstance(SisterGroupPostEditActivity.this).dismiss();
-				new SisterGroupModule(SisterGroupPostEditActivity.this).postOperationSend(getApplicationContext(), postTag, title, content, productId, UpdateUtil.formatImageString(bitmapUrls));
+				//new SisterGroupModule(SisterGroupPostEditActivity.this).postOperationSend(getApplicationContext(), postTag, title, content, productId, UpdateUtil.formatImageString(bitmapUrls));
 			}
 
 			@Override

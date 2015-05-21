@@ -29,7 +29,6 @@ import com.ipassistat.ipa.R.string;
 import com.ipassistat.ipa.adapter.SisterGroupListViewAdapter;
 import com.ipassistat.ipa.bean.response.SisterGroupPostListResponse;
 import com.ipassistat.ipa.bean.response.SystemMessageResponse;
-import com.ipassistat.ipa.business.SisterGroupModule;
 import com.ipassistat.ipa.business.UserModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.ui.activity.SisterGroupMessageActivity;
@@ -37,7 +36,6 @@ import com.ipassistat.ipa.ui.activity.SisterGroupPostEditActivity;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.ToastUtil;
 import com.ipassistat.ipa.util.ViewUtil;
-import com.ipassistat.ipa.util.http.HttpContext;
 import com.ipassistat.ipa.view.PaginationListView;
 import com.ipassistat.ipa.view.PaginationListView.PaginationListener;
 import com.umeng.analytics.MobclickAgent;
@@ -63,7 +61,7 @@ public class SisterGroupFragment extends BaseFragment implements OnClickListener
 
 	private String mCurrentUserToken;//用户key
 
-	private SisterGroupModule mSisterGroupModule;
+	//private SisterGroupModule mSisterGroupModule;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -76,15 +74,15 @@ public class SisterGroupFragment extends BaseFragment implements OnClickListener
 
 		mCurrentUserToken = UserModule.getUserToken(getActivity());
 
-		mSisterGroupModule = new SisterGroupModule(this);
-		mSisterGroupModule.init(getActivity());
+		//mSisterGroupModule = new SisterGroupModule(this);
+		//mSisterGroupModule.init(getActivity());
 
 		// 存放分类的map组，格式(key:全部 value:"0")
-		mCategoryMap = new HashMap<String, String>();
-		mCategoryMap.put(getString(R.string.post_filter_item_quanbu), SisterGroupModule.POST_TYPE_ALL);
-		mCategoryMap.put(getString(R.string.post_filter_item_fabu), SisterGroupModule.POST_TYPE_SENDED);
-		mCategoryMap.put(getString(R.string.post_filter_item_canyu), SisterGroupModule.POST_TYPE_PART);
-		mCategoryMap.put(getString(R.string.post_filter_item_shoucang), SisterGroupModule.POST_TYPE_COLLECT);
+		//mCategoryMap = new HashMap<String, String>();
+		//mCategoryMap.put(getString(R.string.post_filter_item_quanbu), SisterGroupModule.POST_TYPE_ALL);
+//		mCategoryMap.put(getString(R.string.post_filter_item_fabu), SisterGroupModule.POST_TYPE_SENDED);
+//		mCategoryMap.put(getString(R.string.post_filter_item_canyu), SisterGroupModule.POST_TYPE_PART);
+//		mCategoryMap.put(getString(R.string.post_filter_item_shoucang), SisterGroupModule.POST_TYPE_COLLECT);
 
 		// mListView = (PullListView) view.findViewById(R.id.post_list);
 		mListView = (PaginationListView) view.findViewById(R.id.post_list);
@@ -129,16 +127,16 @@ public class SisterGroupFragment extends BaseFragment implements OnClickListener
 
 			@Override
 			public void onRequestNextPage(int page) {
-				mSisterGroupModule.postOperationPull(getActivity(), getCategoryType(), page + 1, SisterGroupFragment.this);
+				//mSisterGroupModule.postOperationPull(getActivity(), getCategoryType(), page + 1, SisterGroupFragment.this);
 			}
 
 			@Override
 			public void onRefresh() {
-				mSisterGroupModule.postOperationPull(getActivity(), getCategoryType(), 0, SisterGroupFragment.this);
+				//mSisterGroupModule.postOperationPull(getActivity(), getCategoryType(), 0, SisterGroupFragment.this);
 			}
 		});
 
-		mSisterGroupModule.postOperationPull(getActivity(), SisterGroupModule.POST_TYPE_ALL, 0, SisterGroupFragment.this);
+		//mSisterGroupModule.postOperationPull(getActivity(), SisterGroupModule.POST_TYPE_ALL, 0, SisterGroupFragment.this);
 
 		mListView.setEmptyRes(drawable.error_image);
 
@@ -150,7 +148,7 @@ public class SisterGroupFragment extends BaseFragment implements OnClickListener
 		
 		
 		if (UserModule.isLogin(getActivity())) {
-			mSisterGroupModule.messageOperationStateGet(getActivity());
+			//mSisterGroupModule.messageOperationStateGet(getActivity());
 		}
 
 		// 判断当前用户，如果不是之前的用户，那么重新数据
@@ -194,68 +192,14 @@ public class SisterGroupFragment extends BaseFragment implements OnClickListener
 		}
 	}
 
-	@Override
-	public void onHttpRequestSuccess(String url, HttpContext httpContext) {
-		super.onHttpRequestSuccess(url, httpContext);
-		if (getActivity() == null)
-			return;
-
-		if (url.equals(ConfigInfo.API_POST_OPERATION_LIST_ALL) || url.equals(ConfigInfo.API_POST_OPERATION_LIST_OTHER)) {
-
-			SisterGroupPostListResponse response = (SisterGroupPostListResponse) httpContext.responseVo;
-			int page = (Integer) response.getTag();
-
-			if (mAdapter == null || page == 0) {
-				mAdapter = new SisterGroupListViewAdapter(getActivity(), response.posts);
-				mListView.setAdapter(mAdapter);
-			} else {
-				mAdapter.loadNextPage(response.posts);
-			}
-
-			mListView.delegatePageCheck(response.paged);
-
-		} else if (url.equals(ConfigInfo.API_MESSAGE_READ_STATE)) {
-			SystemMessageResponse response = (SystemMessageResponse) httpContext.responseVo;
-
-			if (response != null && response.is_read != null && response.is_read.equals("1")) {
-				mLeftImageButton.setImageResource(drawable.icon_message_tip);
-			} else {
-				mLeftImageButton.setImageResource(drawable.icon_message);
-			}
-		}
-	}
-
-	@Override
-	public void onHttpRequestComplete(boolean success, String url, HttpContext httpContext) {
-		super.onHttpRequestComplete(success, url, httpContext);
-		if (url.equals(ConfigInfo.API_POST_OPERATION_LIST_ALL) || url.equals(ConfigInfo.API_POST_OPERATION_LIST_OTHER)) {
-			mListView.onRefreshComplete();
-		}
-	}
-
-	/***
-	 * 无网络图片点击事件
-	 */
-	@Override
-	public void onHttpRequestFailed(String url, HttpContext httpContext) {
-		super.onHttpRequestFailed(url, httpContext);
-
-		mListView.noNet(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				mSisterGroupModule.postOperationPull(getActivity(), getCategoryType(), mAdapter == null ? 0 : mAdapter.page + 1, SisterGroupFragment.this);
-			}
-
-		});
-	}
-
+	
+	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_CODE_SEND_SUCCESS) {
 			MobclickAgent.onEvent(getActivity(), "1209");
-			mSisterGroupModule.postOperationPull(getActivity(), getCategoryType(), 0, SisterGroupFragment.this);
+		//	mSisterGroupModule.postOperationPull(getActivity(), getCategoryType(), 0, SisterGroupFragment.this);
 		}
 	}
 
@@ -317,7 +261,8 @@ public class SisterGroupFragment extends BaseFragment implements OnClickListener
 	 * @return
 	 */
 	private String getCategoryType() {
-		String type = SisterGroupModule.POST_TYPE_ALL;
+		String type =""; 
+				//SisterGroupModule.POST_TYPE_ALL;
 		if (mFilterView == null)
 			return type;
 		for (int i = 0; i < mFilterView.getChildCount(); i++) {
@@ -370,7 +315,7 @@ public class SisterGroupFragment extends BaseFragment implements OnClickListener
 		v.setSelected(true);
 
 		String categoryType = mCategoryMap.get(title);
-		mSisterGroupModule.postOperationPull(getActivity(), categoryType, 0, SisterGroupFragment.this);
+		//mSisterGroupModule.postOperationPull(getActivity(), categoryType, 0, SisterGroupFragment.this);
 
 		// 根据下拉列表选项得到不同的空图片信息
 		int messageRes = selectEmptyMessageRes();
@@ -384,15 +329,15 @@ public class SisterGroupFragment extends BaseFragment implements OnClickListener
 	 */
 	public int selectEmptyMessageRes() {
 		int messageRes = 0;
-		if (getCategoryType().equals(SisterGroupModule.POST_TYPE_ALL)) {
-			messageRes = 0;
-		} else if (getCategoryType().equals(SisterGroupModule.POST_TYPE_COLLECT)) {
-			messageRes = drawable.error_empty_sistergroup_collect;
-		} else if (getCategoryType().equals(SisterGroupModule.POST_TYPE_PART)) {
-			messageRes = drawable.error_empty_sistergroup_part;
-		} else if (getCategoryType().equals(SisterGroupModule.POST_TYPE_SENDED)) {
-			messageRes = drawable.error_empty_sistergroup_send;
-		}
+//		if (getCategoryType().equals(SisterGroupModule.POST_TYPE_ALL)) {
+//			messageRes = 0;
+//		} else if (getCategoryType().equals(SisterGroupModule.POST_TYPE_COLLECT)) {
+//			messageRes = drawable.error_empty_sistergroup_collect;
+//		} else if (getCategoryType().equals(SisterGroupModule.POST_TYPE_PART)) {
+//			messageRes = drawable.error_empty_sistergroup_part;
+//		} else if (getCategoryType().equals(SisterGroupModule.POST_TYPE_SENDED)) {
+//			messageRes = drawable.error_empty_sistergroup_send;
+//		}
 		return messageRes;
 	}
 

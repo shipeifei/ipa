@@ -23,7 +23,6 @@ import com.ipassistat.ipa.R.id;
 import com.ipassistat.ipa.adapter.SimperViewPagerAdapter;
 import com.ipassistat.ipa.service.SendContacterService;
 import com.ipassistat.ipa.ui.fragment.HomeFragment;
-import com.ipassistat.ipa.ui.fragment.TinyCommunityFragment;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.map.baidu.LocationMessage;
 import com.ipassistat.ipa.util.map.baidu.MyLocationListenner;
@@ -111,7 +110,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		mRadioGroup = (RadioGroup) findViewById(R.id.bottom_banner);
 		mButtonMenuId = new int[] { id.home_tv, id.time_limited_buy, id.sister_group, id.tiny_community };
 
-		final TinyCommunityFragment tinyCommunityFragment = new TinyCommunityFragment();
+		//final TinyCommunityFragment tinyCommunityFragment = new TinyCommunityFragment();
 		List<Fragment> _fragments = new ArrayList<Fragment>();
 		_fragments.add(new HomeFragment());
 		// _fragments.add(new RecreationFragment());

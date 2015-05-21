@@ -30,7 +30,6 @@ import com.ipassistat.ipa.bean.response.entity.SisterGroupCommentVo;
 import com.ipassistat.ipa.bean.response.entity.SisterGroupDetailVo;
 import com.ipassistat.ipa.bean.response.entity.SisterGroupPostVo;
 import com.ipassistat.ipa.bean.response.entity.SisterGroupPostVoExt;
-import com.ipassistat.ipa.business.SisterGroupModule;
 import com.ipassistat.ipa.business.UserModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.util.ApiUrl;
@@ -316,7 +315,7 @@ public class SisterGroupDetailActivity extends BaseActivity implements OnClickLi
 	 * @param postId
 	 */
 	private void asyncRequestPostDetail(String postId) {
-		new SisterGroupModule(this).postOperationDetail(getApplicationContext(), postId);
+		//new SisterGroupModule(this).postOperationDetail(getApplicationContext(), postId);
 	}
 
 	/**
@@ -329,7 +328,7 @@ public class SisterGroupDetailActivity extends BaseActivity implements OnClickLi
 	 * @param page
 	 */
 	private void asyncRequestPostComment(String postId, int page) {
-		new SisterGroupModule(this).postOperationCommentPull(getApplicationContext(), postId, page);
+		//new SisterGroupModule(this).postOperationCommentPull(getApplicationContext(), postId, page);
 	}
 
 	@Override
@@ -549,8 +548,8 @@ public class SisterGroupDetailActivity extends BaseActivity implements OnClickLi
 							// null) {
 
 							mAdapter.fillLocalWithIntro(commentStr, mPhotoPickerView.getProduct(), UpdateUtil.formatImageInfo(bitmapUrls, mPhotoPickerView.getBitmapPath()));
-							new SisterGroupModule(SisterGroupDetailActivity.this).postOperationFollowAddOrReply(getApplicationContext(), SisterGroupModule.TYPE_POST_ADD, postId, commentStr,
-									productId, updateImgs);
+//							new SisterGroupModule(SisterGroupDetailActivity.this).postOperationFollowAddOrReply(getApplicationContext(), SisterGroupModule.TYPE_POST_ADD, postId, commentStr,
+//									productId, updateImgs);
 
 							// } else {
 							// mAdapter.fillLocalWithIntro(commentStr,
@@ -569,8 +568,8 @@ public class SisterGroupDetailActivity extends BaseActivity implements OnClickLi
 							CommentVO commentVo = (CommentVO) mCommentEditView.getTag();
 							mAdapter.fileLocalWithComment(commentStr, commentVo == null ? null : commentVo.replyUser, "0", mPhotoPickerView.getProduct(),
 									UpdateUtil.formatImageInfo(bitmapUrls, mPhotoPickerView.getBitmapPath()));
-							new SisterGroupModule(SisterGroupDetailActivity.this).postOperationFollowAddOrReply(getApplicationContext(), SisterGroupModule.TYPE_POST_REPLY, postId, commentStr,
-									productId, updateImgs);
+//							new SisterGroupModule(SisterGroupDetailActivity.this).postOperationFollowAddOrReply(getApplicationContext(), SisterGroupModule.TYPE_POST_REPLY, postId, commentStr,
+//									productId, updateImgs);
 
 							mListView.mayHaveNextPage();
 							mListView.noMorePage();
@@ -581,7 +580,7 @@ public class SisterGroupDetailActivity extends BaseActivity implements OnClickLi
 						CommentVO commentVo = (CommentVO) mCommentEditView.getTag();
 						mAdapter.fileLocalWithComment(commentStr, commentVo == null ? null : commentVo.replyUser, "1", mPhotoPickerView.getProduct(),
 								UpdateUtil.formatImageInfo(bitmapUrls, mPhotoPickerView.getBitmapPath()));
-						new SisterGroupModule(SisterGroupDetailActivity.this).postOperationCommentReply(getApplicationContext(), postId, tag.replyUser.native_comment.comment_code, commentStr);
+						//new SisterGroupModule(SisterGroupDetailActivity.this).postOperationCommentReply(getApplicationContext(), postId, tag.replyUser.native_comment.comment_code, commentStr);
 
 						mListView.mayHaveNextPage();
 						mListView.noMorePage();
