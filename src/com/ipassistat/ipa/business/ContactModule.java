@@ -5,11 +5,11 @@ import android.content.Context;
 import com.ipassistat.ipa.bean.request.ContactRequest;
 import com.ipassistat.ipa.bean.response.ContactsResponse;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 
 public class ContactModule extends BaseModule {
 
-	public ContactModule(BusinessInterface dataCallBack) {
+	public ContactModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 		
 	}

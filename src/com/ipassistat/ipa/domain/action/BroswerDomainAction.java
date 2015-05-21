@@ -1,13 +1,20 @@
-package com.ipassistat.ipa.domain;
+package com.ipassistat.ipa.domain.action;
+
+import com.ipassistat.ipa.util.IntentUtil;
 
 import android.content.Context;
 
-public class EmailDomain implements IDomainAction {
+/***
+ * 打开浏览器领域
+ * @author shipeifei
+ *
+ */
+public class BroswerDomainAction implements IDomainAction {
 
 	@Override
 	public void action(Context context, String actionContent) {
 		// TODO Auto-generated method stub
-		
+		IntentUtil.openBrowser(context, actionContent);
 	}
 
 	@Override

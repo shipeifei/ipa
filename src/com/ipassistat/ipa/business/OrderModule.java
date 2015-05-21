@@ -23,7 +23,7 @@ import com.ipassistat.ipa.bean.response.OrderPrePayResponse;
 import com.ipassistat.ipa.bean.response.OrderRemoveResponse;
 import com.ipassistat.ipa.bean.response.OrderSubmitResponse;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.util.NetUtil;
 
 /**
@@ -34,7 +34,7 @@ import com.ipassistat.ipa.util.NetUtil;
  */
 public class OrderModule extends BaseModule {
 
-	public OrderModule(BusinessInterface dataCallBack) {
+	public OrderModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 		// TODO Auto-generated constructor stub
 	}

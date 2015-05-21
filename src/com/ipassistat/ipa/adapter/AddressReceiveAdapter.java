@@ -24,7 +24,7 @@ import com.ipassistat.ipa.business.UserModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.constant.Constant;
 import com.ipassistat.ipa.constant.IntentFlag;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.ui.activity.AddressEditActivity;
 import com.umeng.analytics.MobclickAgent;
 
@@ -33,7 +33,7 @@ import com.umeng.analytics.MobclickAgent;
  * @author renheng
  * 
  */
-public class AddressReceiveAdapter extends HmlBaseAdapter implements BusinessInterface{
+public class AddressReceiveAdapter extends HmlBaseAdapter implements HttpRequestLisenter{
 
 	private Context context;
 	private List<BeautyAddress> list;

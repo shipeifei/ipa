@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import com.ipassistat.ipa.bean.request.UpdateCheckRequest;
 import com.ipassistat.ipa.bean.response.UpdateCheckResponse;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.util.LogUtil;
 
 /**
@@ -18,7 +18,7 @@ import com.ipassistat.ipa.util.LogUtil;
 public class AppInfoModule extends BaseModule{
 
 	
-	public AppInfoModule(BusinessInterface dataCallBack) {
+	public AppInfoModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 		// TODO Auto-generated constructor stub
 	}

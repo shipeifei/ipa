@@ -1,4 +1,4 @@
-package com.ipassistat.ipa.dao;
+package com.ipassistat.ipa.httprequest;
 
 
 /***
@@ -7,12 +7,12 @@ package com.ipassistat.ipa.dao;
  * @author 时培飞 
  * Create at 2015-4-24 下午4:56:26
  */
-public class BaseDao implements BusinessInterface {
+public class HttpBaseRequest implements HttpRequestLisenter {
 	
-	public BusinessInterface businessCallBack;
+	public HttpRequestLisenter businessCallBack;
 	
 
-	public BaseDao(BusinessInterface serviceCallBack) {
+	public HttpBaseRequest(HttpRequestLisenter serviceCallBack) {
 		super();
 		this.businessCallBack = serviceCallBack;
 	}

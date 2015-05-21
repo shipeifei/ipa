@@ -28,7 +28,7 @@ import com.ipassistat.ipa.bean.response.GoodsTypeResponse;
 import com.ipassistat.ipa.bean.response.TimeLimitGoodsBuyListResponse;
 import com.ipassistat.ipa.bean.response.TimeScaredBuyGoodInfoResponse;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.util.SharedPreferenceUtil;
 
 /**
@@ -43,7 +43,7 @@ public class GoodsModule extends BaseModule {
 
 	private static String CART_GOODS_SP = "cart_goods_sp";
 
-	public GoodsModule(BusinessInterface dataCallBack) {
+	public GoodsModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 	}
 

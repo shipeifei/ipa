@@ -6,7 +6,7 @@ import com.ipassistat.ipa.bean.request.OfficialRequest;
 import com.ipassistat.ipa.bean.request.entity.PageOption;
 import com.ipassistat.ipa.bean.response.OfficialResponse;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.util.GlobalUtil;
 
 /**
@@ -17,7 +17,7 @@ import com.ipassistat.ipa.util.GlobalUtil;
  */
 public class OfficialCenterModule extends BaseModule {
 
-	public OfficialCenterModule(BusinessInterface dataCallBack) {
+	public OfficialCenterModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 		// TODO Auto-generated constructor stub
 	}

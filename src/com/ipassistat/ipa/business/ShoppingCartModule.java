@@ -8,11 +8,11 @@ import com.ipassistat.ipa.bean.request.ShoppingcartSyncRequest;
 import com.ipassistat.ipa.bean.request.entity.GoodsInfoForAdd;
 import com.ipassistat.ipa.bean.response.ShoppingcartSyncResponse;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 
 public class ShoppingCartModule extends BaseModule {
 
-	public ShoppingCartModule(BusinessInterface dataCallBack) {
+	public ShoppingCartModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 	}
 

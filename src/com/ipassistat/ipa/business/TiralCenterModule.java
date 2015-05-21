@@ -20,7 +20,7 @@ import com.ipassistat.ipa.bean.response.TryOutGoodInfoResponse;
 import com.ipassistat.ipa.bean.response.entity.BeautyAddress;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.constant.Constant;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.util.share.um.ShareUM;
 
 /**
@@ -31,7 +31,7 @@ import com.ipassistat.ipa.util.share.um.ShareUM;
  */
 public class TiralCenterModule extends BaseModule {
 
-	public TiralCenterModule(BusinessInterface dataCallBack) {
+	public TiralCenterModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 	}
 

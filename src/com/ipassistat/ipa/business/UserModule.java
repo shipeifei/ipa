@@ -36,7 +36,7 @@ import com.ipassistat.ipa.bean.response.entity.SaleProduct;
 import com.ipassistat.ipa.bean.response.entity.UserInfoSaveEntity;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.constant.Constant;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.util.LogUtil;
 import com.ipassistat.ipa.util.SharedPreferenceUtil;
 
@@ -59,7 +59,7 @@ public class UserModule extends BaseModule {
 	 */
 	public static final String USER_DEFAULT_ADD_SP = "user_default_add_sp";
 
-	public UserModule(BusinessInterface dataCallBack) {
+	public UserModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 		// TODO Auto-generated constructor stub
 	}

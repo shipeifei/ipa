@@ -5,11 +5,11 @@ import android.content.Context;
 import com.ipassistat.ipa.bean.request.SendInstroduceRequest;
 import com.ipassistat.ipa.bean.response.MsgShareResponse;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 
 public class InstroduceModul extends BaseModule {
 
-	public InstroduceModul(BusinessInterface dataCallBack) {
+	public InstroduceModul(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 	}
 

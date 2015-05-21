@@ -1,4 +1,4 @@
-package com.ipassistat.ipa.domain;
+package com.ipassistat.ipa.domain.action;
 
 import android.content.Context;
 

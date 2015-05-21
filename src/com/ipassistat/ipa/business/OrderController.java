@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 
 import com.ipassistat.ipa.constant.Constant;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -89,7 +89,7 @@ public class OrderController {
 			public void onClick(DialogInterface dialog, int which) {
 				
 				MobclickAgent.onEvent(context, "1099");
-				OrderModule module = new OrderModule((BusinessInterface) context);
+				OrderModule module = new OrderModule((HttpRequestLisenter) context);
 				module.postOrderRemove(context, orderCode); 
 			}
 		});
@@ -118,7 +118,7 @@ public class OrderController {
 			public void onClick(DialogInterface dialog, int which) {
 				
 				MobclickAgent.onEvent(activity, "1098");
-				OrderModule module = new OrderModule((BusinessInterface)activity);
+				OrderModule module = new OrderModule((HttpRequestLisenter)activity);
 				module.postGoodsReceiveConfirm(activity, orderCode);
 			}
 		});

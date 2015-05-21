@@ -1,4 +1,4 @@
-package com.ipassistat.ipa.dao;
+package com.ipassistat.ipa.httprequest;
 
 import java.io.InputStream;
 import java.net.URLEncoder;
@@ -33,9 +33,9 @@ import com.loopj.android.http.RequestParams;
  * @author 时培飞 
  * Create at 2015-4-24 下午4:56:55
  */
-public class CommonDao extends BaseDao {
+public class HttpCommonRequest extends HttpBaseRequest {
 
-	public CommonDao(BusinessInterface dataCallBack) {
+	public HttpCommonRequest(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 		// TODO Auto-generated constructor stub
 	}

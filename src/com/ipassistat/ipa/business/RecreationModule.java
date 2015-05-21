@@ -8,7 +8,7 @@ import com.ipassistat.ipa.bean.request.entity.PageOption;
 import com.ipassistat.ipa.bean.response.RecreationResponse;
 import com.ipassistat.ipa.bean.response.VideoListResponse;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.util.GlobalUtil;
 
 /**
@@ -21,7 +21,7 @@ import com.ipassistat.ipa.util.GlobalUtil;
  */
 public class RecreationModule extends BaseModule {
 
-	public RecreationModule(BusinessInterface dataCallBack) {
+	public RecreationModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 	}
 

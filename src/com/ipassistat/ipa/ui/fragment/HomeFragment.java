@@ -43,9 +43,11 @@ import com.ipassistat.ipa.bean.response.BannerResponse;
 import com.ipassistat.ipa.bean.response.entity.VideoChannel;
 import com.ipassistat.ipa.business.GoodsModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.domain.SendMessageDomain;
-import com.ipassistat.ipa.domain.TelephoneDomain;
+
+import com.ipassistat.ipa.domain.action.SendMessageDomainAction;
+import com.ipassistat.ipa.domain.action.TelephoneDomainAction;
 import com.ipassistat.ipa.domain.bean.DomainBaseResponse;
+import com.ipassistat.ipa.domain.service.CallDomainService;
 import com.ipassistat.ipa.ui.activity.GoodsListActivity;
 import com.ipassistat.ipa.ui.activity.OfficialActivity;
 import com.ipassistat.ipa.ui.activity.PersonalActivity;
@@ -90,7 +92,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 	private boolean isRefresh;
 	private int mPageSize = 10;
 	private int mCurrentPage = 0;
-	//private SisterGroupModule mSisterGroupModule;
+	// private SisterGroupModule mSisterGroupModule;
 	private SharedPreferences mSharedPreferences;
 	/**
 	 * 是否刷新当前页面 1：只要进入了贴子详情页面，下次就必须刷新 浏览数发生了变化 。
@@ -141,7 +143,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-		//mSisterGroupModule = new SisterGroupModule(this);
+		// mSisterGroupModule = new SisterGroupModule(this);
 		mActivity = getActivity();
 
 		// 开启百度地图
@@ -153,14 +155,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
 		initWidgets();
 		initIat();
-		String result = "{\"rc\": 0, \"text\": \"打开浏览器\",\"service\": \"cn.yunzhisheng.appmgr\", \"code\": \"APP_LAUNCH\",error:{\"code\":\"aaa\",\"message\":\"asdfsaf\"}}";
-		DomainBaseResponse domainBaseResponse = new DomainBaseResponse();
-
-		Gson gson = new Gson();
-		// gson.fromJson(result, domainBaseResponse);
-		domainBaseResponse = gson.fromJson(result, DomainBaseResponse.class);
-		if (domainBaseResponse != null) {
-		}
+		String result = "{\"rc\": 0, \"text\": \"打开浏览器\",\"service\": \"cn.yunzhisheng.appmgr\", \"code\": \"APP_LAUNCH\",error:{\"code\":\"aaa\",\"message\":\"asdfsaf\"},\"semantic\":{\"intent\":{\"name\":\"asdfs\",\"method\":\"tpe\"}}}";
+		CallDomainService domainService=new CallDomainService();
+		domainService.parseJsonInfo(result);
 	}
 
 	/***
@@ -351,10 +348,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 					IntentUtil.openBrowser(mActivity, "http://www.baidu.com");
 
 				} else if (mResultText.getText().toString().indexOf("打电话") > -1) {
-					TelephoneDomain telephoneDomain = new TelephoneDomain();
+					TelephoneDomainAction telephoneDomain = new TelephoneDomainAction();
 					telephoneDomain.action(mActivity, "哥哥");
 				} else if (mResultText.getText().toString().indexOf("发短信") > -1) {
-					SendMessageDomain sendMessageDomain = new SendMessageDomain();
+					SendMessageDomainAction sendMessageDomain = new SendMessageDomainAction();
 					sendMessageDomain.action(mActivity, "测试发送短信");
 				} else {
 					Thread thread = new Thread(new Runnable() {
@@ -466,7 +463,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
 	@Override
 	public void onHeaderRefresh(PullToRefreshView view) {
-		//mSisterGroupModule.getPopPostList(mActivity, mPageSize, mCurrentPage);
+		// mSisterGroupModule.getPopPostList(mActivity, mPageSize,
+		// mCurrentPage);
 		getBannerList(ConfigInfo.BANNER_CODE, isRefresh);
 	}
 

@@ -1,6 +1,6 @@
 package com.ipassistat.ipa.adapter;
 
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
  * @author Administrator
  *
  */
-public class HmlBaseAdapter extends BaseAdapter implements BusinessInterface{
+public class HmlBaseAdapter extends BaseAdapter implements HttpRequestLisenter{
 
 	@Override
 	public int getCount() {

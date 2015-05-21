@@ -1,17 +1,17 @@
 package com.ipassistat.ipa.business;
 
-import com.ipassistat.ipa.dao.BusinessInterface;
-import com.ipassistat.ipa.dao.CommonDao;
+import com.ipassistat.ipa.httprequest.HttpCommonRequest;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 
 /**
  * 
  * @author shipeifei
  *
  */
-public class BaseModule extends CommonDao{
+public class BaseModule extends HttpCommonRequest{
 
 	
-	public BaseModule(BusinessInterface dataCallBack) {
+	public BaseModule(HttpRequestLisenter dataCallBack) {
 		super(dataCallBack);
 		// TODO Auto-generated constructor stub
 	}

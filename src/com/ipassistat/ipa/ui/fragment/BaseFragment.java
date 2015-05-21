@@ -3,7 +3,8 @@ package com.ipassistat.ipa.ui.fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
-import com.ipassistat.ipa.dao.BusinessInterface;
+
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 
 
 /**
@@ -12,7 +13,7 @@ import com.ipassistat.ipa.dao.BusinessInterface;
  * @author shipeifei
  *
  */
-public class BaseFragment extends Fragment implements BusinessInterface {
+public class BaseFragment extends Fragment implements HttpRequestLisenter {
 	private boolean isFragmentFirstVisible = true;
 	private boolean isVisible;
 

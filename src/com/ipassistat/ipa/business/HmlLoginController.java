@@ -1,6 +1,6 @@
 package com.ipassistat.ipa.business;
 
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 
 
 import android.content.Context;
@@ -11,7 +11,7 @@ public class HmlLoginController extends LoginController{
 	private Context context;
 	private UserModule module;
 	
-	public HmlLoginController(Context context, Operation oper, BusinessInterface bus) {
+	public HmlLoginController(Context context, Operation oper, HttpRequestLisenter bus) {
 		super(context, oper);
 		// TODO Auto-generated constructor stub
 		this.context=context;

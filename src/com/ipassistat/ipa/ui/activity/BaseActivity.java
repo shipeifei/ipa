@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.ipassistat.ipa.R;
 import com.ipassistat.ipa.R.id;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.ui.gesture.SlideCloseGesture;
 import com.ipassistat.ipa.ui.gesture.SlideCloseGesture.CustomGestureListener;
 import com.ipassistat.ipa.util.InputMethodUtil;
@@ -27,7 +27,7 @@ import com.ipassistat.ipa.util.ViewUtil;
  * @author 时培飞 
  * Create at 2015-4-24 下午4:55:19
  */
-public abstract class BaseActivity extends FragmentActivity implements BusinessInterface, CustomGestureListener {
+public abstract class BaseActivity extends FragmentActivity implements HttpRequestLisenter, CustomGestureListener {
 
 	/**
 	 * 滑动关闭的手势默认为打开

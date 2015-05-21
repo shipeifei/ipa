@@ -1,4 +1,4 @@
-package com.ipassistat.ipa.dao;
+package com.ipassistat.ipa.httprequest;
 
 /***
  * 网络请求接口
@@ -6,7 +6,7 @@ package com.ipassistat.ipa.dao;
  * @author 时培飞 
  * Create at 2015-4-24 下午4:56:04
  */
-public interface BusinessInterface {
+public interface HttpRequestLisenter {
 
 	public void onMessageSucessCalledBack(String url,Object object);
 	

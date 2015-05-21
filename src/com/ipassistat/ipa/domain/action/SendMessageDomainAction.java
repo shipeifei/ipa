@@ -1,4 +1,4 @@
-package com.ipassistat.ipa.domain;
+package com.ipassistat.ipa.domain.action;
 
 import com.ipassistat.ipa.util.SendSmsManager;
 
@@ -9,7 +9,7 @@ import android.content.Context;
  * @author shipeifei
  *
  */
-public class SendMessageDomain implements IDomainAction {
+public class SendMessageDomainAction implements IDomainAction {
 
 	@Override
 	public void action(Context context, String actionContent) {

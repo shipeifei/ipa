@@ -33,7 +33,7 @@ import com.ipassistat.ipa.bean.response.entity.SisterGroupPostVoExt;
 import com.ipassistat.ipa.bean.response.entity.UserInfo;
 import com.ipassistat.ipa.business.UserModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.dao.BusinessInterface;
+import com.ipassistat.ipa.httprequest.HttpRequestLisenter;
 import com.ipassistat.ipa.util.BitmapOptionsFactory;
 import com.ipassistat.ipa.util.GlobalUtil;
 import com.ipassistat.ipa.util.IntentUtil;

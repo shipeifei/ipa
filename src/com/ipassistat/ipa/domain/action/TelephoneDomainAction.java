@@ -1,4 +1,4 @@
-package com.ipassistat.ipa.domain;
+package com.ipassistat.ipa.domain.action;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -8,7 +8,7 @@ import com.ipassistat.ipa.util.ContactsUtil;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.ToastUtil;
 
-public class TelephoneDomain implements IDomainAction {
+public class TelephoneDomainAction implements IDomainAction {
 
 	@Override
 	public void action(final Context context,String actionContent) {
