@@ -1,0 +1,219 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+    -->
+
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+        <item name="android:windowBackground">@color/meili</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:style/Theme.Black.NoTitleBar.Fullscreen">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <!--
+    <style name="AppTheme" parent="@style/AppBaseTheme">
+        All customizations that are NOT specific to a particular API-level can go here.
+    </style>
+    -->
+
+    <style name="line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+    <!-- MainActivity底部的导航radio按钮 -->
+    <style name="radioStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@drawable/home_tab_text_selector</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@null</item>
+    </style>
+    <!-- 姐妹圈消息提示样式 -->
+    <style name="toolbar_action_comment">
+        <item name="android:textSize">12.0dip</item>
+        <item name="android:textColor">@color/action_comment_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">top</item>
+        <!--
+        <item name="android:layout_width">25dip</item>
+        <item name="android:layout_height">18dip</item>
+        -->
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">-40dip</item>
+        <item name="android:layout_marginTop">5dip</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <style name="styleName" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:drawableTop">@drawable/personalcenter_cart</item>
+        <item name="android:textColor">#707070</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 个人中心中的按钮 -->
+    <style name="personalcenter_bottombuttons" parent="android:Widget.Button">
+        <item name="android:drawablePadding">9dp</item>
+        <item name="android:drawableRight">@drawable/personal_arraws</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">13dp</item>
+        <item name="android:paddingRight">23dp</item>
+        <item name="android:textColor">#171717</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- 个人中心中的购物车和我的订单 -->
+    <style name="personalcenter_cartandorder" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">#31113B</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="personal_center_cartandorder" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:drawableTop">@drawable/personalcenter_cart</item>
+        <item name="android:textColor">#707070</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="personal_center_bigbuttons" parent="android:Widget.Button">
+        <item name="android:background">@null</item>
+        <item name="android:drawableLeft">@drawable/personalcenter_mytrial</item>
+        <item name="android:drawablePadding">9dp</item>
+        <item name="android:drawableRight">@drawable/personal_arraws</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">13dp</item>
+        <item name="android:paddingRight">23dp</item>
+        <item name="android:textColor">#171717</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- 红色的小条形框 -->
+    <style name="block_vertical">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">17dp</item>
+        <item name="android:background">@color/yello</item>
+    </style>
+    <!-- 帖子列表筛选的item -->
+    <style name="stylePostFilterItem" parent="android:Widget.TextView">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/post_filter_text_color_selector</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+    </style>
+
+    <!-- 设置中的按钮 -->
+    <style name="settings_button">
+        <item name="android:background">@drawable/item_border_topandbottom</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:paddingLeft">26dp</item>
+        <item name="android:paddingRight">23dp</item>
+        <item name="android:textColor">#171717</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- 退出和选择上传头像中popUpWindow 中Button的 效果 -->
+    <style name="popupwindow_button" parent="android:Widget.Button">
+        <item name="android:background">@drawable/settings_logout_button</item>
+        <item name="android:textColor">#007aff</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- 试用详情里的价值，试用价，邮费 -->
+    <style name="trialCenter_text" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textColor">#535353</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- popmenu的动画 -->
+    <style name="popmenu_anim">
+        <item name="android:windowEnterAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>
+    </style>
+    <!-- 试用详情里的钱 -->
+    <style name="trialCenter_money" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textColor">#535353</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <!-- 商品详情显示成显示抢购详情时的文字颜色 -->
+    <style name="timelimitstyle" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <!-- 限时抢购时销量的颜色 -->
+    <style name="goods_state_timelimit" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textColor">#f66625</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 进度条颜色 -->
+    <style name="progressBarHorizontal_download" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_color_horizontal</item>
+    </style>
+
+    <!-- 图片轮番样式 -->
+
+    <style name="AnimationActivity" mce_bogus="1" parent="@style/AppBaseTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:activityOpenEnterAnimation">@anim/fragment_push_left_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fragment_push_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fragment_back_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fragment_back_right_out</item>
+    </style>
+
+    <style name="IMTheme.Basic" parent="android:Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="IMTheme.Transparent" parent="@style/IMTheme.Basic">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">false</item>
+：是否浮现在activity之上</style>
+
+    <style name="AppBase" parent="@style/AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- <item name="android:windowAnimationStyle">@style/AnimationActivity</item> -->
+    </style>
+
+    <style name="SwipeBackLayout">
+        <item name="edge_size">50dip</item>
+        <item name="shadow_left">@drawable/shadow_left</item>
+        <item name="shadow_right">@drawable/shadow_right</item>
+        <item name="shadow_bottom">@drawable/shadow_bottom</item>
+    </style>
+
+</resources>

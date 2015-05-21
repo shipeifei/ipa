@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收货人:" />
+
+        <EditText
+            android:id="@+id/NameEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="（必填）" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号码:" />
+
+        <EditText
+            android:id="@+id/PhonenumEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="（必填）" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邮政编码:" />
+
+        <EditText
+            android:id="@+id/PostalcodeEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="（必填）" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="省市区:" />
+
+        <EditText
+            android:id="@+id/ProvincecityEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="（必填）" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="详细地址:" />
+
+        <EditText
+            android:id="@+id/DetailedaddressEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="（必填）" />
+    </LinearLayout>
+
+</LinearLayout>

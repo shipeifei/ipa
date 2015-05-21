@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.ipassistat.ipa.view.TitleBar>
+    
+        <RadioGroup 
+            android:id="@+id/trial_radiobutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+	        android:paddingBottom="16dp"
+	        android:paddingLeft="28dp"
+	        android:paddingRight="28dp"
+            android:orientation="horizontal"
+            >
+	        <RadioButton
+	            android:id="@+id/trial_free"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:textSize="16sp"
+		        android:text="@string/trial_free"
+		        android:textColor="@color/trialofmine_text"
+	            android:button="@null"
+	            android:checked="true"
+	            
+	            android:background="@drawable/trialofmine_left" />
+		     <RadioButton
+		         android:id="@+id/trial_postage"
+		         android:layout_width="0dp"
+		         android:layout_weight="1"
+		         android:layout_height="wrap_content"
+		         android:gravity="center"
+		         android:button="@null"
+		         android:text="@string/trial_postage"
+		         android:textColor="@color/trialofmine_text"
+		         android:background="@drawable/trialofmine_right" />
+	     </RadioGroup>
+ 	<android.support.v4.view.ViewPager
+ 	     android:id="@+id/viewPager"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+	</android.support.v4.view.ViewPager>   
+</LinearLayout>

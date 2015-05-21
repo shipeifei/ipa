@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:paddingLeft="5dip"
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingRight="15dip" >
+
+        <LinearLayout
+            android:id="@+id/view_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dip"
+            android:orientation="vertical" >
+
+            <com.ipassistat.ipa.view.CircularImageView
+                android:id="@+id/imageview_icon"
+                android:layout_width="@dimen/icon_small_size"
+                android:layout_height="@dimen/icon_small_size"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:scaleType="fitXY"
+                android:src="@drawable/personal_photo" />
+
+            <ImageView
+                android:id="@+id/view_landlord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/imageview_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="-15dip"
+                android:src="@drawable/icon_floor_landlord"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textview_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="10dip"
+            android:layout_toRightOf="@id/view_icon"
+            android:text="陆洋子"
+            android:textColor="@color/sistergroup_name_color" />
+
+        <ImageView
+            android:id="@+id/imageview_skin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/textview_nickname"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/textview_nickname" />
+
+        <TextView
+            android:id="@+id/textview_floor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="第222楼"
+            android:textColor="@color/sistergroup_floor_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" >
+
+        <TextView
+            android:id="@+id/textview_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="5dip"
+            android:singleLine="false"
+            android:text="这个帖子很有价值这个帖子很有价值这个帖子很有价值这个帖子很有价值这个帖子很有价值这个帖子很有价值"
+            android:textColor="@color/black_03" />
+
+        <!-- 商品详情的布局 -->
+
+        <LinearLayout
+            android:id="@+id/view_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_content"
+            android:layout_marginTop="10dip"
+            android:background="@color/black_05"
+            android:padding="1dip" >
+
+            <include layout="@layout/adapter_goods_listview" />
+        </LinearLayout>
+
+        <!-- 评论里面的图片 -->
+
+        <LinearLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_product"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/toolbar_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_layout"
+            android:layout_marginTop="10dip" >
+
+            <include layout="@layout/activity_adapter_toolbar" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

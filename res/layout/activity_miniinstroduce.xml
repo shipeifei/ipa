@@ -1,0 +1,214 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color" >
+
+  <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/titleBar_instroduce_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </com.ipassistat.ipa.view.TitleBar>
+    <TextView
+        android:id="@+id/tv_miniinstroduce_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:layout_below="@id/titleBar_instroduce_back"
+        android:text="请添加推荐联系人"
+        android:textColor="#333333"
+        android:textSize="15sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_miniinstroduce_addnum"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/tv_miniinstroduce_tittle"
+        android:background="@drawable/twolinebackground"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/ll_miniinstroduce_addnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/add" />
+
+            <TextView
+                android:id="@+id/tv_miniinstroduce_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#dc0f50"
+                android:text="添加"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_miniinstroduce_phonenum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/ll_miniinstroduce_addnum"
+            android:background="@null"
+            android:hint="请输入11位手机号"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_miniinstroduce_addnumfromcontact"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/rl_miniinstroduce_addnum"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/twolinebackground" >
+
+        <ImageView
+            android:id="@+id/btn_miniinstroduce_addcontancts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/txltj"
+            android:clickable="false"
+            android:focusable="false" />
+
+        <TextView
+            android:id="@+id/tv_miniinstroduce_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/btn_miniinstroduce_addcontancts"
+            android:text="从通讯录添加"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/iv_miniinstroduce_arrow"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/go"
+            android:clickable="false"
+            android:focusable="false" />
+    </RelativeLayout>
+    <!-- 淫荡的分割线 -->
+
+    <RelativeLayout
+        android:id="@+id/ll_miniinstroduce_sendlisttext"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/rl_miniinstroduce_addnumfromcontact"
+        android:background="@color/main_bg_color" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="发送列表"
+            android:textColor="#333333"
+            android:layout_centerVertical="true"
+            android:textSize="15sp" />
+    </RelativeLayout>
+    <!-- 发送按钮 -->
+
+    <RelativeLayout
+        android:id="@+id/rl_miniinstroduce_send"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff" >
+         <View android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentTop="true"
+            android:background="#d2d2d2"/>
+
+        <CheckBox
+            android:id="@+id/cb_miniinstroduce_selectall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/checkbox_selector"
+            android:checked="false"
+            android:button="@null" />
+
+        <TextView
+            android:id="@+id/tv_miniinstroduce_textselectall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/cb_miniinstroduce_selectall"
+            android:text="全选"
+            android:textColor="#666666"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_miniinstroduce_havaselecte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/tv_miniinstroduce_textselectall"
+            android:text="已选"
+            android:textColor="#666666"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_miniinstroduce_selectedcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_miniinstroduce_havaselecte"
+            android:text="(0)"
+            android:textColor="#dc0f50"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_miniinstroduce_send"
+            android:layout_width="140dp"
+            android:layout_height="37dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_state"
+            android:text="发送推荐邀请"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+    </RelativeLayout>
+    <!-- 展示可选的联系人 -->
+   <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/ll_miniinstroduce_sendlisttext"
+        android:background="#e0e0e0" />
+    <ListView
+        android:id="@+id/lv_miniinstroduce_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_miniinstroduce_send"
+         android:layout_below="@id/view"
+        android:divider="#afafaf"
+        android:dividerHeight="0.5dp" >
+    </ListView>
+
+</RelativeLayout>

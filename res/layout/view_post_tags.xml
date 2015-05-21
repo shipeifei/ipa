@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textview_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sistergroup_tag_background"
+        android:gravity="center"
+        android:minWidth="50dip"
+        android:singleLine="true"
+        android:text="化妆"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_18" />
+
+    <!-- android:background="@drawable/sistergourp_tag_background" -->
+
+</LinearLayout>

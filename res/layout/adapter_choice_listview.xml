@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="51dp"
+    >
+    
+	<TextView 
+	    android:id="@+id/personal_info_item"
+	    android:layout_width="wrap_content"
+	    android:layout_height="51dp"
+	    android:layout_marginLeft="7dp"
+	    android:textColor="#171717"
+	    android:textSize="18sp"
+	    android:text="item"
+	    android:gravity="center"
+	    android:layout_centerVertical="true"
+	    />
+
+	<ImageView
+	    android:id="@+id/choose"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="23dp"
+	    android:layout_centerVertical="true"
+	    android:layout_alignParentRight="true"
+		android:src="@drawable/personalinfo_choose"
+		/>
+
+</RelativeLayout>

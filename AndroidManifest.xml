@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ipassistat.ipa"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- 友盟社会化组件需要的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+
+    <!-- Push推送的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 百度地图权限 -->
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </permission>
+
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <!-- 来电消音 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:name=".IpaApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme" >
+
+        <!-- apk更新的提示注意是$符号，表示内部类 -->
+        <receiver android:name="com.ipassistat.ipa.version.update.UpdateDownLoaderUtils$CompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+        apk更新的提示注意是$符号，表示内部类 
+        <receiver android:name="com.ichsy.mboss.util.DownLoadFile$CompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity
+            android:name="com.ipassistat.ipa.ui.welcome.activity.WelcomeActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 微信支付需要的信息 -->
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="wxb4964132ba624ffd" />
+            </intent-filter>
+            -->
+
+        </activity>
+        <!-- 新手指导 -->
+        <activity
+            android:name=".ui.welcome.activity.GuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+
+            <!-- Scheme跳转 -->
+            <intent-filter>
+                <data
+                    android:host="com.mboss"
+                    android:scheme="mboss" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.RegisterProtocolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OrderDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 商品列表 -->
+        <activity
+            android:name=".ui.activity.GoodsListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 商品详情 -->
+        <activity
+            android:name=".ui.activity.GoodsDetailActivity"
+            android:screenOrientation="portrait" />
+        <!-- 购物车 -->
+        <activity
+            android:name=".ui.activity.ShoppingCartActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.activity.ConfirmationOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ReceiveAddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SendMethodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PaymentMethodActivity"
+            android:screenOrientation="portrait" />
+        <!-- 个人中心 -->
+        <activity
+            android:name=".ui.activity.PersonalActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 个人信息 -->
+        <activity
+            android:name=".ui.activity.PersonalInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ui.activity.NickNameEditActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 个人信息选择 -->
+        <activity
+            android:name=".ui.activity.PersonalInfoChoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 护肤需求设置 -->
+        <activity
+            android:name=".ui.activity.PersonalSkinExptActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 设置 -->
+        <activity
+            android:name=".ui.activity.SettingsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 关于我们 -->
+        <activity
+            android:name=".ui.activity.AboutUsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 我的试用 -->
+        <activity
+            android:name=".ui.activity.TrialOfMineActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 我的收藏 -->
+        <activity
+            android:name=".ui.activity.CollectionsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 试用中心 -->
+        <activity
+            android:name=".ui.activity.TrialCenterActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 试用商品——详情 -->
+        <activity
+            android:name=".ui.activity.TrialInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 官方活动详情 -->
+        <activity
+            android:name=".ui.activity.WebViewActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 头像选取 -->
+        <activity
+            android:name=".ui.activity.PhotoOperateActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ui.activity.BannerDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ModifyAddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.NewAddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SubmitSuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OrderListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.EditTopicActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.GoodsCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PhotosSelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PhotoPreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SisterGroupPostEditActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.SisterGroupDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.activity.SearchProductActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".ui.activity.SisterGroupMessageActivity"
+            android:screenOrientation="portrait" />
+        <!-- 姐妹圈帖子图片轮播 -->
+        <activity
+            android:name=".ui.activity.SisterGroupPostImageDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/IMTheme.Transparent" />
+        <activity
+            android:name=".ui.activity.OrderConfirmActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity android:name=".ui.activity.MediaPhotoGridView" >
+        </activity>
+        <activity
+            android:name=".ui.activity.AddressAddActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AddressEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.VerifyCodeGetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PwdForgettActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AddressReceiveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OfficialActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PwdResetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OrderSubmitSuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PayTypeChoiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.CityChoiceActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 邮箱选择页面 -->
+        <activity
+            android:name="com.ipassistat.ipa.ui.email.activity.EmailSelectActivity"
+            android:screenOrientation="portrait" />
+       <!-- 邮箱登录页面 -->
+        <activity
+            android:name="com.ipassistat.ipa.ui.email.activity.EmailLoginActivity"
+            android:screenOrientation="portrait" />
+        <!-- 友盟社会化组件需要注册的activity -->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+
+        <!-- QQ及QQ空间需要注册的activity -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID -->
+                <data android:scheme="tencent1104302364" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity android:name="com.ipassistat.ipa.ui.activity.MiniContactPersonActivity" >
+        </activity>
+        <activity android:name="com.ipassistat.ipa.ui.activity.MiniInstroduceActivity" >
+        </activity>
+
+        
+        <!-- 发送联系人信息服务 -->
+        <service android:name="com.ipassistat.ipa.service.SendContacterService" >
+            <intent-filter>
+                <action android:name="com.ipa.SendContacterService" />
+            </intent-filter>
+        </service>
+        <!-- 用户消息消息广播 -->
+        <receiver android:name="com.ipassistat.ipa.broadcast.MessageBroadCast" >
+            <intent-filter>
+                <action android:name="com.ipa.MessageBroadCast" >
+                </action>
+            </intent-filter>
+        </receiver>
+
+        <!-- 微信及朋友圈分享注册的activity -->
+        <activity
+            android:name="com.ipassistat.ipa.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 微信支付的回调Activity -->
+        <activity
+            android:name="com.ipassistat.ipa.wxapi.WXPayEntryActivity"
+            android:exported="true" />
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+
+        <!-- 娱乐二级页面视频列表 -->
+        <activity
+            android:name="com.ipassistat.ipa.ui.activity.RecreationTvListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- push应用定义消息receiver声明 -->
+        <receiver android:name="com.ipassistat.ipa.util.push.baidu.MyPushMessageReceiver" >
+            <intent-filter>
+
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
+
+        <!-- push必须的receviver和service声明 -->
+        <receiver
+            android:name="com.baidu.android.pushservice.PushServiceReceiver"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.baidu.android.pushservice.RegistrationReceiver"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ipassistat.ipa.wxapi.AppRegister" >
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.baidu.android.pushservice.PushService"
+            android:exported="true"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
+            </intent-filter>
+        </service>
+        <!-- push结束 -->
+
+
+        <!-- 百度地图服务 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="1001a" />
+        <!--
+        在百度开发者中心查询应用的API Key 
+       	测试环境：
+		ID：4735999
+		API Key：   ZDlG31ecUfWzHGhQO772DINn
+		Secret Key：exXLYES6BTMi5rowMvooVQUl68zVi1dZ
+
+		正式环境：
+		ID：5425360
+		API Key：   RGZrXE1eFA5L7GGFodQZG5Fd
+		Secret Key：szmoIB32RphGZp9lWrrNW8zrSaHBCmUO
+        -->
+
+        <meta-data
+            android:name="api_key"
+            android:value="@string/baidu_push_key_produce" />
+
+        <!-- 友盟统计UMENG_APPKEY -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="@string/um_appkey" >
+        </meta-data>
+
+        <!-- 百度地图Key -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="zPuFChB5vvhIYt2y8H4q3jd2" />
+    </application>
+
+</manifest>

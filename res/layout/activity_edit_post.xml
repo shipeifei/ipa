@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/choice_tag"
+                    android:textColor="@color/black_04"
+                    android:textSize="@dimen/text_size_18" />
+
+                <com.ipassistat.ipa.view.WrapLinearLayout
+                    android:id="@+id/group_tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal" >
+                </com.ipassistat.ipa.view.WrapLinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="@string/post_title_lab"
+                    android:textColor="@color/black_04"
+                    android:textSize="@dimen/text_size_18" />
+
+                <EditText
+                    android:id="@+id/editview_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:background="@null"
+                    android:hint="@string/post_title_hint"
+                    android:maxLength="30"
+                    android:textColor="@color/black_01"
+                    android:textSize="@dimen/text_size_18" />
+
+                <requestFocus />
+            </LinearLayout>
+
+            <View style="@style/line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="25dp"
+                    android:text="@string/post_content_lab"
+                    android:textColor="@color/black_04"
+                    android:textSize="@dimen/text_size_18" />
+
+                <EditText
+                    android:id="@+id/editview_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:background="@null"
+                    android:gravity="left|top"
+                    android:hint="@string/post_content_hint"
+                    android:maxLength="1000"
+                    android:minLines="7"
+                    android:textColor="@color/black_01"
+                    android:textSize="@dimen/text_size_18" >
+                </EditText>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height" />
+
+            <com.ipassistat.ipa.view.PhotoPickerView
+                android:id="@+id/photo_picker_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </com.ipassistat.ipa.view.PhotoPickerView>
+            <!-- <include layout="@layout/activity_photo_picker" /> -->
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

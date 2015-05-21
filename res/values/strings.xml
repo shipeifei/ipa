@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    
+    <!-- 请替换成在语音云官网申请的appid -->
+    <string name="app_id">55375024</string>
+    
+    <string name="app_name">智能秘书</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- 友盟appkey -->
+    <string name="um_appkey">5559bb9e67e58e132300104a</string>
+
+    <!-- 测试环境下百度推送key -->
+    <string name="baidu_push_key_test">ZDlG31ecUfWzHGhQO772DINn</string>
+    <!-- 正式环境下百度推送key -->
+    <string name="baidu_push_key_produce">RGZrXE1eFA5L7GGFodQZG5Fd</string>
+    <string name="copy">复制</string>
+
+    <!-- 全局菜单 -->
+    <string name="menu_ok">确定</string>
+    <string name="menu_cancel">取消</string>
+    <string name="menu_delete">删除</string>
+    <string name="menu_return">返回</string>
+    <string name="menu_report">举报</string>
+
+    <!-- 全局提示信息 -->
+    <string name="global_message_server_error">矮油，出错了~~</string>
+    <string name="global_message_loading">努力加载中…</string>
+    <string name="global_message_loading_nomore">已加载全部</string>
+    <string name="global_message_no_data">暂无数据</string>
+    <string name="global_message_no_net">你现在的网络有点问题~~</string>
+    <string name="global_message_content_empty">请填写%1$s内容</string>
+    <string name="global_message_report_content">是否确认举报</string>
+    <string name="global_message_report_reply_content">是否举报该评论</string>
+
+    <!-- 页面标题 -->
+    <string name="recreation">娱乐</string>
+    <string name="personal">个人中心</string>
+    <string name="personal_info">个人资料</string>
+    <string name="settings">设置</string>
+    <string name="collections">我的收藏</string>
+    <string name="trial_center">试用中心</string>
+    <string name="trial_my">我的试用</string>
+    <string name="official_activities">官方活动</string>
+    <string name="official_activities_info">活动详情</string>
+
+    <!-- 姐妹圈 -->
+    <string name="sistergroup_post_send_empty">标题和正文必须全部填写</string>
+    <string name="sistergroup_post_send_title_short">标题至少3个字哦</string>
+    <string name="sistergroup_post_send_content_short">内容太少啦~</string>
+    <string name="sistergroup_post_reply_text">回复 %1$s</string>
+    <string name="sistergroup_post_activity_title">圈内帖子</string>
+    <string name="sistergroup_post_floor_tips">第%1$s楼</string>
+    <string name="sistergroup_post_operation_up">赞</string>
+    <string name="sistergroup_post_send_title">编辑帖子</string>
+    <string name="sistergroup_bottom_edit_tips">评论楼主</string>
+    <string name="sistergroup_bottom_edit_self_tips">追加帖子</string>
+    <string name="search_search">搜索</string>
+    <string name="search_edit_top_tips">输入关键词</string>
+    <string name="sistergroup_message_tab_left">与我相关</string>
+    <string name="sistergroup_message_tab_right">系统通知</string>
+    <string name="sistergroup_message_system_title">通知</string>
+    <string name="sistergroup_broswerimage">浏览图片</string>
+    <string name="loadingimages">请稍等，图片还没有下载下来...</string>
+    <!-- 个人资料标题 -->
+    <string name="editnick">编辑昵称</string>
+    <string name="nickname">昵称:</string>
+    <string name="sex">性别:</string>
+    <string name="editsex">性别</string>
+    <string name="skin_type">生日:</string>
+    <string name="city">地区:</string>
+    <string name="address">收货地址:</string>
+    <string name="colon">:</string>
+    <string name="man">男</string>
+    <string name="women">女</string>
+    <!-- 设置界面 -->
+    <string name="push_switch">消息推送</string>
+    <string name="hand_update">新版本检测</string>
+    <string name="change_passwd">修改密码</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="tel">客服电话 &#160;&#160;&#160;400&#8211;019&#8211;0860</string>
+    <string name="about_us">关于我们</string>
+    <string name="logout">退出当前账号</string>
+    <string name="update_message">当前已是最新版本</string>
+    <!-- 我的试用界面 -->
+    <string name="trial_free">免费试用</string>
+    <string name="trial_postage">付邮试用</string>
+
+    <!-- 商品 -->
+    <string name="goods_type_show">全部</string>
+    <string name="goods_sort_show">默认排序</string>
+    <string name="goods_detail_sale">月销量：0件</string>
+    <string name="goods_detail_tab">大家认为Ta</string>
+    <string name="goods_evaluation_null">亲，该商品暂时没有评价哦~</string>
+    <string name="goods_detail">产品详情</string>
+    <string name="goods_evaluation">评价</string>
+    <string name="data_more">点击加载更多...</string>
+    <string name="data_more_loading">努力加载中...</string>
+
+    <!-- 购物车 -->
+    <string name="shoppingcart_null">您的购物车中没有商品</string>
+    <string name="shoppingcart_nogoods">已无货商品</string>
+    <string name="shoppingcart_selectall">全选</string>
+    <string name="shoppingcart_total_price">合计：</string>
+    <string name="shoppingcart_no_freight">不含运费</string>
+    <string name="shoppingcart_tocount">去结算</string>
+    <string name="shoppingcart_price">￥0.00</string>
+    <string name="post_filter_item_quanbu">全部</string>
+    <string name="post_filter_item_fabu">我发布的</string>
+    <string name="post_filter_item_canyu">我参与的</string>
+    <string name="post_filter_item_shoucang">我收藏的</string>
+    <string name="add_goods">添加商品</string>
+    <string name="add_photo">添加图片</string>
+    <string name="post_content_hint">描述一下情况</string>
+    <string name="post_content_lab">正文：</string>
+    <string name="post_title_hint">给我们的话题起个名字吧...</string>
+    <string name="post_title_lab">标题：</string>
+    <string name="choice_tag">选择标签：</string>
+    <string name="issue">发布</string>
+    <string name="gameover">确定放弃编辑？</string>
+    <!-- 授权资源 -->
+    <string name="oauth_success">授权成功</string>
+    <string name="oauth_failed">授权失败</string>
+    <string name="oauth_cancel">授权取消</string>
+
+    <!-- MainActivity -->
+    <string name="home">首页</string>
+    <string name="time_limited_buy">娱乐</string>
+    <string name="video">语音</string>
+    <string name="me">我</string>
+
+    <!-- 试用详情信息 -->
+    <string name="price">价值</string>
+    <string name="try_detail">试用须知</string>
+    <string name="postage">邮费</string>
+    <string name="try_price">试用价</string>
+    <!-- 个人中心 -->
+    <string name="register">注册</string>
+    <string name="login">登录</string>
+    <string name="cart">购物车</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_try">我的试用</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="sharewithfriends">推荐给好友</string>
+    <string name="timelimt_count">限量</string>
+    <string name="please_choose">请选择</string>
+    <string name="please_choose_address">请编辑收货地址</string>
+    <string name="later">后</string>
+
+    <!-- 个人中心拍照 -->
+    <string name="phototitle">移动图片选中</string>
+    <string name="photoselect">选取</string>
+    <string name="photoselectphoto">选取图片</string>
+    <string name="uploadsuccess">头像上传成功</string>
+    <string name="uploading">正在上传头像</string>
+    <string name="uploadingimages">正在上传图片</string>
+    <!-- 修改昵称 -->
+    <string name="nicksave">保存</string>
+    <string name="nicknull">昵称不能为空</string>
+    <string name="nickcomponet">昵称只能由汉字、字母和数字组成哦</string>
+    <string name="nicklimit">昵称最多10个汉字或20个字母</string>
+
+    <!-- 密码重置（修改）（设置页面的密码修改） -->
+    <string name="updatepassword">修改密码</string>
+    <string name="showpassword">显示密码</string>
+    <string name="passwordnull">密码不可为空</string>
+    <string name="passwordwrong">原密码不正确,请重新输入</string>
+    <string name="passwordlimit">请输入6~16位字母或数字组合的新密码</string>
+    <string name="warnpassword">密码已更改，请牢记</string>
+
+    <!-- 下载相关 -->
+    <string name="app_status_download">有更新，点击开始下载</string>
+    <string name="app_status_download_fail">下载失败，点击重新下载</string>
+    <string name="download_notification_title">剧微商</string>
+    <string name="download_begin">开始下载</string>
+    <string name="download_fail">下载失败</string>
+    <string name="app_status_pause">暂停</string>
+    <string name="app_status_downloading">正在下载..</string>
+    <string name="title_free_tryout">免费试用</string>
+    <string name="title_postage_tryout">付邮试用</string>
+
+    <!-- 客服电话 -->
+    <string name="call">4000190860</string>
+    <!-- 我的收藏 -->
+    <string name="collection_dialog_clear_all_message">确定清空收藏列表？</string>
+    <string name="dialog_button_sure">确认</string>
+    <string name="dialog_button_cancle">取消</string>
+    <string name="progress_posting">正在提交请求...</string>
+    <string name="data_load_over">已加载完全部数据</string>
+    <string name="dialog_clear_collection_one_message">取消收藏</string>
+    <string name="collection_clear_all_over">全部收藏删除完成</string>
+    <string name="collection_clear_all_nodata">没有要删除的数据</string>
+
+    <!-- 免费试用确定收货地址 -->
+    <string name="dialog_freetryout_address_title">提示</string>
+    <string name="dialog_freetryout_address_message">请添加收货地址</string>
+    <string name="dialog_freetryout_address_button_setAddress">去添加</string>
+    <string name="dialog_freetryout_address_button_setCancle">取消</string>
+    <string name="dialog_freetryout_address_button_right">重新选择</string>
+    <string name="dialog_freetryout_address_button_left">确定</string>
+    <string name="dialog_freetryout_makesuraddress_title">确定收货地址</string>
+    <!-- 分享的内容和标题 -->
+    <string name="tryout_share_title">好物免费试用啦，快来参加哟~</string>
+    <string name="tryout_share_content_free_info">的免费试用活动，你也一起来吧~</string>
+    <string name="tryout_share_content_free_info_msg_begin">我正在参加</string>
+    <string name="tryout_share_content_free_info_msg_end">的免费试用活动，肥水不流外人田，你也一起来吧~</string>
+
+    <!-- 分享付邮 -->
+    <string name="tryout_share_title_Postage">好物免费试用，只需付邮费，快来参加哟~</string>
+    <string name="tryout_share_content_postage_info_msg_begin">付邮即可试用</string>
+    <string name="tryout_share_content_postage_info_msg_end">，超划算，你也一起来吧~</string>
+    <string name="tryout_share_content_postage_info_smsmsg_end">，超划算，肥水不流外人田，你也一起来吧~</string>
+    <!-- 分享的提示框 -->
+    <string name="tryout_dialog_share_title">提示</string>
+    <string name="tryout_dialog_share_message">亲亲，分享给其他朋友才能试用哦</string>
+    <string name="tryout_dialog_share_button_right">分享</string>
+    <string name="tryout_dialog_share_button_left">放弃</string>
+
+    <!-- 视频的分享 -->
+    <string name="recreation_video_share_title">想不想体验别样的小时代？福利来了！</string>
+    <string name="recreation_video_share_content">私人秘书幕后精彩花絮、人物特辑等独家资源，开启我们的小时代</string>
+    <string name="recreation_video_share_content_msg">想不想体验别样的私人秘书？福利来了！私人秘书幕后精彩花絮、人物特辑等独家资源请戳</string>
+    <!-- 推荐给好友 -->
+    <string name="sharewithfriends_content">这里有超火爆的明星同款和好物免费试用，快来下载安装吧！</string>
+    <string name="sharewithfriends_content_msg">这里有超火爆的明星同款和好物免费试用，快来下载安装吧！</string>
+    <string name="sharewithfriends_title">小时代，大商机，就在私人秘书APP~</string>
+    <string name="sharewithfriends_url">http://www.juweishang.com.cn/download/</string>
+
+    <!-- 用户登录注册模块 start -->
+    <string name="pwd_hint">密码应为 6&#8211;16 位数字或字母组合</string>
+    <string name="register_title">注册用户</string>
+    <string name="resetpwd_title">重设密码</string>
+    <string name="register_success">注册成功</string>
+    <string name="register_protocol_url">http://www.juweishang.com.cn/about/protocol.html</string>
+    <string name="input_pwd">请输入密码</string>
+    <string name="input_phonenumber">请输入11位有效手机号</string>
+    <string name="logining">正在登录</string>
+    <string name="login_success">登录成功</string>
+    <string name="input_nicknameorpwd">请输入昵称或者密码</string>
+    <string name="input_nickname">请输入昵称</string>
+    <string name="input_phone">请输入11位手机号</string>
+    <string name="get_verifycode">获取验证码</string>
+    <string name="getverifycode_success">获取验证码成功</string>
+    <string name="input_verifycode">请输入6位验证码</string>
+    <string name="input_verifycodetext">请输入6位短信验证码</string>
+    <string name="input_newpwd">请输入6~16位字母或数字组合的新密码</string>
+    <string name="confirm">确认提交</string>
+    <string name="next_button">下一步</string>
+    <string name="register_button">注册</string>
+    <string name="login_button">登录</string>
+    <string name="forget_text">忘记密码?</string>
+    <string name="register_text">注册新用户</string>
+    <string name="protocolcontent_text">同意私人秘书软件许可及服务协议</string>
+    <string name="protocol_title">剧微商用户协议</string>
+    <string name="hint_text">【提示】\n1、使用手机号注册免费\n2、请记住密码！注册成功后，手机号和密码将用来登录私人秘书\n3、如在60s内没有收到系统短信，请重新点击\&apos;\&apos;获取验证码\&apos;\&apos;</string>
+    <string name="nickname_check">昵称只能由汉字、字母和数字组成哦</string>
+    <string name="nickname_checklengh">昵称最多10个汉字或20个字母</string>
+    <!-- 用户登录注册模块end -->
+    <!-- 试用库存不足 -->
+    <string name="tryout_lowstocks">申请的试用库存不足</string>
+    <string name="tryout_apply_success">已申请试用</string>
+    <!-- 关于我们 的 网址 -->
+    <string name="about_us_url">http://www.juweishang.com.cn/about/about-android.html</string>
+    <!-- 资料不完整时的提示框 -->
+
+    <string name="diglog_perfect_information">想要更好的个性护肤？3秒钟去完善个人资料吧</string>
+    <string name="diglog_perfect_information_cancle">稍后再说</string>
+    <string name="diglog_perfect_information_now">现在就去</string>
+    <string name="messagetitle">提示</string>
+    <string name="messagecontent">来都来了，完善下个人资料吧</string>
+    <string name="messagecancel">以后再说</string>
+    <string name="messageok">完善一下</string>
+    <!-- 呼叫客服 -->
+    <string name="call_string">呼叫</string>
+    <string name="call_cancle">取消</string>
+    <!-- 清除缓存 -->
+    <string name="dialog_clear_cache">确定清除缓存</string>
+    <string name="dialog_clear_cache_cancle">取消</string>
+    <string name="dialog_clear_cache_sure">确定</string>
+    <string name="clear_cache_success">清除缓存成功</string>
+    <!-- 注销登录成功 -->
+    <string name="logout_success"> 注销登录成功</string>
+    <string name="cancel">取消</string>
+
+    <!-- actionSheet logout -->
+    <string name="action_sheet_logout_logout">退出</string>
+    <string name="action_sheet_logout_cancle">取消</string>
+    <!-- actionSheet photo -->
+    <string name="action_sheet_photo_camera">拍照</string>
+    <string name="action_sheet_photo_album">从相册选择</string>
+    <string name="action_sheet_photo_cancle">取消</string>
+
+    <!-- 去写试用报告成功 -->
+    <string name="write_tryout_report_success">报告提交成功，姐妹圈帖子中可查看</string>
+    <!-- 娱乐 -->
+    <string name="huax">精彩花絮</string>
+    <string name="recreation_title">重磅自制剧</string>
+    
+    
+   <!-- 邮箱 -->
+   <string name="email_select">请选择邮箱</string>
+   <string name="email_input_phone">请输入邮箱账号</string>
+   <string name="email_login">登录邮箱</string>
+   <string name="email_address_isnull">邮箱账号不能为空</string>
+   <string name="email_pwd_isnull">秘密不能为空</string>
+   <string name="email_address_type">邮箱格式不正确</string>
+</resources>

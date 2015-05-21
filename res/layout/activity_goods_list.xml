@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#f7f7f7" >
+
+        <RelativeLayout
+            android:id="@+id/type_layout"
+            android:layout_width="119dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true" >
+
+            <TextView
+                android:id="@+id/type_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/goods_type_show"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/type_show_click"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/img_goodstype_off" />
+
+            <ImageView
+                android:id="@+id/type_show_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/line_goodstype" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/goods_num_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/type_layout"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/sort_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="@string/goods_sort_show"
+            android:textColor="@color/global_main_text_color"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d4d2d1" />
+
+    <com.ipassistat.ipa.view.PaginationListView
+        android:id="@+id/goods_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:scrollbars="none" 
+        />
+
+    <LinearLayout
+        android:id="@+id/goods_null_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/error_image"
+            android:layout_marginTop="50dp" 
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/error_empty_product"
+            android:layout_gravity="center_horizontal" 
+            android:layout_marginTop="44dp"/>
+    </LinearLayout>
+
+</LinearLayout>

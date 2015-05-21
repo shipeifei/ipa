@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/post_filter_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="3dip"
+    android:paddingRight="3dip" >
+
+    <TextView
+        android:id="@+id/post_filter_item_quanbu"
+        style="@style/stylePostFilterItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_filter_item_quanbu" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grey" />
+
+    <TextView
+        android:id="@+id/post_filter_item_fabu"
+        style="@style/stylePostFilterItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_filter_item_fabu" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grey" />
+
+    <TextView
+        android:id="@+id/post_filter_item_canyu"
+        style="@style/stylePostFilterItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_filter_item_canyu" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grey" />
+
+    <TextView
+        android:id="@+id/post_filter_item_shoucang"
+        style="@style/stylePostFilterItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/post_filter_item_shoucang" />
+
+</LinearLayout>

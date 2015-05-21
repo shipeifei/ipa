@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </com.ipassistat.ipa.view.TitleBar>
+
+    <include 
+        android:id="@+id/no"
+        layout="@layout/view_no_official"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+    
+    <com.ipassistat.ipa.view.PaginationListView
+        android:id="@+id/offcial_activities"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:listSelector="@android:color/transparent" >
+    </com.ipassistat.ipa.view.PaginationListView>
+
+</LinearLayout>

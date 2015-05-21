@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/divider_line" />
+
+    <com.ipassistat.ipa.view.HmlEditText
+        android:id="@+id/nick_name"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:drawableLeft="@drawable/account_imgv"
+        android:drawablePadding="15dp"
+        android:hint="@string/input_nickname"
+        android:maxLength="20"
+        android:paddingLeft="25dp"
+        android:paddingRight="33dip"
+        android:textSize="@dimen/login_register_content" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/divider_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="25dp" >
+
+        <EditText
+            android:id="@+id/pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="45dp"
+            android:layout_weight="8"
+            android:background="@android:color/white"
+            android:drawableLeft="@drawable/lock_imgv"
+            android:drawablePadding="15dp"
+            android:hint="@string/pwd_hint"
+            android:maxLength="16"
+            android:password="true"
+            android:textSize="@dimen/login_register_content" />
+
+        <ImageView
+            android:id="@+id/is_show_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="26dp"
+            android:layout_weight="1"
+            android:background="@drawable/image_showpwd_selector" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/divider_line" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="37dp"
+        android:background="@drawable/login_bg"
+        android:gravity="center"
+        android:text="@string/register_button"
+        android:textColor="@android:color/white"
+        android:textSize="20dip" />
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dip" >
+
+    <com.ipassistat.ipa.view.CropImageView
+        
+        android:id="@+id/image"
+        android:layout_width="75dip"
+        android:layout_height="75dip"
+        android:layout_centerVertical="true"
+        android:src="@drawable/default_goods_img"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/folderName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/image"
+        android:maxWidth="240dip"
+        android:singleLine="true"
+        android:text="文件夹名字文件夹名字文件夹名字文件夹名字文件夹名字文件夹名字文件夹名字文件夹名字"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/photosCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/folderName"
+        android:text="(100)" />
+
+    <ImageView
+        android:id="@+id/forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/photosCount" />
+
+</RelativeLayout>

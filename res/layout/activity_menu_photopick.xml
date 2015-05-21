@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="10dip" >
+<!-- 
+    <Button
+        android:id="@+id/button_fromcamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拍照" />
+
+    <Button
+        android:id="@+id/button_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="手机相册" /> -->
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/frame1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" >
+
+        <View
+            android:id="@+id/a"
+            style="@style/block_vertical"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp" />
+
+        <TextView
+            android:id="@+id/order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/a"
+            android:gravity="center"
+            android:text="订单号："
+            android:textColor="#707070"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/order_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="23dp"
+            android:gravity="center"
+            android:textColor="#ec6a13"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+<View 
+    	style="@style/line"
+    />
+    
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="17dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="51dp" >
+
+        <TextView
+            android:id="@+id/order_total_price_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:gravity="center"
+            android:text="合计："
+            android:textColor="#171717"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/order_item_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/order_total_price_name"
+            android:gravity="center"
+            android:textColor="@color/global_price_text_color"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/order_confirm"
+            android:layout_width="82dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/bg_border_order_confirm_no_click"
+            android:gravity="center"
+            android:textColor="#ec6a13"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+
+    <View style="@style/line" />
+
+</LinearLayout>

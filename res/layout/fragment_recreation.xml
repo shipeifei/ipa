@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/recreation_title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/recreation_title_bar"
+        android:background="@color/white"
+        android:paddingLeft="11dp"
+        android:paddingRight="11dp" >
+
+        <com.ipassistat.ipa.view.PullPinnedHeaderListView
+            android:id="@+id/recreation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:divider="@color/white" >
+        </com.ipassistat.ipa.view.PullPinnedHeaderListView>
+    </RelativeLayout>
+
+    <com.ipassistat.ipa.view.NoticeView
+        android:id="@+id/noticeView"
+        android:layout_below="@id/recreation_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

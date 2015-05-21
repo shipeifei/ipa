@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:circleimage="http://schemas.android.com/apk/res/com.ichsy.mboss"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:src="@drawable/listview_divder_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:background="@drawable/pop_post_bg_frame"
+        android:orientation="vertical"
+        android:padding="1dp" >
+
+        <LinearLayout
+            android:id="@+id/post_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.ipassistat.ipa.view.CropImageView
+                android:id="@+id/post_pic"
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="-15dp"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingRight="16dp" >
+
+                <com.ipassistat.ipa.view.CircularImageView
+                    android:id="@+id/user_head"
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                  />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="7dp"
+                    android:textColor="@color/global_main_text_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/post_layout"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:text="正品正品正品正品正品正品正品正品"
+            android:textColor="#101010"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/title"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingRight="16dp" >
+
+            <TextView
+                android:id="@+id/scan_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#707070"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/reply_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="#707070"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

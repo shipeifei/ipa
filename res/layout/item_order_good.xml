@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_item_order_listview_item_height"
+    android:background="#FFFFFF" >
+
+    <ImageView
+        android:id="@+id/thumb"
+        android:layout_width="93dp"
+        android:layout_height="93dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/default_goods_img"
+        android:padding="1dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/thumb"
+        android:singleLine="true"
+        android:text="红石榴滋养霜50ml"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@id/thumb" >
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="￥50.00"
+            android:textColor="@color/global_price_text_color"
+            android:textSize="16sp" />
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/price"
+            layout="" >
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="数量：2"
+                android:textColor="#707070"
+                android:textSize="13sp" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="53dp"
+            android:layout_height="29dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="17dp"
+            android:background="@drawable/bg_border_black"
+            android:gravity="center"
+            android:text="评价"
+            android:textColor="#707070"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <!-- 占位用 -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="11dp"
+        android:layout_below="@id/thumb" />
+
+    <View
+        style="@style/line"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

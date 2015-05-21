@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="135dp"
+    android:background="@color/white"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp" >
+
+    <com.ipassistat.ipa.view.CropImageView
+        android:id="@+id/goods_img"
+        android:layout_width="113dp"
+        android:layout_height="113dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/default_goods_img"
+        android:padding="1dp"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/goods_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/goods_img" >
+
+        <TextView
+            android:id="@+id/goods_name_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textSize="16dip" >
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/tab_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goods_name_show"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/goods_tab_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#8b6e3b"
+                android:textSize="13dip" />
+
+            <TextView
+                android:id="@+id/goods_tab_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#8b6e3b"
+                android:textSize="13dip" />
+
+            <TextView
+                android:id="@+id/goods_tab_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#8b6e3b"
+                android:textSize="13dip" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/price_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tab_linear"
+            android:layout_marginTop="8dp"
+            android:gravity="bottom" >
+
+            <TextView
+                android:id="@+id/goods_price_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/global_price_text_color"
+                android:textSize="23dip" />
+
+            <TextView
+                android:id="@+id/goods_old_price_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:textColor="#6f6f6f"
+                android:textSize="13dip" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/goods_sale_num_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price_linear"
+            android:layout_marginTop="5dp"
+            android:textColor="#707070"
+            android:textSize="13dip" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/goods_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/personal_arraws"
+        android:visibility="gone" />
+
+</RelativeLayout>

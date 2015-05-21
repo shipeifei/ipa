@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical"
+    android:paddingLeft="11dip"
+    android:paddingRight="11dip" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/meili" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_border"
+        android:paddingBottom="12dp" >
+
+        <ImageView
+            android:id="@+id/timelimit_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/default_goodsdetail_img" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/timelimitclockbg"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <com.ipassistat.ipa.view.CustomDigitalClock
+                android:id="@+id/timelimitclock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/timelimitbuy_clock"
+                android:drawablePadding="5dp"
+                android:singleLine="true"
+                android:textColor="#2d2d2d"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/timelimit_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/timelimit_image"
+            android:layout_toLeftOf="@+id/timelimit_imge_sale"
+            android:focusable="false"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="#101010"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/timelimit_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timelimit_title"
+            android:layout_marginTop="11dp"
+            android:focusable="false"
+            android:gravity="center_vertical"
+            android:paddingLeft="11dp"
+            android:textColor="#747474"
+            android:textSize="27sp" />
+
+        <TextView
+            android:id="@+id/timelimit_cost_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/timelimit_cost"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/timelimit_cost"
+            android:focusable="false"
+            android:gravity="center_vertical"
+            android:textColor="#686868"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/timelimit_imge_sale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/timelimit_cost"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="13dp"
+            android:background="@drawable/timelimitbuy_sale"
+            android:gravity="center_horizontal|bottom" >
+
+            <TextView
+                android:id="@+id/timelimit_discount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="21dp"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

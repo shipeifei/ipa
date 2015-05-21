@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip"
+    android:paddingTop="10dip" >
+
+    <View
+        android:id="@+id/view_readstate"
+        android:layout_width="10dip"
+        android:layout_height="10dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="14dip"
+        android:background="@drawable/icon_dot_red" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textview_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sistergroup_message_system_title"
+                android:textColor="@color/black_02" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textview_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:text="你报名的韩束电视节目即将开始啦，不要错过哦" />
+
+        <TextView
+            android:id="@+id/textview_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="2014-07-24 22:22"
+            android:textColor="@color/black_02" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- 480*800 -->
+<!-- 短信分享APP 选择联系人页面 -->
+     <dimen  name="selectalltextleftpadding">27dp</dimen>
+</resources>

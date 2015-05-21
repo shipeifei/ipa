@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/shoppingcart_no_goods"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/nogoods_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/vertical_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/nogoods_img"
+            android:text="@string/shoppingcart_nogoods"
+            android:textColor="#707070"
+            android:textSize="17sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#C8C8C8" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        android:gravity="center_vertical" >
+
+        <CheckBox
+            android:id="@+id/select_btn"
+            android:layout_width="23dp"
+            android:layout_height="111dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:button="@drawable/shoppingcart_checkbox_selector" />
+
+        <com.ipassistat.ipa.view.CropImageView
+            android:id="@+id/goods_img"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/select_btn"
+            android:background="@drawable/default_goods_img"
+            android:padding="1dp"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:id="@+id/timelimit_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/timelimit_tab"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/goods_name_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@id/goods_img"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/goods_price_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goods_name_show"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="13dp"
+            android:layout_toRightOf="@id/goods_img"
+            android:textColor="@color/global_price_text_color"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/goods_num_linear"
+            android:layout_width="109dp"
+            android:layout_height="42dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/goods_name_show"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="0dp"
+            android:gravity="bottom" >
+
+            <ImageView
+                android:id="@+id/goods_num_reduction"
+                android:layout_width="36dp"
+                android:layout_height="31dp"
+                android:background="@drawable/button_shoppingcart_reduction_on" />
+
+            <EditText
+                android:id="@+id/goods_num_edit"
+                android:layout_width="36dp"
+                android:layout_height="31dp"
+                android:background="@drawable/bg_shoppingcart_goodsnum_edit"
+                android:gravity="center"
+                android:inputType="number"
+                android:nextFocusDown="@null"
+                android:text="1"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:maxLength="9" />
+
+            <ImageView
+                android:id="@+id/goods_num_plus"
+                android:layout_width="36dp"
+                android:layout_height="31dp"
+                android:background="@drawable/button_shoppingcart_plus_on" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/goods_num_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/goods_num_linear"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:drawableLeft="@drawable/img_goodsnum_hint"
+            android:textColor="#ff0000"
+            android:textSize="12sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/click_area"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/goods_num_linear"
+            android:layout_toRightOf="@id/select_btn" />
+    </RelativeLayout>
+
+</LinearLayout>

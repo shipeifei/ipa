@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </com.ipassistat.ipa.view.TitleBar>
+
+    <com.ipassistat.ipa.view.pulldown.PullToRefreshScrollView
+        android:id="@+id/refresh_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleBar"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/titleBar" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="216dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/default_goodsdetail_img" />
+
+                <TextView
+                    android:id="@+id/product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableRight="@drawable/personal_arraws"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="26dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="14dp"
+                    android:paddingTop="17dp"
+                    android:singleLine="true"
+                    android:textColor="#101010"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:id="@+id/linear_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal"
+                    android:paddingBottom="15dp" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            style="@style/trialCenter_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="15dp"
+                            android:text="@string/price" />
+
+                        <TextView
+                            android:id="@+id/product_price"
+                            style="@style/trialCenter_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="#CCCCCC" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            style="@style/trialCenter_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="15dp"
+                            android:text="@string/try_price" />
+
+                        <TextView
+                            android:id="@+id/product_price_try"
+                            style="@style/trialCenter_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="#CCCCCC" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/postage_count"
+                            style="@style/trialCenter_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="15dp"
+                            android:text="@string/postage" />
+
+                        <TextView
+                            android:id="@+id/product_price_postage"
+                            style="@style/trialCenter_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginTop="17dp"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <com.ipassistat.ipa.view.CustomDigitalClock
+                            android:id="@+id/product_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="50dp"
+                            android:drawableLeft="@drawable/timelimitbuy_clock"
+                            android:drawablePadding="10dp"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/product_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/product_time"
+                            android:drawableLeft="@drawable/account_imgv"
+                            android:drawablePadding="10dp"
+                            android:gravity="center" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/product_oper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/product_notfy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_goodsdetail_tab"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="21dp"
+                    android:paddingTop="16dp"
+                    android:text="@string/try_detail"
+                    android:textColor="#101010"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:paddingBottom="23dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="23dp" >
+
+                    <WebView
+                        android:id="@+id/product_notfy_detial_webview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </com.ipassistat.ipa.view.pulldown.PullToRefreshScrollView>
+
+    <com.ipassistat.ipa.view.NoticeView
+        android:id="@+id/noticeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleBar" />
+
+</RelativeLayout>

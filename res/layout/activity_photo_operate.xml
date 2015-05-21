@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:clipcircle="http://schemas.android.com/apk/res/com.ichsy.mboss"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.GestureHandleImgeView
+        android:id="@+id/gestureHandleImgeView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleBar"
+        android:src="@drawable/ic_launcher" />
+	<com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+    </com.ipassistat.ipa.view.TitleBar>
+   <!--  <com.ipassistat.ipa.view.CircleClipImageView
+        android:id="@+id/circleClipImageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/gestureHandleImgeView1"
+        clipcircle:rLength="136dp" />
+ -->
+</RelativeLayout>

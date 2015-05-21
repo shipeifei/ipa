@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/divider_line" />
+
+    <EditText
+        android:id="@+id/email_account"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:hint="@string/email_input_phone"
+        android:maxLength="30"
+        android:inputType="textEmailAddress" 
+        android:paddingLeft="25dip"
+        android:paddingRight="33dp"
+        android:textSize="@dimen/login_register_content" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/divider_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="25dp" >
+
+        <ImageView
+            android:id="@+id/email_is_show_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="26dp"
+            android:layout_weight="1"
+           android:background="@drawable/image_showpwd_selector" />
+
+        <EditText
+            android:id="@+id/email_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/email_is_show_pwd"
+            android:layout_weight="8"
+            android:background="@android:color/white"
+            android:hint="@string/input_pwd"
+            android:password="true"
+            android:singleLine="true"
+            android:textSize="@dimen/login_register_content" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/divider_line" />
+
+    <LinearLayout
+        android:id="@+id/email_login_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="37dp"
+         android:background="@drawable/layout_login_selector"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:id="@+id/email_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/email_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/email_login"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+   
+
+</LinearLayout>

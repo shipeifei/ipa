@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp" >
+
+        <RadioButton
+            android:id="@+id/select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:paddingLeft="0dp"
+            android:button="@null"
+            android:drawableLeft="@drawable/bg_radiobutton"
+            android:drawablePadding="13dp"
+            android:text="设为默认" />
+
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:drawableLeft="@drawable/icon_edit"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dip"
+            android:paddingRight="20dip"
+            android:text="编辑"
+            android:textColor="#707070"
+            android:textSize="16dip" />
+    </RelativeLayout>
+
+    <View style="@style/line" />
+
+    <include layout="@layout/item_address_receive" />
+
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string-array name="skin_type">
+        <item>混合皮肤</item>
+        <item>干性皮肤</item>
+        <item>中性皮肤</item>
+        <item>油性皮肤</item>
+        <item>敏感皮肤</item>
+    </string-array>
+    <string-array name="expectant">
+        <item>美白</item>
+        <item>祛痘</item>
+        <item>祛斑</item>
+        <item>抗皱</item>
+        <item>细致毛孔</item>
+        <item>抗敏感</item>
+        <item>保湿</item>
+    </string-array>
+    <string-array name="photo_from">
+        <item>拍照</item>
+        <item>手机相册</item>
+    </string-array>
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+    <string-array name="sistergroup_post_action">
+        <item>阅览</item>
+        <item>回复</item>
+          <item>赞</item>
+    </string-array>
+    <string-array name="sistergroup_post_message_action">
+        <item>评论了你</item>
+        <item>赞了你的帖子</item>
+        <item>赞了你的评论</item>
+        <item>回复了你</item>
+        <item>unknow</item>
+    </string-array>
+    <string-array name="sistergroup_post_collect_action">
+        <item>收藏帖子</item>
+        <item>取消收藏</item>
+    </string-array>
+    <string-array name="sistergroup_message_type">
+        <item>通知</item>
+        <item>小编提醒</item>
+        <item>未知</item>
+    </string-array>
+    <string-array name="sistergroup_bottom_btn">
+        <item>评价</item>
+        <item>发布</item>
+    </string-array>
+    <string-array name="sistergroup_button_agree">
+        <item>赞</item>
+        <item>已赞</item>
+    </string-array>
+
+    <integer-array name="trial_postage">
+        <item>@drawable/trial_now</item>
+        <item>@drawable/trial_end</item>
+        <item>@drawable/trial_already_get</item>
+        <item>@drawable/trial_write_report</item>
+    </integer-array>
+    <integer-array name="trial_free">
+        <item>@drawable/trial_request</item>
+        <item>@drawable/trial_already</item>
+        <item>@drawable/trial_end</item>
+        <item>@drawable/trial_write_report</item>
+    </integer-array>
+
+    <string-array name="pay_type">
+        <item>微信支付</item>
+        <item>支付宝</item>
+    </string-array>
+
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="edge_size" format="dimension" />
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="shadow_left" format="reference" />
+        <attr name="shadow_right" format="reference" />
+        <attr name="shadow_bottom" format="reference" />
+    </declare-styleable>
+
+    <attr name="SwipeBackLayoutStyle" format="reference" />
+
+</resources>

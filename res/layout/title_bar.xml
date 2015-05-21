@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/global_titlebar_height"
+    android:background="@drawable/bg_nav_bar" >
+
+    <ImageView
+        android:id="@+id/left_imgv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:scaleType="centerInside"
+        android:src="@drawable/back_arrow"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="60dip"
+        android:layout_marginRight="60dip"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="hml"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/title_text_size" />
+
+    <ImageView
+        android:id="@+id/right_imgv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:scaleType="centerInside" />
+
+    <ImageView
+        android:id="@+id/share_imgv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="22dp"
+        android:layout_toLeftOf="@id/right_imgv"
+        android:scaleType="centerInside"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/right_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="17sp"
+        android:visibility="gone" />
+
+    <!-- 购物车图标 -->
+
+    <LinearLayout
+        android:layout_width="28dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/shoppingcart_num_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_shoppingcart_num"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/global_main_text_color"
+            android:textSize="12dip"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textview_right_tip"
+        android:layout_width="18dip"
+        android:layout_height="18dip"
+        android:layout_alignRight="@id/right_textview"
+        android:layout_alignTop="@id/right_textview"
+        android:layout_marginRight="-8dip"
+        android:layout_marginTop="-8dip"
+        android:background="@drawable/background_top_tips"
+        android:gravity="center"
+        android:text="5"
+        android:textColor="@color/red_01"
+        android:visibility="gone" />
+
+</RelativeLayout>

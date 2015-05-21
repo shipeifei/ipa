@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circleimage="http://schemas.android.com/apk/res/com.ichsy.mboss"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </com.ipassistat.ipa.view.TitleBar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleBar" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RelativeLayout
+                android:id="@+id/personal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/personal_bg" >
+
+                <RelativeLayout
+                    android:id="@+id/register_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="43dp"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                  <!--   <com.ipassistat.ipa.view.CircularImageView
+                        android:id="@+id/photo"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/personal_photo"
+                        circleimage:borderInnerColor="@color/white"
+                        circleimage:borderInnerWidth="2dp"
+                        circleimage:borderOuterColor="@color/photo_circle"
+                        circleimage:borderOuterWidth="4dp" /> -->
+
+                    <TextView
+                        android:id="@+id/welcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="23dp"
+                        android:gravity="center"
+                        android:text="@string/welcome"
+                        android:textColor="@color/text_userinfo"
+                        android:textSize="18sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/welcome"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/trialcenter_register"
+                        android:gravity="center"
+                        android:text="@string/register"
+                        android:textColor="@color/white"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/welcome"
+                        android:layout_toRightOf="@+id/register"
+                        android:background="@drawable/personal_login"
+                        android:gravity="center"
+                        android:text="@string/login"
+                        android:textColor="@color/white"
+                        android:textSize="17dip" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/username_skintype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="44dp" >
+
+                   <!--  <com.ipassistat.ipa.view.CircularImageView
+                        android:id="@+id/photo_login"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginTop="28dp"
+                        android:src="@drawable/personal_photo"
+                        circleimage:borderInnerColor="@color/white"
+                        circleimage:borderInnerWidth="2dp"
+                        circleimage:borderOuterColor="@color/photo_circle"
+                        circleimage:borderOuterWidth="4dp" />
+ -->
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dip"
+                        android:layout_marginTop="39dp"
+                        android:layout_toLeftOf="@+id/edit"
+                     
+                        android:layout_marginRight="5dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/text_userinfo"
+                        android:textSize="18sp"
+                        />
+
+                      <TextView
+                        android:id="@+id/sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/username"
+                        android:layout_alignLeft="@id/username"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/text_userinfo"
+                        android:textSize="16sp" />
+                    
+                       <TextView
+                        android:id="@+id/century"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_toRightOf="@id/sex"
+                        android:layout_alignBottom="@id/sex"
+                        android:layout_marginLeft="11dp"
+                        android:textColor="@color/text_userinfo"
+                        android:textSize="16sp" />
+                      
+
+                    <ImageView
+                        android:id="@+id/edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="23dp"
+                        android:layout_marginTop="51dp"
+                        android:background="@drawable/arrow_edit" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/cart_and_orderform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/personal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/cart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/personalcenter_cart" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cart"
+                        android:textColor="@color/text_userinfo" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="62dp"
+                    android:background="@drawable/personalcenter_cart_order_line" />
+
+                <LinearLayout
+                    android:id="@+id/orderform"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/personalcenter_myorder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/my_order"
+                        android:textColor="@color/text_userinfo" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_trial_collection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cart_and_orderform"
+                android:background="@drawable/item_border_topandbottom"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/trial"
+                    style="@style/personalcenter_bottombuttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/personalcenter_mytrial"
+                    android:text="@string/my_try" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="20dp"
+                    android:background="#dbdbdb" />
+
+                <Button
+                    android:id="@+id/my_collection"
+                    style="@style/personalcenter_bottombuttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/personalcenter_mycollection"
+                    android:text="@string/my_collection" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/setings"
+                style="@style/personalcenter_bottombuttons"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_below="@+id/linear_trial_collection"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/item_border_topandbottom"
+                android:drawableLeft="@drawable/shezhi"
+                android:text="@string/settings" />
+
+            <Button
+                android:id="@+id/sharewithfriends"
+                style="@style/personalcenter_bottombuttons"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_below="@+id/setings"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/item_border_topandbottom"
+                android:drawableLeft="@drawable/personal_recommend"
+                android:text="@string/sharewithfriends" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

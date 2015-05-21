@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/goods_type_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/goods_type_bg_selector"
+        android:gravity="center"
+        android:textColor="@drawable/goods_type_text_selector"
+        android:textSize="16sp" />
+
+</LinearLayout>

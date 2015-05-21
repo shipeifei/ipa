@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/meili" >
+
+<!--     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.ichsy.mboss.view.PullListView
+            android:id="@+id/listview_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/meili"
+            android:focusable="true"
+            android:scrollbars="none" />
+
+        <include layout="@layout/activity_error" />
+    </LinearLayout>
+
+    View最上面的一层touch层，一般用来捕获手势操作
+
+    <View
+        android:id="@+id/view_touch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" /> -->
+
+    <com.ipassistat.ipa.view.HmlBaseView
+        android:id="@+id/view_baseview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.ipassistat.ipa.view.HmlBaseView>
+
+</RelativeLayout>

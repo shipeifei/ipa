@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TableViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+    </com.ipassistat.ipa.view.TableViewPager>
+
+    <RadioGroup
+        android:id="@+id/bottom_banner"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@drawable/navigaition_laout_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="3dp" >
+
+        <!-- 首页 -->
+
+        <RadioButton
+            android:id="@+id/home_tv"
+            style="@style/radioStyle"
+            android:drawableTop="@drawable/home_tab_selector"
+            android:text="@string/home" />
+        <!-- 娱乐 -->
+
+        <RadioButton
+            android:id="@+id/time_limited_buy"
+            style="@style/radioStyle"
+            android:drawableTop="@drawable/time_lim_tab_selector"
+            android:text="@string/time_limited_buy" />
+        <!-- 姐妹圈 -->
+
+        <RadioButton
+            android:id="@+id/sister_group"
+            style="@style/radioStyle"
+            android:drawableTop="@drawable/sis_group_tab_selector"
+            android:text="@string/video" />
+        <!-- 消息提示 -->
+
+        <RadioButton
+            android:id="@+id/sister_message"
+            style="@style/toolbar_action_comment"
+            android:background="@drawable/single_message"
+            android:clickable="false"
+            android:visibility="gone" />
+        <!-- 微公社 -->
+
+        <RadioButton
+            android:id="@+id/tiny_community"
+            style="@style/radioStyle"
+            android:drawableTop="@drawable/tiny_com_tab_selector"
+            android:text="@string/me" />
+    </RadioGroup>
+
+</LinearLayout>

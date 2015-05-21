@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="92dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_goods_sort"
+    android:orientation="vertical"
+    android:paddingTop="10dp" >
+
+    <ListView
+        android:id="@+id/sort_listview"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+</LinearLayout>

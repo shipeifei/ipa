@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#f1f1f1">
+ 	<com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.ipassistat.ipa.view.TitleBar>
+    <ListView
+        android:id="@+id/list"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="11dp"
+        android:paddingLeft="26dp"
+    	android:divider="#dbdbdb"
+    	android:dividerHeight="1dp"
+    	android:background="@drawable/personal_button_dabeijing">
+    </ListView>
+</LinearLayout>

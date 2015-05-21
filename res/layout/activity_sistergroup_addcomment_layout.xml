@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textview_upcount"
+        android:paddingTop="dip"
+        android:paddingLeft="12dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sistergroup_add_comment"
+        android:gravity="center_vertical"
+        android:text=" 26 人觉得很赞"
+        android:textColor="@color/goods_type_unclick" />
+
+</LinearLayout>

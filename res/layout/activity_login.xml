@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/divider_line" />
+
+    <com.ipassistat.ipa.view.HmlEditText
+        android:id="@+id/account"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:drawableLeft="@drawable/phone_imgv"
+        android:drawablePadding="15dp"
+        android:hint="@string/input_phone"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:paddingLeft="25dip"
+        android:paddingRight="33dp"
+        android:textSize="@dimen/login_register_content" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/divider_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="25dp" >
+
+        <ImageView
+            android:id="@+id/is_show_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="26dp"
+            android:layout_weight="1"
+           android:background="@drawable/image_showpwd_selector" />
+
+        <EditText
+            android:id="@+id/pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/is_show_pwd"
+            android:layout_weight="8"
+            android:background="@android:color/white"
+            android:drawableLeft="@drawable/lock_imgv"
+            android:drawablePadding="15dp"
+            android:hint="@string/input_pwd"
+            android:password="true"
+            android:singleLine="true"
+            android:textSize="@dimen/login_register_content" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/divider_line" />
+
+    <LinearLayout
+        android:id="@+id/login_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="37dp"
+         android:background="@drawable/layout_login_selector"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/login_button"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="23dp" >
+
+        <TextView
+            android:id="@+id/forget_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/forget_text"
+            android:textColor="@color/goods_detail_tab_bg"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/register_text"
+            android:textColor="@color/goods_detail_tab_bg"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+</LinearLayout>

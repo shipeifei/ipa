@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:minHeight="220dip"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/picker_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip" >
+
+        <LinearLayout
+            android:id="@+id/button_image_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_add_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="6dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_add_photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icon_add"
+                android:drawablePadding="6dp"
+                 android:layout_marginTop="13dp"
+                android:text="@string/add_photo"
+                android:textColor="#dbdbdb"
+                android:textSize="@dimen/text_size_18" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button_product_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/img_add_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="6dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_add_goods" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icon_add"
+                android:layout_marginTop="13dp"
+                android:drawablePadding="6dp"
+                android:text="@string/add_goods"
+                android:textColor="#dbdbdb"
+                android:textSize="@dimen/text_size_18" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:background="@color/black_05"
+        android:padding="1dip"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip"
+        android:visibility="gone" >
+
+        <include layout="@layout/adapter_goods_listview" />
+    </LinearLayout>
+
+    <com.ipassistat.ipa.view.CustomGridView
+        android:id="@+id/gridview_images"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="10dip"
+        android:numColumns="4"
+        android:paddingBottom="10dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="20dip"
+        android:verticalSpacing="10dip" >
+    </com.ipassistat.ipa.view.CustomGridView>
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="clipCircle">
+        <attr name="rLength" format="dimension|reference"></attr>
+    </declare-styleable>
+	<declare-styleable name="circleImage">
+        <attr name="borderInnerWidth" format="dimension|reference"></attr>
+        <attr name="borderOuterWidth" format="dimension|reference"></attr>
+        <attr name="borderInnerColor" format="color"></attr>
+        <attr name="borderOuterColor" format="color"></attr>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:background="@color/meili"
+    android:orientation="vertical" >
+
+    <com.ipassistat.ipa.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.ipassistat.ipa.view.TitleBar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/email_wangyi"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/email_163"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:id="@+id/email_sina"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/email_sina"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:id="@+id/email_qq"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/email_qq"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:id="@+id/email_gmail"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/email_gmail"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:id="@+id/email_msn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/email_msn"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:id="@+id/email_sohu"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/email_sohu"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:id="@+id/email_other"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/email_other"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

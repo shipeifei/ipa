@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- 图片轮播 -->
+
+    <com.ipassistat.ipa.view.autoviewpager.AutoScrollViewPager
+        android:id="@+id/autopager_view"
+        android:layout_width="match_parent"
+        android:layout_height="326dp"
+        android:layout_alignParentTop="true" />
+    <!-- 图片轮播小圆点 -->
+
+    <com.ipassistat.ipa.view.banner.CirclePageIndicator
+        android:id="@+id/pageindicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/autopager_view"
+        android:layout_marginBottom="5dp" />
+
+    <!-- 暂无货图片 -->
+
+    <ViewStub
+        android:id="@+id/nogoods_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="18dp"
+        android:layout="@layout/view_nogoods_state" />
+
+    <!-- 限时抢购商品限量多少件 -->
+
+    <ViewStub
+        android:id="@+id/goods_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="18dp"
+        android:layout="@layout/view_goods_state" />
+
+    <RelativeLayout
+        android:id="@+id/goods_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/autopager_view"
+        android:background="#ffffff"
+        android:paddingBottom="10dp"
+        android:paddingLeft="11dp"
+        android:paddingTop="16dp" >
+
+        <!-- 商品名称 -->
+
+        <TextView
+            android:id="@+id/goods_name_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textColor="#101010"
+            android:textSize="17sp" />
+
+        <!-- 商品编码 -->
+
+        <TextView
+            android:id="@+id/goods_code_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goods_name_show"
+            android:layout_marginTop="10dp"
+            android:textColor="#6f6f6f"
+            android:textSize="16sp" />
+
+        <!-- 商品现价 -->
+
+        <TextView
+            android:id="@+id/goods_price_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goods_code_show"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/global_price_text_color"
+            android:textSize="23sp" />
+
+        <!-- 商品原价 -->
+
+        <TextView
+            android:id="@+id/goods_old_price_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goods_code_show"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/goods_price_show"
+            android:textColor="#6f6f6f"
+            android:textSize="13sp" />
+        <!-- 商品折扣 -->
+
+        <TextView
+            android:id="@+id/goods_discount_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/timelimitbuy_sale"
+            android:gravity="center_horizontal"
+            android:paddingTop="3dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <!-- 产品详情，评价 标题栏 -->
+
+    <include
+        android:id="@+id/goods_detail_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/goods_info"
+        android:layout_marginTop="2dp"
+        layout="@layout/item_goods_detail_top" />
+
+</RelativeLayout>
