@@ -17,10 +17,10 @@ public class ConfigInfo {
 	public static final String SKIN_EXEPTE_NAME = "skin_expt_name_flag";
 	public static final String VERSION_CODE="SI2013";
 	/**
-	 * hml 的apikey: betabeauty
-	 * xiaoshidai的appkey: betacyoung
+	 * 
+	 * appkey
 	 */
-	public static final String APIKEY = "betacyoung"; // betabeauty
+	public static final String APIKEY = "iznms"; // iznms
 
 	public static final String SCHEME = "ipa://"; //跳转的scheme协议地址
 	/**

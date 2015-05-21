@@ -5,7 +5,7 @@ import android.content.Context;
 public class EmailDomainAction implements IDomainAction {
 
 	@Override
-	public void action(Context context, String actionContent) {
+	public void action(Object object) {
 		// TODO Auto-generated method stub
 		
 	}

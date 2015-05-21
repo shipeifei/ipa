@@ -19,7 +19,6 @@ import com.ipassistat.ipa.business.UserModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.dao.cache.CacheConstant;
 import com.ipassistat.ipa.dao.cache.CacheFactory;
-import com.ipassistat.ipa.util.ApiUrl;
 import com.ipassistat.ipa.util.LogUtil;
 import com.ipassistat.ipa.util.NetUtil;
 import com.ipassistat.ipa.util.ToastUtil;

@@ -12,9 +12,9 @@ import android.content.Context;
 public class BroswerDomainAction implements IDomainAction {
 
 	@Override
-	public void action(Context context, String actionContent) {
+	public void action(Object object) {
 		// TODO Auto-generated method stub
-		IntentUtil.openBrowser(context, actionContent);
+		IntentUtil.openBrowser(domainContext.context, "");
 	}
 
 	@Override

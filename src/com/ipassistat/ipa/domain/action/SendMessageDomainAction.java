@@ -12,14 +12,14 @@ import android.content.Context;
 public class SendMessageDomainAction implements IDomainAction {
 
 	@Override
-	public void action(Context context, String actionContent) {
-		final Context _conContext=context;
+	public void action(Object object) {
+		
 		// TODO Auto-generated method stub
 		Thread thread = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				SendSmsManager.getSharedInstance().sendMessage(_conContext, "18301298552", "测试发送短信内容");
+				SendSmsManager.getSharedInstance().sendMessage(domainContext.context, "18301298552", "测试发送短信内容");
 
 			}
 		});

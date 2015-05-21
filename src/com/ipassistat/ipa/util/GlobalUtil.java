@@ -1,6 +1,7 @@
 package com.ipassistat.ipa.util;
 
 import com.ipassistat.ipa.constant.ConfigInfo;
+import com.ipassistat.ipa.httprequest.ApiUrl;
 
 import android.content.Context;
 import android.text.TextUtils;

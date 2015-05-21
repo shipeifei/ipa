@@ -15,8 +15,9 @@ import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.ipassistat.ipa.business.AppSettingController;
 import com.ipassistat.ipa.constant.ConfigInfo;
+import com.ipassistat.ipa.domain.action.DomainContext;
+import com.ipassistat.ipa.httprequest.ApiUrl;
 import com.ipassistat.ipa.ui.activity.MainActivity;
-import com.ipassistat.ipa.util.ApiUrl;
 import com.ipassistat.ipa.util.GlobalUtil;
 import com.umeng.analytics.AnalyticsConfig;
 
@@ -47,7 +48,7 @@ public class IpaApplication extends FrontiaApplication {
 
 		// 在使用 SDK 各组间之前初始化 context 信息，传入 ApplicationContext
 		SDKInitializer.initialize(this);
-
+		DomainContext.getInstance().context=getApplicationContext();
 		GlobalUtil.initByEnvironment();
 
 		if (ConfigInfo.DEBUG) {

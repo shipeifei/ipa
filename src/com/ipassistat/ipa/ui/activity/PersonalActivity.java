@@ -20,7 +20,7 @@ import com.ipassistat.ipa.constant.Constant;
 import com.ipassistat.ipa.constant.IntentFlag;
 import com.ipassistat.ipa.constant.RequestCodeConstant;
 import com.ipassistat.ipa.constant.IntentFlag.IdentifyCodeType;
-import com.ipassistat.ipa.util.ApiUrl;
+import com.ipassistat.ipa.httprequest.ApiUrl;
 import com.ipassistat.ipa.util.GlobalUtil;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.share.um.ShareUM;

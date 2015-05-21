@@ -44,8 +44,9 @@ import com.ipassistat.ipa.bean.response.entity.VideoChannel;
 import com.ipassistat.ipa.business.GoodsModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 
+import com.ipassistat.ipa.domain.action.CallDomainAction;
+import com.ipassistat.ipa.domain.action.DomainContext;
 import com.ipassistat.ipa.domain.action.SendMessageDomainAction;
-import com.ipassistat.ipa.domain.action.TelephoneDomainAction;
 import com.ipassistat.ipa.domain.bean.DomainBaseResponse;
 import com.ipassistat.ipa.domain.service.CallDomainService;
 import com.ipassistat.ipa.ui.activity.GoodsListActivity;
@@ -155,9 +156,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
 		initWidgets();
 		initIat();
-		String result = "{\"rc\": 0, \"text\": \"打开浏览器\",\"service\": \"cn.yunzhisheng.appmgr\", \"code\": \"APP_LAUNCH\",error:{\"code\":\"aaa\",\"message\":\"asdfsaf\"},\"semantic\":{\"intent\":{\"name\":\"asdfs\",\"method\":\"tpe\"}}}";
+		
+		
+		// 测试封装的解析语音协议
+		String result = "{\"rc\": 0, \"text\": \"打电话\",\"service\": \"cn.yunzhisheng.call\", \"code\": \"APP_LAUNCH\",error:{\"code\":\"aaa\",\"message\":\"asdfsaf\"},\"semantic\":{\"intent\":{\"name\":\"时妈妈\",\"method\":\"tpe\"}}}";
 		CallDomainService domainService=new CallDomainService();
-		domainService.parseJsonInfo(result);
+		domainService.startService(result);
 	}
 
 	/***
@@ -330,6 +334,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 			mResultText.setSelection(mResultText.length());
 			if (isLast) {
 				ToastUtil.showToast(mActivity.getApplicationContext(), mResultText.getText().toString());
+				
+				
+				
 				if (mResultText.getText().toString().indexOf("电子邮件") > -1) {
 					Thread thread = new Thread(new Runnable() {
 
@@ -348,11 +355,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 					IntentUtil.openBrowser(mActivity, "http://www.baidu.com");
 
 				} else if (mResultText.getText().toString().indexOf("打电话") > -1) {
-					TelephoneDomainAction telephoneDomain = new TelephoneDomainAction();
-					telephoneDomain.action(mActivity, "哥哥");
+					//CallDomainAction telephoneDomain = new CallDomainAction();
+					//telephoneDomain.action(mActivity, "哥哥");
 				} else if (mResultText.getText().toString().indexOf("发短信") > -1) {
-					SendMessageDomainAction sendMessageDomain = new SendMessageDomainAction();
-					sendMessageDomain.action(mActivity, "测试发送短信");
+					//SendMessageDomainAction sendMessageDomain = new SendMessageDomainAction();
+					//sendMessageDomain.action(mActivity, "测试发送短信");
 				} else {
 					Thread thread = new Thread(new Runnable() {
 

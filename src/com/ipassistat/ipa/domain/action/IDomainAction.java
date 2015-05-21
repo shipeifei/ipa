@@ -1,5 +1,7 @@
 package com.ipassistat.ipa.domain.action;
 
+import com.ipassistat.ipa.domain.bean.DomainBaseResponse;
+
 import android.content.Context;
 
 /***
@@ -9,12 +11,14 @@ import android.content.Context;
  */
 public interface IDomainAction {
 	
+	DomainContext domainContext=DomainContext.getInstance();
+	
 	/***
 	 * 动作行为
 	 * create at 2015-5-20
 	 * author 时培飞
 	 */
-    void action(Context context,String actionContent);
+    void action(Object object);
    
    /***
     * 执行成功

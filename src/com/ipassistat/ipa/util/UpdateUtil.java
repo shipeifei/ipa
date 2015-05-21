@@ -27,6 +27,7 @@ import com.ipassistat.ipa.bean.response.entity.ImageInfo;
 import com.ipassistat.ipa.bean.response.entity.ImageInfoVo;
 import com.ipassistat.ipa.bean.response.entity.PicAllInfo;
 import com.ipassistat.ipa.constant.ConfigInfo;
+import com.ipassistat.ipa.httprequest.ApiUrl;
 
 /**
  * 上传文件的工具类

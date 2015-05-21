@@ -32,7 +32,7 @@ import com.ipassistat.ipa.bean.response.entity.SisterGroupPostVo;
 import com.ipassistat.ipa.bean.response.entity.SisterGroupPostVoExt;
 import com.ipassistat.ipa.business.UserModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
-import com.ipassistat.ipa.util.ApiUrl;
+import com.ipassistat.ipa.httprequest.ApiUrl;
 import com.ipassistat.ipa.util.InputMethodUtil;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.NetUtil;

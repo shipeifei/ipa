@@ -4,25 +4,30 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 
+import com.ipassistat.ipa.domain.bean.CallDomainResponse;
+import com.ipassistat.ipa.domain.bean.DomainBaseResponse;
 import com.ipassistat.ipa.util.ContactsUtil;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.ToastUtil;
 
-public class TelephoneDomainAction implements IDomainAction {
+public class CallDomainAction implements IDomainAction {
 
 	@Override
-	public void action(final Context context,String actionContent) {
+	public void action(Object object) {
+		
+		final CallDomainResponse domainResponse=(CallDomainResponse) object;
 		
 		Thread thread = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 				@SuppressWarnings("static-access")
-				String result = ContactsUtil.getSharedInstance().findPhoneNumber(context, "哥哥");
+				String result = ContactsUtil.getSharedInstance().findPhoneNumber(domainContext.context, domainResponse.getSemantic().getIntent().getName());
 				if (!TextUtils.isEmpty(result)) {
-					IntentUtil.telePhone(context, result);
+					IntentUtil.telePhone(domainContext.context, result);
 				} else {
-					ToastUtil.showToast(context, "没有找到此联系人");
+					IntentUtil.startSystemCallPhoneActivity(domainContext.context, "");
+					 //ToastUtil.showToast(domainContext.context, "没有找到此联系人");
 				}
 			}
 		});
