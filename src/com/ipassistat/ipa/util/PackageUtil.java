@@ -8,12 +8,13 @@ package com.ipassistat.ipa.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ipassistat.ipa.bean.local.AppInfo;
+
 import android.R.bool;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-
-import com.ipassistat.ipa.bean.local.AppInfo;
+import android.util.Log;
 
 /**
  * 获取所有安装的应用程序 com.ipassistat.ipa.util.PackageUtil
@@ -79,5 +80,7 @@ public class PackageUtil {
 		}
 		return flag;
 	}
+	
+	
 
 }
