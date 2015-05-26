@@ -2,6 +2,7 @@ package com.ipassistat.ipa.ui.welcome.activity;
 
 import java.util.List;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,7 +38,8 @@ import com.umeng.analytics.MobclickAgent;
  * Create at 2015-4-20 下午6:42:51
  */
 public class WelcomeActivity extends BaseActivity {
-
+	
+	 
 	// 成员变量声明
 	private ImageView mWelImageView;
 	private AppInfoModule mAppInfoModule;
@@ -51,6 +53,8 @@ public class WelcomeActivity extends BaseActivity {
 
 		public void handleMessage(android.os.Message msg) {
 			IntentUtil.intentToMainActivityOnTime();
+			
+			
          
 		}
 		
@@ -98,8 +102,7 @@ public class WelcomeActivity extends BaseActivity {
 		setContentView(R.layout.activity_welcome);
 		//toastEnvironment();
 
-		
-
+	
 		// 禁止默认的页面统计方式，这样将不会再自动统计Activity 在fragmentActivity+Fragment中使用
 		MobclickAgent.openActivityDurationTrack(false);
 		MobclickAgent.updateOnlineConfig(this);

@@ -41,7 +41,7 @@ public class DeviceUtil {
 		String hintMessage = "";  
 		switch (simState) {  
 		case TelephonyManager.SIM_STATE_UNKNOWN:  
-		    hintMessage = "Unknown";  
+		    hintMessage = "无法获取SIM来源";  
 		    break;  
 		case TelephonyManager.SIM_STATE_ABSENT:  
 		    hintMessage = "no SIM card is available in the device";  

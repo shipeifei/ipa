@@ -305,4 +305,9 @@
    <string name="email_address_isnull">邮箱账号不能为空</string>
    <string name="email_pwd_isnull">秘密不能为空</string>
    <string name="email_address_type">邮箱格式不正确</string>
+   
+   <!-- 联系人 -->
+   <string name="contact_dialog_title">删除</string>
+   <string name="contact_dialog_delete">确定删除该联系人吗？</string>
+   <string name="contact_button_sure">确认</string>
 </resources>

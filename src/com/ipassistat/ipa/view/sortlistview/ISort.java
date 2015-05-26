@@ -22,7 +22,7 @@ public interface ISort<T> {
 	 * 获取listview需要显示的字符串(即T中的字符串字段)
 	 * @return
 	 */
-	public List<String> getSortStrings();
+	public List<T> getSortStrings();
 	
 	/**
 	 * 获取listview的显示item所映射的对象 

@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.ipassistat.ipa.R;
+import com.ipassistat.ipa.bean.request.entity.ContactPerson;
 import com.ipassistat.ipa.view.sortlistview.SideBar.OnTouchingLetterChangedListener;
 
 import android.annotation.SuppressLint;
@@ -14,19 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-/**
+/***
  * 
- * 
- * Package: com.ichsy.mboss.view.sortlistview
- * 
- * File: SortListView.java
- * 
- * @author: 任恒 Date: 2015-3-9
- * 
- *          Modifier： Modified Date： Modify：
- * 
- *          Copyright @ 2015 Corpration Name
- * 
+ * @author shipeifei
+ *
+ * @param <T>
  */
 public class SortListView<T> extends LinearLayout {
 
@@ -116,7 +109,7 @@ public class SortListView<T> extends LinearLayout {
 	private List<SortModel<T>> filledData(ISort<T> iSort) {
 		List<SortModel<T>> mSortList = new LinkedList<SortModel<T>>();
 		SortModel<T> sortModel = null;
-		List<String> strs = iSort.getSortStrings();
+		List<ContactPerson> strs =(List<ContactPerson>) iSort.getSortStrings();
 		List<T> ts = iSort.getSortModel();
 		
 		if(strs ==null) throw new NullPointerException("getSortStrings() can not return null");
@@ -125,11 +118,11 @@ public class SortListView<T> extends LinearLayout {
 
 		for (int i = 0; i < strs.size(); i++) {
 			sortModel = new SortModel<T>();
-			sortModel.setName(strs.get(i));
+			sortModel.setName(strs.get(i).getName());
 			sortModel.setT(ts.get(i));
 			
 			// 汉字转换成拼音
-			String pinyin = mCharacterParser.getSelling(strs.get(i));
+			String pinyin = mCharacterParser.getSelling(strs.get(i).getName());
 			String sortString = pinyin.substring(0, 1).toUpperCase();
 
 			// 正则表达式，判断首字母是否是英文字母

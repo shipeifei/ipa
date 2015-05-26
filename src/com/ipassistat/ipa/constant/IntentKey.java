@@ -3,7 +3,7 @@ package com.ipassistat.ipa.constant;
 /**
  * intent key config
  * 
- * @author lxc
+ * @author shipeifei
  * 
  */
 public class IntentKey {

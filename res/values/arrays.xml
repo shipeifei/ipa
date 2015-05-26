@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
+    
+    <string-array name="contact_type">
+        <item>查看</item>
+        <item>编辑</item>
+        <item>删除</item>
+        <item>打电话</item>
+    </string-array>
     <string-array name="skin_type">
         <item>混合皮肤</item>
         <item>干性皮肤</item>

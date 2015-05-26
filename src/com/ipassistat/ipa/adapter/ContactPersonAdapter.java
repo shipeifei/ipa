@@ -1,93 +1,153 @@
 package com.ipassistat.ipa.adapter;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
+import com.androidquery.AQuery;
 import com.ipassistat.ipa.R;
+import com.ipassistat.ipa.R.drawable;
 import com.ipassistat.ipa.bean.request.entity.ContactPerson;
+import com.ipassistat.ipa.util.GlobalUtil;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Color;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.SectionIndexer;
 import android.widget.TextView;
 
-public class ContactPersonAdapter extends ArrayAdapter<ContactPerson> {
-	private final int VIEW_TYPE = 2;
-	private LayoutInflater inflater;
-	public ContactPersonAdapter(Context context,LayoutInflater inflater) {
-		super(context, 0);
-		this.inflater=inflater;
+public class ContactPersonAdapter extends BaseAdapter implements SectionIndexer {
+
+	private List<ContactPerson> list = null;
+	private Context mContext;
+	private SectionIndexer mIndexer;
+	private AQuery aQuery;
+
+	public ContactPersonAdapter(Context mContext, List<ContactPerson> list) {
+		this.mContext = mContext;
+		this.list = list;
+		aQuery = new AQuery(mContext);
+
 	}
 
 	@Override
-	public boolean isEnabled(int position) {
-		if (getItem(position).getItemType() == 0)// 如果是字母索引
-			return false;// 表示不能点击
-		return super.isEnabled(position);
-	}
+	public View getView( int position, View convertView, ViewGroup parent) {
 
-	@Override
-	public int getItemViewType(int position) { // 重用两个行对象
-		return getItem(position).getItemType();
-	}
+		ViewHolder viewHolder = null;
 
-	@Override
-	public int getViewTypeCount() {
-		return VIEW_TYPE;
-	}
+		// if (person.getItemType() == 0) {
+		// convertView = inflater.inflate(R.layout.contact_index, parent,
+		// false);
+		// initHeader(convertView, person);
+		// //convertView=null;
+		// return convertView;
+		// }
+		//
+		// else {
 
-	@Override
-	public View getView(final int position, View convertView, ViewGroup parent) 
-	{
+		//if (convertView == null) {
+			convertView = LayoutInflater.from(mContext).inflate(R.layout.contact_item, parent, false);
+			viewHolder = new ViewHolder();
 
-		ContactPerson person = (ContactPerson) getItem(position);
-		if (convertView == null) // 如果行对象为空 分别创建行对象
-		{
-			if (person.getItemType() == 0) 
-			{
-				convertView = inflater.inflate(
-						R.layout.contact_index, parent,false);
+			viewHolder.name = (TextView) convertView.findViewById(R.id.phone_name);
 
-			} else if (person.getItemType() == 1)
-			{
-				convertView = inflater.inflate(R.layout.contact_item, parent,false);
+			viewHolder.headPhone = (com.ipassistat.ipa.view.CircularImageView) convertView.findViewById(R.id.contact_phone);
+			viewHolder.tvLetter = (TextView) convertView.findViewById(R.id.catalog);
+			convertView.setTag(viewHolder);
+//		} else {
+//			viewHolder = (ViewHolder) convertView.getTag();
+//		}
+
+		ContactPerson cv = list.get(position);
+		if (cv.getName() != null) {
+			viewHolder.name.setText(cv.getName());
+		}
+		if (cv.getHeadImag() != null) {
+			aQuery.id(viewHolder.headPhone).image(cv.getHeadImag());
+			//(, true, true, GlobalUtil.displayMetrics.widthPixels / 4, drawable.default_goods_noborder);
+
+			//viewHolder.headPhone.setImageBitmap(cv.getHeadImag());
+		}
+
+		if (position == 0) {
+			viewHolder.tvLetter.setVisibility(View.VISIBLE);
+			viewHolder.tvLetter.setText(cv.getLetter());
+		} else {
+			String lastCatalog = list.get(position - 1).getLetter();
+			if (cv.getLetter().equals(lastCatalog)) {
+				viewHolder.tvLetter.setVisibility(View.GONE);
+			} else {
+				viewHolder.tvLetter.setVisibility(View.VISIBLE);
+				viewHolder.tvLetter.setText(cv.getLetter());
 			}
 		}
-
-		if (person.getItemType() == 0) 
-		{
-			initHeader(convertView, person);
-		} else
-		{
-			initContact(convertView, person,position);
-		}
 		return convertView;
+
 	}
-	//快速查找
-	private void initHeader(View view, ContactPerson item) 
-	{
-		TextView name = (TextView) view.findViewById(R.id.indexTv);
-		name.setText(item.getName());
+
+	public class ViewHolder {
+
+		public TextView name;
+		TextView tvLetter;
+		public com.ipassistat.ipa.view.CircularImageView headPhone;
+
 	}
-	//item
-	private void initContact(View view, final ContactPerson item,final int pos) {
-		TextView name = (TextView) view.findViewById(R.id.itemTv);
-		TextView phone = (TextView) view.findViewById(R.id.itemPhone);
-		name.setText(item.getName());
-		phone.setText(item.getPhoneNum());
-		final ImageView iv = (ImageView) view.findViewById(R.id.tv_instroduce2fri_select);
-		if(getItem(pos).isSelected())
-		{
-			iv.setBackgroundResource(R.drawable.selected);
-			iv.setVisibility(View.VISIBLE);//0xdbdbdb
-			view.setBackgroundColor(0xdbdbdb);
-		}else
-		{
-			iv.setBackgroundResource(R.drawable.not);
-			iv.setVisibility(View.VISIBLE);//0xeaeaea
-			view.setBackgroundColor(Color.WHITE);
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return list.size();
+	}
+
+	@Override
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return list.get(arg0);
+	}
+
+	@Override
+	public long getItemId(int arg0) {
+		// TODO Auto-generated method stub
+		return arg0;
+	}
+
+	public Object[] getSections() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getSectionForPosition(int position) {
+
+		return 0;
+	}
+
+	public int getPositionForSection(int section) {
+		ContactPerson mContent;
+		String l;
+		if (section == '!') {
+			return 0;
+		} else {
+			for (int i = 0; i < getCount(); i++) {
+				mContent = (ContactPerson) list.get(i);
+				l = mContent.getLetter();
+				char firstChar = l.toUpperCase().charAt(0);
+				if (firstChar == section) {
+					return i + 1;
+				}
+
+			}
 		}
+		mContent = null;
+		l = null;
+		return -1;
 	}
+
 }

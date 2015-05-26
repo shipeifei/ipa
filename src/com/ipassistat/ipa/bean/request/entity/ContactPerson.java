@@ -7,7 +7,7 @@ import android.graphics.Bitmap;
 public class ContactPerson implements Serializable{  
 	
 	private static final long serialVersionUID = 1L;
-	private int p_id;
+	private String p_id;
     private String name;  //姓名
     private boolean isPerson = true ;
     private String pinYinName;  //拼音
@@ -16,8 +16,14 @@ public class ContactPerson implements Serializable{
     private boolean isSelected = false; //是否被选中
     private boolean isRec = false;    //是否推荐过
     private int itemType;//0是字母 1是条目
+    
+    private String emailType;
+    private String numberType; 
   	private boolean havesend;//发送状态
   	private boolean isSuccess;//是否成功
+  	private String letter;//首字母
+  	
+  	private String email;
     public int getItemType() {
 		return itemType;
 	}
@@ -126,13 +132,61 @@ public class ContactPerson implements Serializable{
 		this.isPerson = isPerson;
 	}
 
-	public int getP_id() {
+	public String getP_id() {
 		return p_id;
 	}
 
 
-	public void setP_id(int p_id) {
+	public void setP_id(String p_id) {
 		this.p_id = p_id;
+	}
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	/**
+	 * @return the emailType
+	 */
+	public String getEmailType() {
+		return emailType;
+	}
+	/**
+	 * @param emailType the emailType to set
+	 */
+	public void setEmailType(String emailType) {
+		this.emailType = emailType;
+	}
+	/**
+	 * @return the numberType
+	 */
+	public String getNumberType() {
+		return numberType;
+	}
+	/**
+	 * @param numberType the numberType to set
+	 */
+	public void setNumberType(String numberType) {
+		this.numberType = numberType;
+	}
+	/**
+	 * @return the letter
+	 */
+	public String getLetter() {
+		return letter;
+	}
+	/**
+	 * @param letter the letter to set
+	 */
+	public void setLetter(String letter) {
+		this.letter = letter;
 	}  
 	
 	

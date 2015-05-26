@@ -1,36 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="#ffffff" >
-
-    <ImageView
-        android:id="@+id/tv_instroduce2fri_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:visibility="invisible" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/itemTv"
-        android:layout_width="80dp"
+        android:id="@+id/catalog"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="50dp"
-        android:textColor="#646464"
-        android:singleLine="true"
-        android:textSize="14dp" />
+        android:background="@drawable/mm_contact_title"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dip"
+        android:paddingRight="4.0dip"
+        android:shadowDx="1.0"
+        android:shadowDy="1.0"
+        android:shadowRadius="1.0"
+        android:textColor="#FF0000" />
 
-    <TextView
-        android:id="@+id/itemPhone"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerInParent="true"
-        android:singleLine="true"
-        android:textColor="#646464"
-        android:textSize="14dp" />
+        android:background="@drawable/contact_listitem"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
-</RelativeLayout>
+        <com.ipassistat.ipa.view.CircularImageView
+            android:id="@+id/contact_phone"
+            android:layout_width="@dimen/icon_small_size"
+            android:layout_height="@dimen/icon_small_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dip"
+            android:gravity="center_vertical"
+            android:scaleType="fitXY"
+            android:src="@drawable/personal_photo" />
+
+        <TextView
+            android:id="@+id/phone_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="8dip"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dip"
+            android:paddingTop="8dip"
+            android:singleLine="true"
+            android:text="hhhh"
+            android:textColor="#646464"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="8dip"
+            android:background="@drawable/btn_style_six_normal"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            android:singleLine="true"
+            android:text="删除"
+            android:textColor="#ffffff"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

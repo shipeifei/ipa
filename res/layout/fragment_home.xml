@@ -38,7 +38,7 @@
             android:drawablePadding="6dp"
             android:drawableTop="@drawable/shiyongzhongxin"
             android:gravity="center"
-            android:text="日历"
+            android:text="联系人"
             android:textColor="#535353" />
 
         <TextView

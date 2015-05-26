@@ -58,30 +58,21 @@ public class SendContacterService extends IntentService {
 
 		try {
 
-			//DeviceUtil.isExistsSIM(this);
+			// DeviceUtil.isExistsSIM(this);
 			String userId = PushUtils.getUserId(this);
 			String channelId = PushUtils.getChannelId(this);
 			LogUtil.outLogDetail("USERID", userId);
 			LogUtil.outLogDetail("CHANNELID", channelId);
 
 			// 获取保存在手机的联系人信息
-			Map<String, ContactPerson> phoneMap = ContactsUtil.getSharedInstance().getPhoneContacts(this);
+			Map<String, ContactPerson> phoneMap = ContactsUtil.getSharedInstance().getPhoneContacts(this,false);
+			phoneMap.putAll(ContactsUtil.getSharedInstance().getSIMContacts(this,false));
+
 			if (phoneMap != null && phoneMap.size() > 0) {
 
 				LogUtil.outLogDetail("", "读取手机联系人");
 				// 遍历手机联系人
 				for (Map.Entry<String, ContactPerson> entry : phoneMap.entrySet()) {
-					System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
-				}
-			}
-
-			// 获取sim卡里面的联系人
-			Map<String, ContactPerson> simMap = ContactsUtil.getSharedInstance().getSIMContacts(this);
-			if (simMap != null && simMap.size() > 0) {
-
-				LogUtil.outLogDetail("", "读取sim卡联系人");
-				// 遍历联系人
-				for (Map.Entry<String, ContactPerson> entry : simMap.entrySet()) {
 					System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
 				}
 			}

@@ -49,9 +49,13 @@ import com.ipassistat.ipa.domain.action.DomainContext;
 import com.ipassistat.ipa.domain.action.SendMessageDomainAction;
 import com.ipassistat.ipa.domain.bean.DomainBaseResponse;
 import com.ipassistat.ipa.domain.service.CallDomainService;
+import com.ipassistat.ipa.domain.service.DomainServiceFactory;
+import com.ipassistat.ipa.ui.activity.CityChoiceActivity;
 import com.ipassistat.ipa.ui.activity.GoodsListActivity;
 import com.ipassistat.ipa.ui.activity.OfficialActivity;
 import com.ipassistat.ipa.ui.activity.PersonalActivity;
+import com.ipassistat.ipa.ui.contact.activity.ContactPersonActivity;
+import com.ipassistat.ipa.ui.welcome.activity.WelcomeActivity;
 import com.ipassistat.ipa.util.ContactsUtil;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.JsonParser;
@@ -159,9 +163,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 		
 		
 		// 测试封装的解析语音协议
-		String result = "{\"rc\": 0, \"text\": \"打电话\",\"service\": \"cn.yunzhisheng.call\", \"code\": \"APP_LAUNCH\",error:{\"code\":\"aaa\",\"message\":\"asdfsaf\"},\"semantic\":{\"intent\":{\"name\":\"时妈妈\",\"method\":\"tpe\"}}}";
-		CallDomainService domainService=new CallDomainService();
-		domainService.startService(result);
+		String result = "{\"rc\": 0, \"text\": \"打电话\",\"service\": \"cn.znms.callservice\", \"code\": \"APP_LAUNCH\",error:{\"code\":\"aaa\",\"message\":\"asdfsaf\"},\"semantic\":{\"intent\":{\"name\":\"asd妈妈\",\"method\":\"tpe\"}}}";
+		DomainServiceFactory.createDomainService(result);
 	}
 
 	/***
@@ -266,13 +269,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 			startActivity(intent1);
 			break;
 		case R.id.trial_center:
-			/*
-			 * MobclickAgent.onEvent(mActivity, "1016"); Intent intent2 = new
-			 * Intent(); intent2.setClass(mActivity, TrialCenterActivity.class);
-			 * intent2.putExtra("title",
-			 * getResources().getString(R.string.trial_center));
-			 * startActivity(intent2);
-			 */
+			Intent intent2=new Intent();
+			intent2.setClass(mActivity, ContactPersonActivity.class);
+			startActivity(intent2);
 			break;
 
 		case R.id.iat_text:

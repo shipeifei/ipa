@@ -16,6 +16,8 @@ public class CallDomainAction implements IDomainAction {
 	public void action(Object object) {
 		
 		final CallDomainResponse domainResponse=(CallDomainResponse) object;
+		if(domainResponse!=null)
+		{
 		
 		Thread thread = new Thread(new Runnable() {
 
@@ -26,12 +28,13 @@ public class CallDomainAction implements IDomainAction {
 				if (!TextUtils.isEmpty(result)) {
 					IntentUtil.telePhone(domainContext.context, result);
 				} else {
-					IntentUtil.startSystemCallPhoneActivity(domainContext.context, "");
+					//IntentUtil.startSystemCallPhoneActivity(domainContext.context, "");
 					 //ToastUtil.showToast(domainContext.context, "没有找到此联系人");
 				}
 			}
 		});
 		thread.start();
+		}
 	}
 
 	@Override

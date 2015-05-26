@@ -512,7 +512,8 @@ public class IntentUtil {
 	 */
 	public static void openInstallApp(Context context, String packageName) {
 		Intent mainIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
-		context.startActivity(mainIntent);
+		//context.startActivity(mainIntent);
+		startIntent(context, mainIntent);
 	}
 
 	/***
@@ -530,7 +531,8 @@ public class IntentUtil {
 		intent.setAction("android.intent.action.VIEW");
 		Uri content_url = Uri.parse(url);
 		intent.setData(content_url);
-		context.startActivity(intent);
+		//context.startActivity(intent);
+		startIntent(context, intent);
 
 	}
 
@@ -541,7 +543,8 @@ public class IntentUtil {
 	 */
 	public static void telePhone(Context context, String phoneNumber) {
 		Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
-		context.startActivity(intent);
+		//context.startActivity(intent);
+		startIntent(context, intent);
 
 	}
 
@@ -559,8 +562,8 @@ public class IntentUtil {
 
 		// 需要发短息的号码
 		intent.setData(Uri.parse("smsto:" + phoneNumber));
-
-		context.startActivity(intent);
+		startIntent(context, intent);
+		//context.startActivity(intent);
 	}
 
 }
