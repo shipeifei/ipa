@@ -40,6 +40,7 @@ public class SharedPreferenceUtil {
 		editor.commit();
 	}
 	
+	
     
     public static String getStringInfo(Context context,String key){
     	String info = getSharedPreferences(context).getString(key, "");

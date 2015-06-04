@@ -2,15 +2,14 @@ package com.ipassistat.ipa.httprequest;
 
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-
 import org.apache.http.Header;
-
 import android.content.Context;
 import android.text.TextUtils;
-
 import com.google.gson.Gson;
+import com.ipassistat.ipa.R;
 import com.ipassistat.ipa.R.string;
 import com.ipassistat.ipa.bean.local.RequestOptions;
 import com.ipassistat.ipa.bean.request.BaseRequest;
@@ -19,18 +18,22 @@ import com.ipassistat.ipa.business.UserModule;
 import com.ipassistat.ipa.constant.ConfigInfo;
 import com.ipassistat.ipa.dao.cache.CacheConstant;
 import com.ipassistat.ipa.dao.cache.CacheFactory;
+import com.ipassistat.ipa.util.DateStyle;
 import com.ipassistat.ipa.util.LogUtil;
 import com.ipassistat.ipa.util.NetUtil;
+import com.ipassistat.ipa.util.SharedPreferenceUtil;
+import com.ipassistat.ipa.util.StringUtil;
+import com.ipassistat.ipa.util.TimeUtils;
 import com.ipassistat.ipa.util.ToastUtil;
+import com.ipassistat.ipa.util.push.baidu.PushUtils;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 /***
- * 网络请求封装
- * com.ipassistat.ipa.dao.CommonDao
- * @author 时培飞 
- * Create at 2015-4-24 下午4:56:55
+ * 网络请求封装 com.ipassistat.ipa.dao.CommonDao
+ * 
+ * @author 时培飞 Create at 2015-4-24 下午4:56:55
  */
 public class HttpCommonRequest extends HttpBaseRequest {
 
@@ -50,11 +53,18 @@ public class HttpCommonRequest extends HttpBaseRequest {
 	 * @param type
 	 *            要得到的对象类型。
 	 */
-	
-	public void getDataByGet(final Context context, final String apiName, final BaseRequest baseRequest, final Class<? extends BaseResponse> type) {
+
+	public void getDataByGet(final Context context, final String apiName, final BaseRequest baseRequest, final Class<? extends BaseResponse> type, final RequestOptions options) {
+		// 判断网络是否可用
 		if (!NetUtil.isNetworkConnected(context)) {
+			if (options.noNetToast) {
+				ToastUtil.showToast(context, R.string.global_message_no_net);
+			}
+
+			dealCacheContent(context, apiName, baseRequest, options, type);
 			businessCallBack.onNoNet();
 			businessCallBack.onMessageFailedCalledBack(apiName, null);
+			businessCallBack.onFinish();
 			return;
 		}
 		String urlforPrint = generateUrl(dealParamsByGet(context, baseRequest, apiName), ApiUrl.getInStance().getAPI_URL_CURRENT(), apiName, true);
@@ -63,7 +73,7 @@ public class HttpCommonRequest extends HttpBaseRequest {
 		new AsyncHttpClient().get(currentUrl, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-				
+
 				String result = new String(responseBody);
 				LogUtil.outLogDetail(result);
 				BaseResponse baseResponse = null;
@@ -87,11 +97,11 @@ public class HttpCommonRequest extends HttpBaseRequest {
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-				
+
 				LogUtil.outLogDetail("statuscoed=" + statusCode);
 				if (responseBody == null) {
 					businessCallBack.onNoTimeOut();
-					ToastUtil.showToast(context, "网络连接超时，请重试");
+					ToastUtil.showToast(context, R.string.global_message_timeout);
 				}
 				businessCallBack.onMessageFailedCalledBack(apiName, null);
 			}
@@ -114,13 +124,12 @@ public class HttpCommonRequest extends HttpBaseRequest {
 	}
 
 	public void getDataByPost(final Context context, final String apiName, final BaseRequest baseRequest, final RequestOptions options, final Class<? extends BaseResponse> type) {
-		// dealCacheContent(context, apiName, baseRequest, options, type);
+
 		if (!NetUtil.isNetworkConnected(context)) {
 			if (options.noNetToast) {
-				ToastUtil.showToast(context, "当前网络不可用，请检查网络连接");
+				ToastUtil.showToast(context, R.string.global_message_no_net);
 			}
-			
-			
+
 			dealCacheContent(context, apiName, baseRequest, options, type);
 			businessCallBack.onNoNet();
 			businessCallBack.onMessageFailedCalledBack(apiName, null);
@@ -149,8 +158,8 @@ public class HttpCommonRequest extends HttpBaseRequest {
 		} else {
 			asyncHttpClient.setTimeout(CacheConstant.CACHE_TIME_OUT);
 		}
-		  //压缩
-		//asyncHttpClient.addHeader("Accept-Encoding", "gzip");
+		// 压缩
+		// asyncHttpClient.addHeader("Accept-Encoding", "gzip");
 		asyncHttpClient.post(ApiUrl.getInStance().getAPI_URL_CURRENT() + apiName, requestParams, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -193,23 +202,22 @@ public class HttpCommonRequest extends HttpBaseRequest {
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-				
+
 				LogUtil.outLogDetail("statuscoed=" + statusCode);
 
-				   dealCacheContent(context, apiName, baseRequest, options, type);
-				
-					if (null == responseBody) {
-						businessCallBack.onNoTimeOut();
-						if (options.timeOutToast) {
-							ToastUtil.showToast(context, "网络连接超时，请重试");
-						}
+				dealCacheContent(context, apiName, baseRequest, options, type);
+
+				if (null == responseBody) {
+					businessCallBack.onNoTimeOut();
+					if (options.timeOutToast) {
+						ToastUtil.showToast(context, R.string.global_message_timeout);
 					}
-					businessCallBack.onNoNet();
-					
-					businessCallBack.onMessageFailedCalledBack(apiName, null);
-					businessCallBack.onFinish();
-				
-				
+				}
+				businessCallBack.onNoNet();
+
+				businessCallBack.onMessageFailedCalledBack(apiName, null);
+				businessCallBack.onFinish();
+
 			}
 		});
 	}
@@ -235,10 +243,10 @@ public class HttpCommonRequest extends HttpBaseRequest {
 				businessCallBack.onMessageSucessCalledBack(apiName, baseResponse);
 				businessCallBack.onFinish();
 				return;
-				
+
 			}
 		}
-		
+
 	}
 
 	private BaseResponse generateObject(String result, Class<? extends BaseResponse> type) {
@@ -252,12 +260,10 @@ public class HttpCommonRequest extends HttpBaseRequest {
 		return baseResponse;
 	}
 
-	
-
 	/***
 	 * 上传图片的方法
-	 * @author 时培飞
-	 * Create at 2015-4-24 下午4:58:14
+	 * 
+	 * @author 时培飞 Create at 2015-4-24 下午4:58:14
 	 */
 	@Deprecated
 	public void uploadFile(final Context context, InputStream inputSteam, final Class<? extends BaseResponse> type) {
@@ -324,8 +330,6 @@ public class HttpCommonRequest extends HttpBaseRequest {
 		});
 	}
 
-	
-
 	/**
 	 * 产生请求的url
 	 * 
@@ -375,6 +379,16 @@ public class HttpCommonRequest extends HttpBaseRequest {
 		} else {
 			Gson gson = new Gson();
 			String apiInputValue = gson.toJson(baseRequest);
+
+//			 HashMap<String, String> result=StringUtil.getSpareArrayFromString(apiInputValue, ",");
+//			 if(result!=null&&result.size()>0)
+//			 {
+//				 for(java.util.Map.Entry<String,String> entry:result.entrySet())
+//				 {
+//					 finalHashMap.put(entry.getKey(), entry.getValue());
+//				 }
+//			 }
+//			 result.clear();
 			finalHashMap.put("api_input", apiInputValue);
 		}
 		finalHashMap.put("api_key", ConfigInfo.APIKEY);
@@ -383,6 +397,41 @@ public class HttpCommonRequest extends HttpBaseRequest {
 		if (!TextUtils.isEmpty(UserModule.getUserToken(context))) {
 			finalHashMap.put("api_token", UserModule.getUserToken(context));
 		}
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_CITY))) {
+			finalHashMap.put("city", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_CITY));
+		}
+
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_PROVINCE))) {
+			finalHashMap.put("province", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_PROVINCE));
+		}
+
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_DISTRICT))) {
+			finalHashMap.put("district", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_DISTRICT));
+		}
+
+		/**
+		 * 纬度参数
+		 */
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_LATITUDE))) {
+			finalHashMap.put("la", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_LATITUDE));
+		}
+
+		/***
+		 * 经度参数
+		 */
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_LONGITUDE))) {
+			finalHashMap.put("lo", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_LONGITUDE));
+		}
+
+		if (!TextUtils.isEmpty(PushUtils.getUserId(context))) {
+			finalHashMap.put("userid", PushUtils.getUserId(context));
+		}
+
+		if (!TextUtils.isEmpty(PushUtils.getChannelId(context))) {
+			finalHashMap.put("channelid", PushUtils.getChannelId(context));
+		}
+
+		finalHashMap.put("date", TimeUtils.getDate(new Date(), DateStyle.YYYY_MM_DD_HH_MM_SS));
 		return finalHashMap;
 	}
 
@@ -401,6 +450,16 @@ public class HttpCommonRequest extends HttpBaseRequest {
 		} else {
 			Gson gson = new Gson();
 			String apiInputValue = gson.toJson(baseRequest);
+
+//			 HashMap<String, String> result=StringUtil.getSpareArrayFromString(apiInputValue, ",");
+//			 if(result!=null&&result.size()>0)
+//			 {
+//				 for(java.util.Map.Entry<String,String> entry:result.entrySet())
+//				 {
+//					 requestParams.put(entry.getKey(), entry.getValue());
+//				 }
+//			 }
+//			 result.clear();
 			requestParams.put("api_input", apiInputValue);
 		}
 		requestParams.put("api_key", ConfigInfo.APIKEY);
@@ -410,6 +469,42 @@ public class HttpCommonRequest extends HttpBaseRequest {
 		if (!TextUtils.isEmpty(userToken)) {
 			requestParams.put("api_token", userToken);
 		}
+
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_CITY))) {
+			requestParams.put("city", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_CITY));
+		}
+
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_PROVINCE))) {
+			requestParams.put("province", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_PROVINCE));
+		}
+
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_DISTRICT))) {
+			requestParams.put("district", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_DISTRICT));
+		}
+
+		/**
+		 * 纬度参数
+		 */
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_LATITUDE))) {
+			requestParams.put("la", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_LATITUDE));
+		}
+
+		/***
+		 * 经度参数
+		 */
+		if (!TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_LONGITUDE))) {
+			requestParams.put("lo", SharedPreferenceUtil.getStringInfo(context, ConfigInfo.CURRENT_LONGITUDE));
+		}
+
+		if (!TextUtils.isEmpty(PushUtils.getUserId(context))) {
+			requestParams.put("userid", PushUtils.getUserId(context));
+		}
+
+		if (!TextUtils.isEmpty(PushUtils.getChannelId(context))) {
+			requestParams.put("channelid", PushUtils.getChannelId(context));
+		}
+
+		requestParams.put("date", TimeUtils.getDate(new Date(), DateStyle.YYYY_MM_DD_HH_MM_SS));
 		return requestParams;
 	}
 }

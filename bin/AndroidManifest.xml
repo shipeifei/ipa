@@ -4,10 +4,12 @@
     android:versionCode="1"
     android:versionName="1.0.0" >
 
-    <uses-sdk
+   <!--  <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="19" />
-
+        android:targetSdkVersion="19" /> -->
+<uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="16" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-      <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -77,7 +79,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
-        android:name=".IpaApplication"
+        android:name="com.ipassistat.ipa.plugin.app.PluginBaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
@@ -108,16 +110,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!-- 微信支付需要的信息 -->
-            <!--
+            <!-- 微信支付需要的信息
+            
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="wxb4964132ba624ffd" />
-            </intent-filter>
-            -->
+            </intent-filter> -->
+           
 
-        </activity>
+        </activity> 
+         
         <!-- 新手指导 -->
         <activity
             android:name=".ui.welcome.activity.GuideActivity"
@@ -174,28 +177,28 @@
             android:screenOrientation="portrait" />
         <!-- 个人中心 -->
         <activity
-            android:name=".ui.activity.PersonalActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.PersonalActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 个人信息 -->
         <activity
-            android:name=".ui.activity.PersonalInfoActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.PersonalInfoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".ui.activity.NickNameEditActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.NickNameEditActivity"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 个人信息选择 -->
         <activity
-            android:name=".ui.activity.PersonalInfoChoActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.PersonalInfoChoActivity"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 护肤需求设置 -->
         <activity
-            android:name=".ui.activity.PersonalSkinExptActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.PersonalSkinExptActivity"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 设置 -->
@@ -301,16 +304,16 @@
             android:name=".ui.activity.AddressEditActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.VerifyCodeGetActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.VerifyCodeGetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.PwdForgettActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.PwdForgettActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.RegisterActivity"
+            android:name="com.ipassistat.ipa.ui.personal.activity.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.AddressReceiveActivity"
@@ -368,7 +371,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
-
+        <!--  -->
         <!-- 联系人 -->
         <activity
             android:name="com.ipassistat.ipa.ui.contact.activity.ContactPersonActivity"
@@ -376,22 +379,31 @@
         </activity>
 
         <!-- 发送联系人信息服务 -->
-        <service android:name="com.ipassistat.ipa.service.SendContacterService" >
+        <service android:name="com.ipassistat.ipa.serviceandbroacast.SendContacterService" >
             <intent-filter>
                 <action android:name="com.ipa.SendContacterService" />
             </intent-filter>
         </service>
-        <!-- 用户消息消息广播 -->
-        <!--
-        <receiver android:name="com.ipassistat.ipa.broadcast.MessageBroadCast" >
+
+        <!-- 监控联系人信息变化服务 -->
+        <service android:name="com.ipassistat.ipa.serviceandbroacast.ContacterSyncService" >
             <intent-filter>
-                <action android:name="com.ipa.MessageBroadCast" >
+                <action android:name="com.ipa.ContacterSyncService" />
+            </intent-filter>
+        </service>
+
+        <!-- 通用服务错误消息广播 -->
+
+        <receiver android:name="com.ipassistat.ipa.serviceandbroacast.ErrorBroadCast" >
+            <intent-filter>
+
+                <!-- 解析失败的错误过滤action -->
+                <action android:name="com.ipa.parseerror" >
                 </action>
             </intent-filter>
         </receiver>
-        -->
 
-
+        
         <!-- 微信及朋友圈分享注册的activity -->
         <activity
             android:name="com.ipassistat.ipa.wxapi.WXEntryActivity"

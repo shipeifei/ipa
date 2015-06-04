@@ -19,12 +19,11 @@ import com.ipassistat.ipa.R;
 import com.ipassistat.ipa.R.drawable;
 import com.ipassistat.ipa.util.BitmapOptionsFactory;
 import com.ipassistat.ipa.util.ImageUtil;
-
-/**
- * 圆形图片
+/***
  * 
- * @author Chao
- * */
+ * @author shipeifei
+ *
+ */
 public class CircularImageView extends ImageView {
 	private final int DEFAULT_INNER_BORDER = 0;
 	private final int DEFAULT_INNER_COLOR = Color.WHITE;
@@ -82,13 +81,13 @@ public class CircularImageView extends ImageView {
 
 	private void initDimems() {
 		mBorderInnerWidth = mTa.getDimension(
-				R.styleable.circleImage_borderInnerWidth, DEFAULT_INNER_BORDER);
+				R.styleable.circleImage_InnerWidth, DEFAULT_INNER_BORDER);
 		mBorderOuterWidth = mTa.getDimension(
-				R.styleable.circleImage_borderOuterWidth, DEFAULT_OUTER_BORDER);
+				R.styleable.circleImage_OuterWidth, DEFAULT_OUTER_BORDER);
 		mBorderInnerColor = mTa.getColor(
-				R.styleable.circleImage_borderInnerColor, DEFAULT_INNER_COLOR);
+				R.styleable.circleImage_InnerColor, DEFAULT_INNER_COLOR);
 		mBorderOuterColor = mTa.getColor(
-				R.styleable.circleImage_borderOuterColor, DEFAULT_OUTER_COLOR);
+				R.styleable.circleImage_OuterColor, DEFAULT_OUTER_COLOR);
 	}
 
 	private void setup() {

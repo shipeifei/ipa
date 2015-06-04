@@ -5,37 +5,30 @@ import com.ipassistat.ipa.util.SendSmsManager;
 import android.content.Context;
 
 /***
- *  发短信领域
+ * 发短信领域
+ * 
  * @author shipeifei
- *
+ * 
  */
 public class SendMessageDomainAction implements IDomainAction {
 
 	@Override
-	public void action(Object object) {
-		
-		// TODO Auto-generated method stub
-		Thread thread = new Thread(new Runnable() {
+	public void action(Object object, Context context) {
 
-			@Override
-			public void run() {
-				SendSmsManager.getSharedInstance().sendMessage(domainContext.context, "18301298552", "测试发送短信内容");
+		SendSmsManager.getSharedInstance().sendMessage(context, "18301298552", "测试发送短信内容");
 
-			}
-		});
-		thread.start();
 	}
 
 	@Override
 	public void success() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void error() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

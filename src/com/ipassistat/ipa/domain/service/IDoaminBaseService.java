@@ -1,5 +1,7 @@
 package com.ipassistat.ipa.domain.service;
 
+import android.content.Context;
+
 import com.ipassistat.ipa.domain.bean.DomainBaseResponse;
 
 /***
@@ -15,14 +17,14 @@ public abstract class IDoaminBaseService {
 	 * create at 2015-5-21
 	 * author 时培飞
 	 */
-   public abstract  boolean parseJsonInfo(String result);
+   public abstract  boolean parseJsonInfo(String result,Context context);
     
     /***
      * 处理不同行为
      * create at 2015-5-21
      * author 时培飞
      */
-   public abstract void selectAction();
+   public abstract void selectAction(Context context);
    
    
    /***
@@ -30,5 +32,5 @@ public abstract class IDoaminBaseService {
     * create at 2015-5-21
     * author 时培飞
     */
-   public abstract String startService(String result);
+   public abstract String startService(String result,Context context);
 }

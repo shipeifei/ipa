@@ -7,7 +7,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 
 import com.ipassistat.ipa.R;
-import com.ipassistat.ipa.ui.activity.LoginActivity;
+import com.ipassistat.ipa.ui.personal.activity.LoginActivity;
 
 
 /**

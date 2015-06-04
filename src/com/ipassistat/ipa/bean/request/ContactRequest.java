@@ -1,18 +1,50 @@
 package com.ipassistat.ipa.bean.request;
 
+/***
+ *  联系人请求实体
+ * @author shipeifei
+ *
+ */
 public class ContactRequest extends BaseRequest {
 
+	private String userid;
+	private String channelid;
+	private String contacts;
 	/**
-	 * 会员手机号
+	 * @return the userid
 	 */
-	private String mobile;
-
-	public String getMobile() {
-		return mobile;
+	public String getUserid() {
+		return userid;
 	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	/**
+	 * @param userid the userid to set
+	 */
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	/**
+	 * @return the channelid
+	 */
+	public String getChannelid() {
+		return channelid;
+	}
+	/**
+	 * @param channelid the channelid to set
+	 */
+	public void setChannelid(String channelid) {
+		this.channelid = channelid;
+	}
+	/**
+	 * @return the contacts
+	 */
+	public String getContacts() {
+		return contacts;
+	}
+	/**
+	 * @param contacts the contacts to set
+	 */
+	public void setContacts(String contacts) {
+		this.contacts = contacts;
 	}
 
 }

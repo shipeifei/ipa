@@ -29,9 +29,9 @@ import com.ipassistat.ipa.constant.InputTypeInfo;
 import com.ipassistat.ipa.constant.IntentFlag;
 import com.ipassistat.ipa.constant.IntentFlag.LoginType;
 import com.ipassistat.ipa.ui.activity.BaseActivity;
-import com.ipassistat.ipa.ui.activity.LoginActivity;
+
 import com.ipassistat.ipa.ui.activity.MainActivity;
-import com.ipassistat.ipa.ui.activity.PwdResetActivity;
+
 import com.ipassistat.ipa.util.StringUtil;
 import com.ipassistat.ipa.util.ToastUtil;
 import com.ipassistat.ipa.view.TitleBar;

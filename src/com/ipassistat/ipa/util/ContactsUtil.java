@@ -81,7 +81,7 @@ public class ContactsUtil {
 	/***
 	 * 获取手机联系人作为list集合返回 create at 2015-5-25 author 时培飞
 	 */
-	public ArrayList<ContactPerson> getPhoneContactsAsList(Context mContext,boolean isGetPhoto) {
+	public ArrayList<ContactPerson> getPhoneContactsAsList(Context mContext, boolean isGetPhoto) {
 		ArrayList<ContactPerson> personMap = new ArrayList<ContactPerson>();
 		ContentResolver resolver = mContext.getContentResolver();
 
@@ -104,23 +104,23 @@ public class ContactsUtil {
 				cp.setPinYinName(contaPinyinString);
 				cp.setLetter(getAlpha(contaPinyinString));
 				if (isGetPhoto) {
-				// 获取联系人头像编号
-				Long photoid = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);
-				Long contactid = phoneCursor.getLong(PHONES_CONTACT_ID_INDEX);
-				Bitmap contactPhoto = null;
+					// 获取联系人头像编号
+					Long photoid = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);
+					Long contactid = phoneCursor.getLong(PHONES_CONTACT_ID_INDEX);
+					Bitmap contactPhoto = null;
 
-				// photoid
-				if (photoid > 0) {
-					Uri uriq = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactid);
-					InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(resolver, uriq);
-					contactPhoto = BitmapFactory.decodeStream(input);
-				} else {
-					// contactPhoto =
-					// BitmapFactory.decodeResource(getResources(),
-					// R.drawable.contact_photo);
-				}
+					// photoid
+					if (photoid > 0) {
+						Uri uriq = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactid);
+						InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(resolver, uriq);
+						contactPhoto = BitmapFactory.decodeStream(input);
+					} else {
+						// contactPhoto =
+						// BitmapFactory.decodeResource(getResources(),
+						// R.drawable.contact_photo);
+					}
 
-				cp.setHeadImag(contactPhoto);
+					cp.setHeadImag(contactPhoto);
 				}
 				personMap.add(cp);
 				if (cp != null && cp.getName() != null) {
@@ -179,7 +179,7 @@ public class ContactsUtil {
 					} else {
 						// contactPhoto =
 						// BitmapFactory.decodeResource(getResources(),
-						// R.drawable.contact_photo);
+						// / R.drawable.contact_photo);
 					}
 				}
 
@@ -239,23 +239,23 @@ public class ContactsUtil {
 					cp.setPinYinName(contaPinyinString);
 					cp.setLetter(getAlpha(contaPinyinString));
 					if (isGetPhoto) {
-					// 获取联系人头像编号
-					Long photoid = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);
-					Long contactid = phoneCursor.getLong(phoneCursor.getColumnIndex("contact_id"));
-					Bitmap contactPhoto = null;
+						// 获取联系人头像编号
+						Long photoid = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);
+						Long contactid = phoneCursor.getLong(phoneCursor.getColumnIndex("contact_id"));
+						Bitmap contactPhoto = null;
 
-					// photoid
-					if (photoid > 0) {
-						Uri uriq = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactid);
-						InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(resolver, uriq);
-						contactPhoto = BitmapFactory.decodeStream(input);
-					} else {
-						// contactPhoto =
-						// BitmapFactory.decodeResource(getResources(),
-						// R.drawable.contact_photo);
-					}
+						// photoid
+						if (photoid > 0) {
+							Uri uriq = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactid);
+							InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(resolver, uriq);
+							contactPhoto = BitmapFactory.decodeStream(input);
+						} else {
+							// contactPhoto =
+							// BitmapFactory.decodeResource(getResources(),
+							// R.drawable.contact_photo);
+						}
 
-					cp.setHeadImag(contactPhoto);
+						cp.setHeadImag(contactPhoto);
 					}
 					personMap.add(cp);
 
@@ -269,7 +269,7 @@ public class ContactsUtil {
 							cp.setName(cp.getName() + " ");
 						}
 					}
-					//contactPhoto = null;
+					// contactPhoto = null;
 				}
 			}
 			phoneCursor.close();
@@ -311,11 +311,10 @@ public class ContactsUtil {
 					cp.setPinYinName(contaPinyinString);
 					cp.setLetter(getAlpha(contaPinyinString));
 					if (isGetPhoto) {
-					// 获取联系人头像编号
-					Long photoid = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);
-					Long contactid = phoneCursor.getLong(PHONES_CONTACT_ID_INDEX);
-					
-					
+						// 获取联系人头像编号
+						Long photoid = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);
+						Long contactid = phoneCursor.getLong(PHONES_CONTACT_ID_INDEX);
+
 						Bitmap contactPhoto = null;
 						// photoid
 						if (photoid > 0) {

@@ -1,5 +1,7 @@
 package com.ipassistat.ipa.domain.service;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.ipassistat.ipa.domain.action.CallDomainAction;
 import com.ipassistat.ipa.domain.bean.CallDomainResponse;
@@ -14,7 +16,7 @@ import com.ipassistat.ipa.domain.bean.DomainBaseResponse;
 public class CallDomainService extends IDoaminBaseService {
 
 	@Override
-	public boolean parseJsonInfo(String result) {
+	public boolean parseJsonInfo(String result,Context context) {
 
 		boolean flag=true;
 		try {
@@ -32,16 +34,16 @@ public class CallDomainService extends IDoaminBaseService {
 	}
 
 	@Override
-	public void selectAction() {
+	public void selectAction(Context context) {
        CallDomainAction action=new CallDomainAction();
-       action.action(domainBaseResponse);
+       action.action(domainBaseResponse,context);
 	}
 
 	@Override
-	public String startService(String result) {
-		if(parseJsonInfo(result))
+	public String startService(String result,Context context) {
+		if(parseJsonInfo(result,context))
 		{
-			selectAction();
+			selectAction(context);
 			
 		}
 		else {

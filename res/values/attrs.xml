@@ -4,9 +4,9 @@
         <attr name="rLength" format="dimension|reference"></attr>
     </declare-styleable>
 	<declare-styleable name="circleImage">
-        <attr name="borderInnerWidth" format="dimension|reference"></attr>
-        <attr name="borderOuterWidth" format="dimension|reference"></attr>
-        <attr name="borderInnerColor" format="color"></attr>
-        <attr name="borderOuterColor" format="color"></attr>
+        <attr name="InnerWidth" format="dimension|reference"></attr>
+        <attr name="OuterWidth" format="dimension|reference"></attr>
+        <attr name="InnerColor" format="color"></attr>
+        <attr name="OuterColor" format="color"></attr>
     </declare-styleable>
 </resources>

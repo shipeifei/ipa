@@ -12,6 +12,7 @@ import android.os.Message;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.ipassistat.ipa.util.LogUtil;
+import com.ipassistat.ipa.util.SharedPreferenceUtil;
 
 /**
  * 百度地图回调函数 com.ipassistat.ipa.util.map.baidu.MyLocationListenner
@@ -57,6 +58,7 @@ public class MyLocationListenner implements BDLocationListener {
 		// 获取当前的城市
 		String province = location.getProvince(); // 获取省份信息
 		locationMessage.setProvince(province);
+		
 		String city = location.getCity(); // 获取城市信息
 		locationMessage.setCity(city);
 		String district = location.getDistrict(); // 获取区县信息

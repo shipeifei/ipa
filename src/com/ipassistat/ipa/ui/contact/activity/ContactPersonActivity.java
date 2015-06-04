@@ -259,7 +259,7 @@ public class ContactPersonActivity extends BaseActivity {
 
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-				final ContactPerson contactPerson = person.get(position);
+				final ContactPerson contactPerson = person.get(position-1);
 				new AlertDialog.Builder(ContactPersonActivity.this).setTitle(contactPerson.getName()).setItems(R.array.contact_type, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						String[] PK = getResources().getStringArray(R.array.contact_type);
@@ -270,9 +270,9 @@ public class ContactPersonActivity extends BaseActivity {
 										@Override
 										public void onClick(DialogInterface dialog, int which) {
 											ContactsUtil.deleteContact(contactPerson);
-											//onResume();
+											onResume();
 											//listView.getAdapter().notify();
-											adapter.notifyDataSetChanged();
+											//adapter.notifyDataSetChanged();
 										}
 									}, getString(R.string.dialog_button_cancle), new DialogInterface.OnClickListener() {
 

@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -20,6 +21,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.TextView;
 
@@ -50,17 +53,20 @@ import com.ipassistat.ipa.domain.action.SendMessageDomainAction;
 import com.ipassistat.ipa.domain.bean.DomainBaseResponse;
 import com.ipassistat.ipa.domain.service.CallDomainService;
 import com.ipassistat.ipa.domain.service.DomainServiceFactory;
+import com.ipassistat.ipa.plugin.app.PluginBaseApplication;
+import com.ipassistat.ipa.plugin.model.SiteSpec;
 import com.ipassistat.ipa.ui.activity.CityChoiceActivity;
 import com.ipassistat.ipa.ui.activity.GoodsListActivity;
 import com.ipassistat.ipa.ui.activity.OfficialActivity;
-import com.ipassistat.ipa.ui.activity.PersonalActivity;
 import com.ipassistat.ipa.ui.contact.activity.ContactPersonActivity;
+import com.ipassistat.ipa.ui.personal.activity.PersonalActivity;
 import com.ipassistat.ipa.ui.welcome.activity.WelcomeActivity;
 import com.ipassistat.ipa.util.ContactsUtil;
 import com.ipassistat.ipa.util.IntentUtil;
 import com.ipassistat.ipa.util.JsonParser;
 import com.ipassistat.ipa.util.PackageUtil;
 import com.ipassistat.ipa.util.SendSmsManager;
+import com.ipassistat.ipa.util.SharedPreferenceUtil;
 import com.ipassistat.ipa.util.ToastUtil;
 import com.ipassistat.ipa.util.map.baidu.LocationMessage;
 import com.ipassistat.ipa.util.map.baidu.MyLocationListenner;
@@ -70,7 +76,16 @@ import com.ipassistat.ipa.view.banner.AutoBanner;
 import com.ipassistat.ipa.view.pulldown.PullToRefreshView;
 import com.ipassistat.ipa.view.pulldown.PullToRefreshView.OnHeaderRefreshListener;
 import com.umeng.analytics.MobclickAgent;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.DateFormat;
+
+import org.json.JSONObject;
 
 /***
  * 首页 com.ipassistat.ipa.ui.fragment.HomeFragment
@@ -81,7 +96,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
 	private TextView mGoodsTextView, mTrialCenterTextView, mOfficalActiTextView, mMyCenterTextView;
 
-	private Button recognize;
+	private ImageView recognize;
 	private EditText mResultText;
 	// 语音听写对象
 	private SpeechRecognizer mIat;
@@ -122,6 +137,18 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 					} else {
 						mTitleBar.setTitleText("定位失败");
 					}
+					
+					//保存当前省份
+					SharedPreferenceUtil.putStringInfo(mActivity, ConfigInfo.CURRENT_PROVINCE, locationMessage.getProvince());
+					//保存当前城市
+					SharedPreferenceUtil.putStringInfo(mActivity, ConfigInfo.CURRENT_CITY, locationMessage.getCity());
+					//保存当前地区
+					SharedPreferenceUtil.putStringInfo(mActivity, ConfigInfo.CURRENT_DISTRICT, locationMessage.getDistrict());
+					//保存当前纬度
+					SharedPreferenceUtil.putStringInfo(mActivity, ConfigInfo.CURRENT_LATITUDE, String.valueOf(locationMessage.getLatitude())) ;
+				    //保存当前经度
+					SharedPreferenceUtil.putStringInfo(mActivity, ConfigInfo.CURRENT_LONGITUDE, String.valueOf(locationMessage.getLongitude())) ;
+					
 				} else {
 					mTitleBar.setTitleText("定位失败");
 				}
@@ -134,6 +161,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 			default:
 				break;
 			}
+			mLocationClient.stop();
+		
 		}
 
 	};
@@ -150,6 +179,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
 		// mSisterGroupModule = new SisterGroupModule(this);
 		mActivity = getActivity();
+		
 
 		// 开启百度地图
 		mLocationClient = new LocationClient(mActivity);
@@ -162,9 +192,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 		initIat();
 		
 		
-		// 测试封装的解析语音协议
-		String result = "{\"rc\": 0, \"text\": \"打电话\",\"service\": \"cn.znms.callservice\", \"code\": \"APP_LAUNCH\",error:{\"code\":\"aaa\",\"message\":\"asdfsaf\"},\"semantic\":{\"intent\":{\"name\":\"asd妈妈\",\"method\":\"tpe\"}}}";
-		DomainServiceFactory.createDomainService(result);
+		
 	}
 
 	/***
@@ -206,7 +234,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 		mOfficalActiTextView = (TextView) mActivity.findViewById(R.id.offical_activity);
 		mMyCenterTextView = (TextView) mActivity.findViewById(R.id.my_center);
 
-		recognize = (Button) mActivity.findViewById(R.id.iat_recognize);
+		recognize = (ImageView) mActivity.findViewById(R.id.iat_recognize);
 		mResultText = (EditText) mActivity.findViewById(R.id.iat_text);
 
 		mGoodsTextView.setOnClickListener(this);
@@ -251,8 +279,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
 		switch (v.getId()) {
 		case R.id.goods:
-			MobclickAgent.onEvent(mActivity, "1017");
-			IntentUtil.startEmailSelect(mActivity);
+			//MobclickAgent.onEvent(mActivity, "1017");
+			//IntentUtil.startEmailSelect(mActivity);
+			
 			break;
 		case R.id.my_center:
 			MobclickAgent.onEvent(mActivity, "1014");
@@ -303,7 +332,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 			break;
 		}
 	}
-
+	
 	/**
 	 * 听写监听器。
 	 */
@@ -354,10 +383,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 					IntentUtil.openBrowser(mActivity, "http://www.baidu.com");
 
 				} else if (mResultText.getText().toString().indexOf("打电话") > -1) {
-					//CallDomainAction telephoneDomain = new CallDomainAction();
-					//telephoneDomain.action(mActivity, "哥哥");
+					// 测试封装的解析语音协议
+					String result = "{\"rc\": 0, \"text\": \"打电话\",\"service\": \"com.ipa.call\", \"code\": \"APP_LAUNCH\",error:{\"code\":\"aaa\",\"message\":\"asdfsaf\"},\"semantic\":{\"intent\":{\"name\":\"贡贺\",\"method\":\"tpe\"}}}";
+					DomainServiceFactory.createDomainService(result,mActivity);
 				} else if (mResultText.getText().toString().indexOf("发短信") > -1) {
-					//SendMessageDomainAction sendMessageDomain = new SendMessageDomainAction();
+					SendMessageDomainAction sendMessageDomain = new SendMessageDomainAction();
 					//sendMessageDomain.action(mActivity, "测试发送短信");
 				} else {
 					Thread thread = new Thread(new Runnable() {

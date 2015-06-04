@@ -1,5 +1,6 @@
 package com.ipassistat.ipa.util;
 
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -192,5 +193,42 @@ public class StringUtil {
 			return "错误状态";
 		}
 	}
+	/**
+	 * 
+	 * @author 时培飞 Create at 2014-12-16 上午9:42:28
+	 * @param source
+	 *            :需要拆分的字符串
+	 * @param symbol
+	 */
+	public static HashMap<String, String> getSpareArrayFromString(String source, String symbol) {
+		
+		HashMap<String, String> map = new HashMap<String, String>(); 
+		if(!TextUtils.isEmpty(source))
+		{
+			String[] result = getArrayFromString(source.replace("{", "").replace("}", ""),symbol);
+			if(result!=null&&result.length>0)
+			{
+				String[] splitStrings=null;
+				for (int i = 0; i < result.length; i++) {
+					splitStrings=getArrayFromString(result[i],":");
+					if(splitStrings!=null&&splitStrings.length>0)
+					{
+						map.put(splitStrings[0].replace("\"", ""), splitStrings[1].replace("\"", ""));
+					}
+				}
+				return map;
+			}
+			else {
+				return null;
+			}
+			
+		}
+		else {
+			return null;
+		}
+
+	}
+
+
 
 }

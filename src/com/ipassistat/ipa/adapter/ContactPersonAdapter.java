@@ -14,6 +14,7 @@ import com.ipassistat.ipa.util.GlobalUtil;
 import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,21 +40,11 @@ public class ContactPersonAdapter extends BaseAdapter implements SectionIndexer 
 	}
 
 	@Override
-	public View getView( int position, View convertView, ViewGroup parent) {
+	public View getView(int position, View convertView, ViewGroup parent) {
 
 		ViewHolder viewHolder = null;
 
-		// if (person.getItemType() == 0) {
-		// convertView = inflater.inflate(R.layout.contact_index, parent,
-		// false);
-		// initHeader(convertView, person);
-		// //convertView=null;
-		// return convertView;
-		// }
-		//
-		// else {
-
-		//if (convertView == null) {
+		if (convertView == null) {
 			convertView = LayoutInflater.from(mContext).inflate(R.layout.contact_item, parent, false);
 			viewHolder = new ViewHolder();
 
@@ -62,9 +53,9 @@ public class ContactPersonAdapter extends BaseAdapter implements SectionIndexer 
 			viewHolder.headPhone = (com.ipassistat.ipa.view.CircularImageView) convertView.findViewById(R.id.contact_phone);
 			viewHolder.tvLetter = (TextView) convertView.findViewById(R.id.catalog);
 			convertView.setTag(viewHolder);
-//		} else {
-//			viewHolder = (ViewHolder) convertView.getTag();
-//		}
+		} else {
+			viewHolder = (ViewHolder) convertView.getTag();
+		}
 
 		ContactPerson cv = list.get(position);
 		if (cv.getName() != null) {
@@ -72,11 +63,11 @@ public class ContactPersonAdapter extends BaseAdapter implements SectionIndexer 
 		}
 		if (cv.getHeadImag() != null) {
 			aQuery.id(viewHolder.headPhone).image(cv.getHeadImag());
-			//(, true, true, GlobalUtil.displayMetrics.widthPixels / 4, drawable.default_goods_noborder);
-
-			//viewHolder.headPhone.setImageBitmap(cv.getHeadImag());
 		}
-
+		else
+		{
+			viewHolder.headPhone.setImageResource(R.drawable.personal_photo);
+		}
 		if (position == 0) {
 			viewHolder.tvLetter.setVisibility(View.VISIBLE);
 			viewHolder.tvLetter.setText(cv.getLetter());

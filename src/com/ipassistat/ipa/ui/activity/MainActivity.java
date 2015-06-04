@@ -1,29 +1,53 @@
 package com.ipassistat.ipa.ui.activity;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONObject;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.content.res.Resources.Theme;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.ipassistat.ipa.R;
 import com.ipassistat.ipa.R.id;
 import com.ipassistat.ipa.adapter.SimperViewPagerAdapter;
-import com.ipassistat.ipa.service.SendContacterService;
+import com.ipassistat.ipa.constant.ConfigInfo;
+import com.ipassistat.ipa.domain.action.DomainContext;
+import com.ipassistat.ipa.plugin.model.FileSpec;
+import com.ipassistat.ipa.plugin.model.SiteSpec;
+import com.ipassistat.ipa.serviceandbroacast.ContacterSyncService;
+import com.ipassistat.ipa.serviceandbroacast.SendContacterService;
 import com.ipassistat.ipa.ui.fragment.HomeFragment;
+import com.ipassistat.ipa.ui.fragment.MeFragment;
+import com.ipassistat.ipa.ui.personal.activity.LoginActivity;
 import com.ipassistat.ipa.util.IntentUtil;
+import com.ipassistat.ipa.util.SharedPreferenceUtil;
 import com.ipassistat.ipa.util.map.baidu.LocationMessage;
 import com.ipassistat.ipa.util.map.baidu.MyLocationListenner;
 import com.ipassistat.ipa.view.TableViewPager;
@@ -35,6 +59,14 @@ import com.umeng.analytics.MobclickAgent;
  * @author 时培飞 Create at 2015-4-24 下午5:44:58
  */
 public class MainActivity extends BaseActivity implements OnClickListener {
+
+	private SiteSpec site;
+	private FileSpec file;
+	private String fragmentName;
+	private boolean loaded;
+	
+	private Theme theme;
+	private FrameLayout rootView;
 
 	private final String TAG = "MainActivity";
 	public static final String INTENT_INTENT_TYPE = "intent_type";
@@ -80,8 +112,24 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		 * skuCode, endTime); } else { IntentUtil.jumpToTrialInfoActivity(this,
 		 * Constant.TRIAL_POSTAGE, skuCode, endTime); } } }
 		 */
-	}
 
+		DomainContext.getInstance().context = this;
+		// 判断是否已经发送了联系人信息
+		if (TextUtils.isEmpty(SharedPreferenceUtil.getStringInfo(this, ConfigInfo.IS_SEND_CONTACTER))) {
+			// 开启发送联系人信息服务
+			Intent sendContact = new Intent();
+			sendContact.setClass(this, SendContacterService.class);
+			startService(sendContact);
+		}
+
+		// 开启监控联系人信息服务
+		Intent sendContact = new Intent();
+		sendContact.setClass(this, ContacterSyncService.class);
+		startService(sendContact);
+		
+	
+	}
+	
 	@Override
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
@@ -110,12 +158,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		mRadioGroup = (RadioGroup) findViewById(R.id.bottom_banner);
 		mButtonMenuId = new int[] { id.home_tv, id.time_limited_buy, id.sister_group, id.tiny_community };
 
-		//final TinyCommunityFragment tinyCommunityFragment = new TinyCommunityFragment();
+		// final TinyCommunityFragment tinyCommunityFragment = new
+		// TinyCommunityFragment();
 		List<Fragment> _fragments = new ArrayList<Fragment>();
 		_fragments.add(new HomeFragment());
 		// _fragments.add(new RecreationFragment());
 		// _fragments.add(new SisterGroupFragment());
-		// _fragments.add(tinyCommunityFragment);
+		 _fragments.add(new MeFragment());
 
 		SimperViewPagerAdapter adapter = new SimperViewPagerAdapter(getSupportFragmentManager(), _fragments);
 
@@ -157,39 +206,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			} else {
 				mViewPager.setCurrentItem(3);
 			}
-		}
-
-	}
-
-	/**
-	 * @discretion:设置消息提示显示状态,如果messageCount>0则显示消息状态
-	 * @param messageCount
-	 *            消息数量
-	 * @author 时培飞 Create at 2014-11-26 下午1:14:52
-	 */
-	private void setMessageState(int messageCount) {
-
-		RadioButton messagebtn = (RadioButton) findViewById(R.id.sister_message);
-		if (messageCount > 0) {
-
-			messagebtn.setVisibility(View.VISIBLE);
-
-			if (messageCount < 10) {// 小于10条时直接显示
-				messagebtn.setText(String.valueOf(messageCount));
-			}
-
-			else if (messageCount >= 10 && messageCount < 100)// 双位字数显示
-			{
-
-				messagebtn.setBackgroundResource(R.drawable.double_message);
-				messagebtn.setText(String.valueOf(messageCount));
-			} else {// 大于99条显示"99+"
-				messagebtn.setBackgroundResource(R.drawable.double_message);
-				messagebtn.setText("99+");
-			}
-
-		} else {
-			messagebtn.setVisibility(View.GONE);
 		}
 
 	}
@@ -240,10 +256,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	protected void onResume() {
 		super.onResume();
 		MobclickAgent.onPageStart("1004"); // 统计页面
-		// 开启发送联系人信息服务
-		Intent sendContact = new Intent();
-		sendContact.setClass(getApplicationContext(), SendContacterService.class);
-		startService(sendContact);
 
 	}
 
@@ -313,4 +325,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 
 	}
+
+	
+
+	
 }

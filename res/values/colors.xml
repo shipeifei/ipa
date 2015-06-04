@@ -7,6 +7,7 @@
     
     <color name="grey">#A3A3A3</color>
     <color name="white">#FFFFFF</color>
+    <color name="personal_white">#FFFFFF</color>
     <color name="item_order_child_price">#C41C40</color>
     <color name="red_01">#101010</color>
     <color name="red_02">#ed145b</color>
@@ -45,12 +46,12 @@
     <!-- app通用颜色 end -->
     <!-- 试用中心里红色数量的颜色 -->
     <color name="trial_red">#ed145b</color>
-    <color name="photo_circle">#29ffffff</color>
+    <color name="personal_circle">#29ffffff</color>
     <color name="tag_text_normal">#707070</color>
     <!-- 个人中心 -->
     <color name="text_userinfo">#ffc394</color>
 
-    <string name="welcome">欢迎来到剧微商</string>
+    
 
     <color name="goods_detail_tab_bg">#F56D31</color>
     

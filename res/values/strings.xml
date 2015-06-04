@@ -29,11 +29,12 @@
     <string name="global_message_loading">努力加载中…</string>
     <string name="global_message_loading_nomore">已加载全部</string>
     <string name="global_message_no_data">暂无数据</string>
-    <string name="global_message_no_net">你现在的网络有点问题~~</string>
+    <string name="global_message_no_net">当前网络不可用，请检查网络连接~~</string>
     <string name="global_message_content_empty">请填写%1$s内容</string>
     <string name="global_message_report_content">是否确认举报</string>
     <string name="global_message_report_reply_content">是否举报该评论</string>
-
+    <string name="global_message_timeout">网络连接超时，请重试</string>
+ 
     <!-- 页面标题 -->
     <string name="recreation">娱乐</string>
     <string name="personal">个人中心</string>
@@ -147,6 +148,7 @@
     <string name="please_choose">请选择</string>
     <string name="please_choose_address">请编辑收货地址</string>
     <string name="later">后</string>
+    <string name="personal_login_register">登录/注册</string>
 
     <!-- 个人中心拍照 -->
     <string name="phototitle">移动图片选中</string>

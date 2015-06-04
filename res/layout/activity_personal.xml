@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:circleimage="http://schemas.android.com/apk/res/com.ichsy.mboss"
+    xmlns:circleimage="http://schemas.android.com/apk/res/com.ipassistat.ipa"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f1f1f1" >
@@ -30,188 +30,51 @@
                 android:background="@drawable/personal_bg" >
 
                 <RelativeLayout
-                    android:id="@+id/register_login"
+                    android:id="@+id/person_top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="43dp"
-                    android:orientation="vertical"
-                    android:visibility="gone" >
+                    android:gravity="center"
+                    android:orientation="vertical" >
 
-                  <!--   <com.ipassistat.ipa.view.CircularImageView
-                        android:id="@+id/photo"
-                        android:layout_width="68dp"
-                        android:layout_height="68dp"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/personal_photo"
-                        circleimage:borderInnerColor="@color/white"
-                        circleimage:borderInnerWidth="2dp"
-                        circleimage:borderOuterColor="@color/photo_circle"
-                        circleimage:borderOuterWidth="4dp" /> -->
-
-                    <TextView
-                        android:id="@+id/welcome"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="23dp"
-                        android:gravity="center"
-                        android:text="@string/welcome"
-                        android:textColor="@color/text_userinfo"
-                        android:textSize="18sp"
-                        />
-
-                    <TextView
-                        android:id="@+id/register"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/welcome"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/trialcenter_register"
-                        android:gravity="center"
-                        android:text="@string/register"
-                        android:textColor="@color/white"
-                        android:textSize="17sp" />
-
-                    <TextView
-                        android:id="@+id/login"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/welcome"
-                        android:layout_toRightOf="@+id/register"
-                        android:background="@drawable/personal_login"
-                        android:gravity="center"
-                        android:text="@string/login"
-                        android:textColor="@color/white"
-                        android:textSize="17dip" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/username_skintype"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="44dp" >
-
-                   <!--  <com.ipassistat.ipa.view.CircularImageView
+                    <com.ipassistat.ipa.view.CircularImageView
                         android:id="@+id/photo_login"
                         android:layout_width="68dp"
                         android:layout_height="68dp"
-                        android:layout_marginTop="28dp"
+                        android:layout_marginTop="26dp"
                         android:src="@drawable/personal_photo"
-                        circleimage:borderInnerColor="@color/white"
-                        circleimage:borderInnerWidth="2dp"
-                        circleimage:borderOuterColor="@color/photo_circle"
-                        circleimage:borderOuterWidth="4dp" />
- -->
+                        circleimage:InnerColor="@color/white"
+                        circleimage:InnerWidth="2dp"
+                        circleimage:OuterColor="@color/personal_circle"
+                        circleimage:OuterWidth="4dp" />
+
                     <TextView
                         android:id="@+id/username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dip"
-                        android:layout_marginTop="39dp"
-                        android:layout_toLeftOf="@+id/edit"
-                     
-                        android:layout_marginRight="5dp"
+                        android:layout_below="@+id/photo_login"
+       
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:textColor="@color/text_userinfo"
-                        android:textSize="18sp"
-                        />
-
-                      <TextView
-                        android:id="@+id/sex"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@id/username"
-                        android:layout_alignLeft="@id/username"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/text_userinfo"
-                        android:textSize="16sp" />
-                    
-                       <TextView
-                        android:id="@+id/century"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_toRightOf="@id/sex"
-                        android:layout_alignBottom="@id/sex"
-                        android:layout_marginLeft="11dp"
-                        android:textColor="@color/text_userinfo"
-                        android:textSize="16sp" />
-                      
-
-                    <ImageView
-                        android:id="@+id/edit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="23dp"
-                        android:layout_marginTop="51dp"
-                        android:background="@drawable/arrow_edit" />
+                        android:text="@string/personal_login_register"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
                 </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/personal_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="23dp"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/arrow_edit" />
             </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/cart_and_orderform"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/personal"
-                android:gravity="center_vertical"
-                android:orientation="horizontal" >
-
-                <LinearLayout
-                    android:id="@+id/cart"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/personalcenter_cart" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/cart"
-                        android:textColor="@color/text_userinfo" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0.5dp"
-                    android:layout_height="62dp"
-                    android:background="@drawable/personalcenter_cart_order_line" />
-
-                <LinearLayout
-                    android:id="@+id/orderform"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical" >
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/personalcenter_myorder" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/my_order"
-                        android:textColor="@color/text_userinfo" />
-                </LinearLayout>
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linear_trial_collection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/cart_and_orderform"
+                android:layout_below="@+id/personal"
                 android:background="@drawable/item_border_topandbottom"
                 android:orientation="vertical" >
 

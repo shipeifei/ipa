@@ -18,7 +18,7 @@ public interface IDomainAction {
 	 * create at 2015-5-20
 	 * author 时培飞
 	 */
-    void action(Object object);
+    void action(Object object,Context context);
    
    /***
     * 执行成功

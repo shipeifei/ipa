@@ -10,6 +10,18 @@ public class ConfigInfo {
 	public static boolean DEBUG = true;// 是否是debug模式
 	// public static final boolean DEBUG_URL = true;// 测试地址还是正式地址
 
+	/***
+	 * 当前经度
+	 */
+	public static final String CURRENT_LONGITUDE="current_longitude";
+	/***
+	 * 当前纬度
+	 */
+	public static final String CURRENT_LATITUDE="current_latitude";
+	public static final String CURRENT_CITY="current_city";//用户所在的当前城市
+	public static final String CURRENT_PROVINCE="current_province";//用户所在的当前省份
+	public static final String CURRENT_DISTRICT="current_district";//用户所在的当前地区
+	public static final String IS_SEND_CONTACTER="isSendContacter";//是否已经发送了联系人信息
 	public static final String IS_FIRST_START = "isFirstStart";
 	public static final String PHONE_NUM = "4000190860"; // 客服电话
 	public static final String SKIN_EXEPTE = "skin_expt_falg";
@@ -346,4 +358,12 @@ public class ConfigInfo {
 	public static final String API_VIDEO_CHANNEL = "com_cmall_newscenter_young_api_VideoChannelApi"; // 频道名称接口
 
 	public static final String API_VIDEO_LIST = "com_cmall_newscenter_young_api_VideoListApi"; // 视频列表接口
+	
+	
+	
+	/***
+	 * 通讯录模块接口
+	 * 
+	 */
+	public static final String POST_CONTACTER_INFO="";//提交联系人信息到服务器
 }
